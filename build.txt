@@ -1,0 +1,9 @@
+displayName = Lunes Worse of Life
+author = Lune
+version = 1.9.8
+weakReferences = InfernumMode, CalamityMod, LuneLibAssets
+modReferences = LuneLib
+hideCode = false
+hideResources = false
+includeSource = true
+homepage = https://discord.com/invite/FwmGf6vBu2

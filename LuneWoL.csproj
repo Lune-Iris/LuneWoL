@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<Import Project="..\tModLoader.targets" />
+
+	<PropertyGroup>
+		
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <AdditionalFiles Remove="Content\Dusts\**" />
+	  <Compile Remove="Content\Dusts\**" />
+	  <EmbeddedResource Remove="Content\Dusts\**" />
+	  <None Remove="Content\Dusts\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Localization\en-US\Mods.LuneWoL.Configs.hjson" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Reference Include="LuneLib">
+			<HintPath>..\..\ModReader\LuneLib\LuneLib.dll</HintPath>
+		</Reference>
+		<Reference Include="LuneLibAssets">
+			<HintPath>..\..\ModReader\LuneLibAssets\LuneLibAssets.dll</HintPath>
+		</Reference>
+		<Reference Include="CalamityMod">
+			<HintPath>..\..\ModReader\CalamityMod\CalamityMod.dll</HintPath>
+		</Reference>
+		<Reference Include="InfernumMode">
+			<HintPath>..\..\ModReader\InfernumMode\InfernumMode.dll</HintPath>
+		</Reference>
+		<Reference Include="LuneQOL">
+			<HintPath>..\..\ModReader\LuneQOL\LuneQOL.dll</HintPath>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Assets\Images\Buffs\DOT\" />
+	  <Folder Include="Assets\Images\Buffs\Debuffs\" />
+	</ItemGroup>
+
+</Project>
