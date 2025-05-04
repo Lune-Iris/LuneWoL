@@ -1,8 +1,8 @@
-﻿using static LuneLib.Utilities.LuneLibUtils;
-using LuneWoL.Common.LWoLPlayers;
+﻿using LuneWoL.Common.LWoLPlayers;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using static LuneLib.Utilities.LuneLibUtils;
 
 namespace LuneWoL.Common.LWoLGlobalProjectiles
 {

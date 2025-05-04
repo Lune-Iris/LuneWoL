@@ -3,8 +3,8 @@ using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using static LuneLibAssets.Common.SoundClass;
 using static LuneLib.Utilities.LuneLibUtils;
+using static LuneLibAssets.Common.SoundClass;
 using static LuneWoL.PressureCheckFolder.LWoLDepthUtils;
 
 

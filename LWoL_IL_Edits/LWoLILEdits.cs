@@ -2,8 +2,6 @@
 using MonoMod.Cil;
 using Terraria;
 
-using static LuneLib.Utilities.LuneLibUtils;
-
 namespace LuneWoL.LWoL_IL_Edits
 {
     public partial class LWoLILEdits

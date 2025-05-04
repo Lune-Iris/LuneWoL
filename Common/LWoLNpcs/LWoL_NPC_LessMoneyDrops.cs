@@ -5,15 +5,15 @@ namespace LuneWoL.Common.Npcs
 {
     public partial class WoLNpc : GlobalNPC
     {
-        private void LessMoneyDrops(NPC npc)
+        private static void LessMoneyDrops(NPC npc)
         {
             var Config = LuneWoL.LWoLServerConfig.NPCs;
 
             if (Config.NoMoneh == 1) return;
 
-            npc.value = (npc.value * Config.NoMoneh);
+            npc.value *= Config.NoMoneh;
         }
-        private void NeverGoldEnough(NPC npc)
+        private static void NeverGoldEnough(NPC npc)
         {
             var Config = LuneWoL.LWoLServerConfig.NPCs;
 
@@ -21,7 +21,7 @@ namespace LuneWoL.Common.Npcs
 
             if (npc.value > 1600 && Config.NoMoneh != 1)
             {
-                npc.value = (1600 * Config.NoMoneh);
+                npc.value = 1600 * Config.NoMoneh;
             }
             else if (npc.value > 1600)
             {

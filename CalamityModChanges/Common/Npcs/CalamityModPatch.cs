@@ -1,5 +1,5 @@
-using System.Reflection;
 using MonoMod.Cil;
+using System.Reflection;
 using Terraria.ModLoader;
 
 namespace LuneWoL.CalamityModChanges.Common.Npcs;

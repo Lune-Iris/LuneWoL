@@ -1,6 +1,5 @@
 ﻿using LuneLib.Utilities;
 using Microsoft.Xna.Framework;
-using System.Diagnostics;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ModLoader;

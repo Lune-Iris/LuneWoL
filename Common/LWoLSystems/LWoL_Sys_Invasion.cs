@@ -12,7 +12,7 @@ namespace LuneWoL.Common.LWoLSystems
         {
             var Config = LuneWoL.LWoLServerConfig.NPCs;
 
-            if (Config.InvasionMultiplier !<= 0 && Main.invasionType != 0 && b)
+            if (Config.InvasionMultiplier! <= 0 && Main.invasionType != 0 && b)
             {
                 Main.invasionSizeStart *= Config.InvasionMultiplier;
                 Main.invasionSize *= Config.InvasionMultiplier;
@@ -20,7 +20,7 @@ namespace LuneWoL.Common.LWoLSystems
                 NPC.waveNumber *= Config.InvasionMultiplier;
                 b = false;
             }
-            else if (Config.InvasionMultiplier !<= 0 && Main.invasionType == 0 && !b)
+            else if (Config.InvasionMultiplier! <= 0 && Main.invasionType == 0 && !b)
             {
                 Main.invasionSizeStart /= Config.InvasionMultiplier;
                 Main.invasionSize /= Config.InvasionMultiplier;

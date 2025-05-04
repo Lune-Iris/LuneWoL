@@ -7,7 +7,7 @@ namespace LuneWoL.Common.LWoLGlobalItems
     public partial class WoLGlobalItems : GlobalItem
     {
 
-        private int DustSpawnCanYN, Tajmer = LuneWoL.LWoLServerConfig.Misc.DespawnItemsTimer * 60;
+        private int Tajmer = LuneWoL.LWoLServerConfig.Misc.DespawnItemsTimer * 60;
         private bool a = true;
         private void DespawnItemsAfterTime(Item item)
         {
@@ -28,7 +28,6 @@ namespace LuneWoL.Common.LWoLGlobalItems
                 if (a && Tajmer <= 0)
                 {
                     item.TurnToAir(true);
-                    DustSpawnCanYN = 30;
                     a = false;
                 }
                 if (Tajmer <= 0)

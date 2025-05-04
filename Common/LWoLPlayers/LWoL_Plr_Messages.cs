@@ -14,7 +14,7 @@ namespace LuneWoL.Common.LWoLPlayers
 
             if (Player.whoAmI == Main.myPlayer)
             {
-                Main.NewText($"{((!LuneLib.LuneLib.instance.ChatSourceLoaded) ? "[LuneWoL] "  : "")}Dont forget to join the Discord!... Please? I need suggestions for the mod...\nYou can turn this message off in the client config.", 70, 80, 150);
+                Main.NewText($"{((!LuneLib.LuneLib.instance.ChatSourceLoaded) ? "[LuneWoL] " : "")}Dont forget to join the Discord!... Please? I need suggestions for the mod...\nYou can turn this message off in the client config.", 70, 80, 150);
             }
         }
     }

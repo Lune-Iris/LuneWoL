@@ -2,10 +2,8 @@
 using LuneWoL.Content.Buffs.Debuffs;
 using LuneWoL.Content.Buffs.DOT;
 using Microsoft.Xna.Framework;
-using MonoMod.Cil;
 using System;
 using System.IO;
-using System.Reflection;
 using Terraria;
 using Terraria.GameContent.Events;
 using Terraria.ID;
@@ -50,7 +48,7 @@ namespace LuneWoL.Common.LWoLPlayers
             if (!Config.HellIsHot) return;
             if (!Player.ZoneUnderworldHeight) return;
             if (Player.buffImmune[BuffID.Burning] || Player.fireWalk || Player.buffImmune[BuffID.OnFire] || Player.lavaImmune || Player.wet || Player.honeyWet && !Player.lavaWet)
-            return;
+                return;
             Main.buffNoTimeDisplay[BuffID.OnFire] = true;
             Player.AddBuff(BuffID.OnFire, 120, false, false);
         }
@@ -196,7 +194,7 @@ namespace LuneWoL.Common.LWoLPlayers
                 Player.AddBuff(BuffID.Bleeding, 60, true, false);
             }
 
-            Player.LibPlayer().LStormEyeCovered = Sandstorm.Happening && Player.ZoneDesert && !Player.behindBackWall ? true : false;
+            Player.LibPlayer().LStormEyeCovered = Sandstorm.Happening && Player.ZoneDesert && !Player.behindBackWall;
             Player.blackout = Player.LibPlayer().LStormEyeCovered;
 
             // Check for blizzard and tundra conditions

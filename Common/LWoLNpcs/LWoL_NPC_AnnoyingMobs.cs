@@ -23,7 +23,7 @@ namespace LuneWoL.Common.Npcs
                 npc.damage *= 4;
             }
         }
-        
+
         public void golemjackingoffFuckery(NPC npc)
         {
             if (npc.type == NPCID.GolemFistRight)

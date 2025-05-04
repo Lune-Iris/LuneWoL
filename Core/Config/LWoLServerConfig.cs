@@ -13,7 +13,7 @@ namespace LuneWoL.Core.Config
             if (pendingConfig is not LWoLServerConfig newConfig)
                 return base.NeedsReload(pendingConfig);
 
-            return 
+            return
                    !Equipment.Equals(newConfig.Equipment) ||
                    !Recipes.Equals(newConfig.Recipes) ||
                    !Tiles.Equals(newConfig.Tiles) ||
@@ -356,7 +356,7 @@ namespace LuneWoL.Core.Config
 
         [BackgroundColor(20, 55, 110, 200)]
         public RecipesDented Recipes = new();
-        
+
         [BackgroundColor(5, 40, 95, 200)]
         public TilesDented Tiles = new();
 
