@@ -8,15 +8,9 @@ public class CalamityModPatch : ILoadable
 {
     private Mod CalamityMod => ModLoader.TryGetMod("CalamityMod", out var clam) ? clam : null;
 
-    public bool IsLoadingEnabled(Mod mod)
-    {
-        return CalamityMod != null && LuneWoL.LWoLServerConfig.CalamityMod.DifficultyRebuff;
-    }
+    public bool IsLoadingEnabled(Mod mod) => CalamityMod != null && LuneWoL.LWoLServerConfig.CalamityMod.DifficultyRebuff;
 
-    public void Load(Mod mod)
-    {
-        MonoModHooks.Modify(CalamityMod.Code.GetType("CalamityMod.NPCs.CalamityGlobalNPC").GetMethod("AdjustMasterModeStatScaling", BindingFlags.Public | BindingFlags.Static), Callback);
-    }
+    public void Load(Mod mod) => MonoModHooks.Modify(CalamityMod.Code.GetType("CalamityMod.NPCs.CalamityGlobalNPC").GetMethod("AdjustMasterModeStatScaling", BindingFlags.Public | BindingFlags.Static), Callback);
 
     public void Unload()
     {

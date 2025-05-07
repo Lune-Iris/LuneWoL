@@ -2,16 +2,15 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace LuneWoL.Common.LWoLGlobalItems
+namespace LuneWoL.Common.LWoLGlobalItems;
+
+public partial class WoLGlobalItems : GlobalItem
 {
-    public partial class WoLGlobalItems : GlobalItem
+    public void Stackables(Item item)
     {
-        public void Stackables(Item item)
+        if (item.type == ItemID.MusicBox)
         {
-            if (item.type == ItemID.MusicBox)
-            {
-                item.maxStack = 9999;
-            }
+            item.maxStack = 9999;
         }
     }
 }

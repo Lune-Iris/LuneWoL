@@ -1,19 +1,14 @@
-﻿using LuneLib.Utilities;
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using static LuneLib.Utilities.Hashsets.HashSets;
 
-namespace LuneWoL.Common.LWoLGlobalTiles
-{
-    public partial class LWoL_GT : GlobalTile
-    {
-        private static readonly float chance = LuneWoL.LWoLServerConfig.Tiles.OreDestroyChance / 100f;
+namespace LuneWoL.Common.LWoLGlobalTiles;
 
-        public override bool CanDrop(int i, int j, int type)
-        {
-            if (chance == 0f) return base.CanDrop(i, j, type);
-            if (Main.rand.NextFloat(0f, 1f) <= chance && HashSetContainsOreTile(type)) return false;
-            else return base.CanDrop(i, j, type);
-        }
-    }
+public partial class LWoL_GT : GlobalTile
+{
+    private static readonly float chance = LuneWoL.LWoLServerConfig.Tiles.OreDestroyChance / 100f;
+
+    public override bool CanDrop(int i, int j, int type) => chance == 0f
+            ? base.CanDrop(i, j, type)
+            : (Main.rand.NextFloat(0f, 1f) > chance || !HashSetContainsOreTile(type)) && base.CanDrop(i, j, type);
 }

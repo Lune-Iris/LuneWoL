@@ -1,9 +1,4 @@
-BoilFreezeDB: {
-	DisplayName: Vaccum
+SpaceVacuum: {
+	DisplayName: Vacuum
 	Description: You're blood is boiling!
-}
-
-HeatStroke: {
-	DisplayName: Heat Stroke
-	Description: Major decreases to many stats
 }

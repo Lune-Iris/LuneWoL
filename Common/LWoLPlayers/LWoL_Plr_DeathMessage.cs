@@ -7,55 +7,47 @@ using static LuneLib.Utilities.LuneLibUtils;
 using static LuneLibAssets.Common.SoundClass;
 using static LuneWoL.PressureCheckFolder.LWoLDepthUtils;
 
+namespace LuneWoL.Common.LWoLPlayers;
 
-namespace LuneWoL.Common.LWoLPlayers
+public class LWoLPlayerDeath : ModPlayer
 {
-    public class LWoLPlayerDeath : ModPlayer
+
+    public override bool IsLoadingEnabled(Mod mod) => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 1 && !LuneLib.LuneLib.instance.CalamityModLoaded;
+
+
+    [JITWhenModsEnabled("LuneLibAssets")]
+    public void sound() => SoundEngine.PlaySound(DrownSound, LP.Center);
+
+    public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource)
     {
-
-        public override bool IsLoadingEnabled(Mod mod)
+        if (ModeTwo.rDD > (ModeTwo.mD + 50) && LE && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
         {
-            return LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 1 && !LuneLib.LuneLib.instance.CalamityModLoaded;
+            if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
+            {
+                sound();
+            }
+            damageSource = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeathEdith").ToNetworkText(Player.name));
         }
-
-
-        [JITWhenModsEnabled("LuneLibAssets")]
-        public void sound()
+        else if (ModeTwo.rDD > (ModeTwo.mD + 50) && Player.LibPlayer().depthwaterPressure && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
         {
-            SoundEngine.PlaySound(DrownSound, LP.Center);
+            if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
+            {
+                sound();
+            }
+            damageSource = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeathTooDeep").ToNetworkText(Player.name));
         }
-
-        public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource)
+        else if (ModeTwo.tD >= 50 && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
         {
-            if (ModeTwo.rDD > (ModeTwo.mD + 50) && Player.name == "Edith" && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
+            if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
             {
-                if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
-                {
-                    sound();
-                }
-                damageSource = PlayerDeathReason.ByCustomReason(LuneLibUtils.GetText("Status.Death.PressureDeathEdith").Format(Player.name));
+                sound();
             }
-            else if (ModeTwo.rDD > (ModeTwo.mD + 50) && Player.LibPlayer().depthwaterPressure && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
-            {
-                if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
-                {
-                    sound();
-                }
-                damageSource = PlayerDeathReason.ByCustomReason(LuneLibUtils.GetText("Status.Death.PressureDeathTooDeep").Format(Player.name));
-            }
-            else if (ModeTwo.tD >= 50 && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
-            {
-                if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
-                {
-                    sound();
-                }
-                damageSource = PlayerDeathReason.ByCustomReason(LuneLibUtils.GetText("Status.Death.PressureDeath" + Main.rand.Next(1, 9 + 1)).Format(Player.name));
-            }
-            else if (Player.LibPlayer().CrimtuptionzoneNight && Player.whoAmI == Main.myPlayer)
-            {
-                damageSource = PlayerDeathReason.ByCustomReason(LuneLibUtils.GetText("Status.Death.CrimtuptionzoneDeath").Format(Player.name));
-            }
-            return true;
+            damageSource = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeath" + Main.rand.Next(1, 9 + 1)).ToNetworkText(Player.name));
         }
+        else if (Player.LibPlayer().CrimtuptionzoneNight && Player.whoAmI == Main.myPlayer)
+        {
+            damageSource = PlayerDeathReason.ByCustomReason(GetText("Status.Death.CrimtuptionzoneDeath").ToNetworkText(Player.name));
+        }
+        return true;
     }
 }

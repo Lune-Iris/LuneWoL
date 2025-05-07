@@ -2,44 +2,43 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace LuneWoL.Common.Npcs
+namespace LuneWoL.Common.Npcs;
+
+public partial class WoLNpc : GlobalNPC
 {
-    public partial class WoLNpc : GlobalNPC
+    public void JungleBatFuckery(NPC npc)
     {
-        public void JungleBatFuckery(NPC npc)
+        if (npc.type == NPCID.JungleBat)
         {
-            if (npc.type == NPCID.JungleBat)
-            {
-                npc.lifeMax *= 4;
-                npc.damage *= 4;
-            }
+            npc.lifeMax *= 4;
+            npc.damage *= 4;
         }
+    }
 
-        public void GiantTortoiseFuckery(NPC npc)
+    public void GiantTortoiseFuckery(NPC npc)
+    {
+        if (npc.type == NPCID.GiantTortoise)
         {
-            if (npc.type == NPCID.GiantTortoise)
-            {
-                npc.lifeMax *= 4;
-                npc.damage *= 4;
-            }
+            npc.lifeMax *= 4;
+            npc.damage *= 4;
         }
+    }
 
-        public void golemjackingoffFuckery(NPC npc)
+    public void golemjackingoffFuckery(NPC npc)
+    {
+        if (npc.type == NPCID.GolemFistRight)
         {
-            if (npc.type == NPCID.GolemFistRight)
-            {
-                npc.lifeMax *= 4;
-                npc.damage *= 4;
-            }
+            npc.lifeMax *= 4;
+            npc.damage *= 4;
         }
+    }
 
-        public void SpikedJungleSlimeFuckery(NPC npc)
+    public void SpikedJungleSlimeFuckery(NPC npc)
+    {
+        if (npc.type == NPCID.SpikedJungleSlime)
         {
-            if (npc.type == NPCID.SpikedJungleSlime)
-            {
-                npc.lifeMax *= 4;
-                npc.damage *= 4;
-            }
+            npc.lifeMax *= 4;
+            npc.damage *= 4;
         }
     }
 }

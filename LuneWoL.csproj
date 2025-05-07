@@ -3,19 +3,8 @@
 	<Import Project="..\tModLoader.targets" />
 
 	<PropertyGroup>
-		
+	  <TargetFramework>net8.0</TargetFramework>
 	</PropertyGroup>
-
-	<ItemGroup>
-	  <AdditionalFiles Remove="Content\Dusts\**" />
-	  <Compile Remove="Content\Dusts\**" />
-	  <EmbeddedResource Remove="Content\Dusts\**" />
-	  <None Remove="Content\Dusts\**" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <None Remove="Localization\en-US\Mods.LuneWoL.Configs.hjson" />
-	</ItemGroup>
 
 	<ItemGroup>
 		<Reference Include="LuneLib">
@@ -34,10 +23,5 @@
 			<HintPath>..\..\ModReader\LuneQOL\LuneQOL.dll</HintPath>
 		</Reference>
 	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Assets\Images\Buffs\DOT\" />
-	  <Folder Include="Assets\Images\Buffs\Debuffs\" />
-	</ItemGroup>
-
+	
 </Project>

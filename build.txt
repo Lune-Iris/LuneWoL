@@ -1,6 +1,6 @@
 displayName = Lunes Worse of Life
 author = Lune
-version = 1.10.0
+version = 1.10.1
 weakReferences = InfernumMode, CalamityMod, LuneLibAssets
 modReferences = LuneLib
 hideCode = false

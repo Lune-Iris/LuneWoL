@@ -4,21 +4,20 @@ using Terraria.DataStructures;
 using Terraria.ModLoader;
 using static LuneLib.Utilities.LuneLibUtils;
 
-namespace LuneWoL.Common.LWoLGlobalProjectiles
-{
-    public partial class LWoL_GP_Hooks : GlobalProjectile
-    {
-        public override void OnSpawn(Projectile Projectile, IEntitySource source)
-        {
-            var p = L.GetModPlayer<LWoLPlayer>();
-            var Config = LuneWoL.LWoLServerConfig.Main;
+namespace LuneWoL.Common.LWoLGlobalProjectiles;
 
-            if (p.DmgPlrBcCrit && Config.CritFailMode != 0 && Projectile.owner == Main.myPlayer)
-            {
-                Projectile.damage = 0;
-                Projectile.penetrate = -1;
-            }
-            base.OnSpawn(Projectile, source);
+public partial class LWoL_GP_Hooks : GlobalProjectile
+{
+    public override void OnSpawn(Projectile Projectile, IEntitySource source)
+    {
+        var p = L.GetModPlayer<LWoLPlayer>();
+        var Config = LuneWoL.LWoLServerConfig.Main;
+
+        if (p.DmgPlrBcCrit && Config.CritFailMode != 0 && Projectile.owner == Main.myPlayer)
+        {
+            Projectile.damage = 0;
+            Projectile.penetrate = -1;
         }
+        base.OnSpawn(Projectile, source);
     }
 }

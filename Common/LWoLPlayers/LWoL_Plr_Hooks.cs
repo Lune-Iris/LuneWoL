@@ -2,121 +2,83 @@
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
-namespace LuneWoL.Common.LWoLPlayers
+namespace LuneWoL.Common.LWoLPlayers;
+
+public partial class LWoLPlayer : ModPlayer
 {
-    public partial class LWoLPlayer : ModPlayer
+    public override void OnEnterWorld() => EnterWorldMessage();
+
+    public override void OnRespawn()
     {
+        DeathPenaltyAppliedOnRespawn();
 
-        #region Hooks
+        DeathPenaltyConsumedCrystals();
 
-        public override void OnEnterWorld()
-        {
-            EnterWorldMessage();
-        }
-
-        public override void OnRespawn()
-        {
-            ActualBrainrotCodeOnRespawn();
-            okback2();
-            THEBLACKONE();
-        }
-
-        public override void PostUpdateEquips()
-        {
-            HellIsQuiteHot();
-
-            ArmourReworked();
-
-            HeatExhaustionUpdEquips();
-        }
-
-        public override void PostUpdateRunSpeeds()
-        {
-            SlowWater();
-
-            HeatExhaustionUpdRunSpeed();
-        }
-
-        public override void PreUpdateBuffs()
-        {
-            prebuffBurnFreeze();
-
-            WaterPoison();
-
-            WeatherPain();
-
-            ColdMakeColdBrrrrr();
-
-            Thisissoevillmfao();
-
-            DarkWaters();
-        }
-
-        public override void PostUpdateMiscEffects()
-        {
-            HeatExhaustion();
-        }
-
-        public override void PostUpdate()
-        {
-            var Config = LuneWoL.LWoLServerConfig.Main;
-
-            if (Player.whoAmI == Main.myPlayer && LuneLib.LuneLib.clientConfig.DebugMessages)
-            {
-                Main.NewText($"Heat = {HeatStrokeCounter}, Bliz = {tundraBlizzardCounter}");
-            }
-
-            if (DmgPlrBcCrit && Config.CritFailMode > 0)
-            {
-                CritFailDamage(Player);
-            }
-
-            uhghhhghhg();
-
-            // https://steamcommunity.com/sharedfiles/filedetails/?id=2395507804
-        }
-
-        public override void OnHitNPC(NPC npc, NPC.HitInfo hit, int damageDone)
-        {
-            var Config = LuneWoL.LWoLServerConfig.Main;
-
-            if (!IsCritFail && Config.CritFailMode != 0)
-            {
-                CritFail(Player, npc);
-            }
-        }
-
-        public override void ModifyMaxStats(out StatModifier health, out StatModifier mana)
-        {
-            ActualBrainrotCodeFuckThisImTired(out health, out mana);
-        }
-
-        public override void SyncPlayer(int toWho, int fromWho, bool newPlayer)
-        {
-            syncthething(toWho, fromWho, newPlayer);
-        }
-
-        public override void CopyClientState(ModPlayer targetCopy)
-        {
-            copytheclientthing(targetCopy);
-        }
-
-        public override void SendClientChanges(ModPlayer clientPlayer)
-        {
-            sendtheclientthing(clientPlayer);
-        }
-
-        public override void SaveData(TagCompound tag)
-        {
-            ActualBrainrotCodeTHISAGUST12TH2025(tag);
-        }
-
-        public override void LoadData(TagCompound tag)
-        {
-            ActualBrainrotCodebutcooler(tag);
-        }
-
-        #endregion
-
+        DeathPenaltyConsumedFloor();
     }
+
+    public override void PostUpdateEquips()
+    {
+        HellIsHot();
+
+        ArmourRework();
+    }
+
+    public override void PostUpdateRunSpeeds() => ViscousWater();
+
+    public override void PreUpdateBuffs()
+    {
+        ApplySpaceVacuum();
+
+        PoisonedWater();
+
+        WeatherChanges();
+
+        FreezingTundra();
+
+        OnlyEnterEvilAtDay();
+
+        MurkyWater();
+    }
+
+    public override void PostUpdate()
+    {
+        var Config = LuneWoL.LWoLServerConfig.Main;
+
+        if (Player.whoAmI == Main.myPlayer && LuneLib.LuneLib.clientConfig.DebugMessages)
+        {
+            Main.NewText($"Heat = {HeatStrokeCounter}, Bliz = {TundraBlizzardCounter}");
+        }
+
+        if (DmgPlrBcCrit && Config.CritFailMode > 0)
+        {
+            CritFailDamage(Player);
+        }
+
+        ResetDeathPenalty();
+
+        // https://steamcommunity.com/sharedfiles/filedetails/?id=2395507804
+    }
+
+    public override void OnHitNPC(NPC npc, NPC.HitInfo hit, int damageDone)
+    {
+        var Config = LuneWoL.LWoLServerConfig.Main;
+
+        if (!IsCritFail && Config.CritFailMode != 0)
+        {
+            CritFail(Player, npc);
+        }
+    }
+
+    public override void ModifyMaxStats(out StatModifier health, out StatModifier mana) => DeathPenaltyStatmod(out health, out mana);
+
+    public override void SyncPlayer(int toWho, int fromWho, bool newPlayer) => SyncDeathPenalty(toWho, fromWho, newPlayer);
+
+    public override void CopyClientState(ModPlayer targetCopy) => CloneClientsDeathPenalty(targetCopy);
+
+    public override void SendClientChanges(ModPlayer clientPlayer) => SendDeathPenalty(clientPlayer);
+
+    public override void SaveData(TagCompound tag) => SaveDeathPenaltyTag(tag);
+
+    public override void LoadData(TagCompound tag) => LoadDeathPenaltyTag(tag);
 }

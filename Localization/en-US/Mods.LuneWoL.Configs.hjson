@@ -162,20 +162,6 @@ BiomeSpecificDented: {
 			'''
 	}
 
-	HeatStroke: {
-		Label: Hot deserts
-		Tooltip:
-			'''
-			(NOT MULTIPLAYER COMPATIBLE)
-
-			Deserts are hot. 
-
-			Applies an inhumane amount of nerfs to the player for no reason what so ever!
-
-			Suggested by `Lune`.
-			'''
-	}
-
 	Chilly: {
 		Label: Chilly
 		Tooltip:
