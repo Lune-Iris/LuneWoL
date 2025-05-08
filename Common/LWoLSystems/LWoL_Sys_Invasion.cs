@@ -1,8 +1,4 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using static LuneLib.Utilities.LuneLibUtils;
-
-namespace LuneWoL.Common.LWoLSystems;
+﻿namespace LuneWoL.Common.LWoLSystems;
 
 public partial class LWoLSystem : ModSystem
 {

@@ -1,7 +1,3 @@
-using MonoMod.Cil;
-using System.Reflection;
-using Terraria.ModLoader;
-
 namespace LuneWoL.CalamityModChanges.Common.Npcs;
 
 public class CalamityModPatch : ILoadable

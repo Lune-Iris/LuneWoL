@@ -1,7 +1,4 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-
-namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.LWoLPlayers;
 
 public class LWoL_PlayerStatChanges : ModPlayer
 {

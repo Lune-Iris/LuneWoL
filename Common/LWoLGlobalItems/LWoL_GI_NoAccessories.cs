@@ -1,9 +1,4 @@
-﻿using Terraria;
-using Terraria.DataStructures;
-using Terraria.ID;
-using Terraria.ModLoader;
-
-namespace LuneWoL.Common.LWoLGlobalItems;
+﻿namespace LuneWoL.Common.LWoLGlobalItems;
 
 public partial class WoLGlobalItems : GlobalItem
 {

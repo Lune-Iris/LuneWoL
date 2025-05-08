@@ -1,8 +1,4 @@
-﻿using LuneWoL.PressureCheckFolder.Mode2;
-using Terraria.ModLoader;
-using static LuneLib.Utilities.LuneLibUtils;
-
-namespace LuneWoL.PressureCheckFolder;
+﻿namespace LuneWoL.PressureCheckFolder;
 
 public class LWoLDepthUtils : ModPlayer
 {

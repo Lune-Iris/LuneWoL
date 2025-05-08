@@ -1,24 +1,10 @@
-﻿using LuneLib.Utilities;
-using LuneWoL.Content.Buffs.DOT;
-using Microsoft.Xna.Framework;
-using System;
-using System.IO;
-using Terraria;
-using Terraria.GameContent.Events;
-using Terraria.ID;
-using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using static LuneLib.Common.Players.LuneLibPlayer.LibPlayer;
-using static LuneLib.Utilities.LuneLibUtils;
-using static LuneWoL.LuneWoL;
-
-namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.LWoLPlayers;
 
 public partial class LWoLPlayer : ModPlayer
 {
     public void ApplySpaceVacuum()
     {
-        var Config = LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
         if (!Config.SpacePain) return;
         if (Player.whoAmI != Main.myPlayer) return;
         if (!Player.ZoneSkyHeight) return;
@@ -30,7 +16,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void HellIsHot()
     {
-        var Config = LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
 
         if (!Config.HellIsHot) return;
         if (!Player.ZoneUnderworldHeight) return;
@@ -42,7 +28,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void ViscousWater()
     {
-        var Config = LWoLServerConfig.WaterRelated;
+        var Config = LuneWoL.LWoLServerConfig.WaterRelated;
 
         if (Player.OceanMan() && Config.SlowWater && !LL)
         {
@@ -55,7 +41,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public bool ArmourRework()
     {
-        var Config = LWoLServerConfig.Equipment;
+        var Config = LuneWoL.LWoLServerConfig.Equipment;
 
         if (!Config.ArmourRework) return false;
         LeadRework();
@@ -77,7 +63,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void PoisonedWater()
     {
-        var Config = LWoLServerConfig.WaterRelated;
+        var Config = LuneWoL.LWoLServerConfig.WaterRelated;
 
         if (!Config.WaterPoison) return;
         if (!Player.wet || Player.lavaWet || Player.honeyWet) return;
@@ -123,7 +109,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void WeatherChanges()
     {
-        var Config = LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
 
         if (!Config.WeatherPain) return;
 
@@ -162,7 +148,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void FreezingTundra()
     {
-        var Config = LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
 
         if (!Config.Chilly) return;
 
@@ -194,7 +180,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void OnlyEnterEvilAtDay()
     {
-        var Config = LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
 
         if (Main.dayTime) return;
 
@@ -207,7 +193,7 @@ public partial class LWoLPlayer : ModPlayer
     {
         public override void PostAI(Projectile Projectile)
         {
-            var Config = LWoLServerConfig.Main;
+            var Config = LuneWoL.LWoLServerConfig.Main;
 
             if (Config.WindArrows && Projectile.arrow &&
                 Projectile.Center.Y < Main.worldSurface * 16.0
@@ -232,7 +218,7 @@ public partial class LWoLPlayer : ModPlayer
         if (LL) return;
         if (Player.whoAmI != Main.myPlayer) return;
 
-        var Config = LWoLServerConfig.WaterRelated;
+        var Config = LuneWoL.LWoLServerConfig.WaterRelated;
 
         if (Player.OceanMan() && Config.DarkWaters && Config.DepthPressureMode > 0)
         {
@@ -253,7 +239,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void DeathPenaltyConsumedCrystals()
     {
-        var Config = LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.Misc;
 
         if (Config.DeathPenaltyMode != 2) return;
 

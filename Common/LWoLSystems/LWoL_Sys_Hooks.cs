@@ -1,7 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-using Terraria.ModLoader;
-
-namespace LuneWoL.Common.LWoLSystems;
+﻿namespace LuneWoL.Common.LWoLSystems;
 
 public partial class LWoLSystem : ModSystem
 {

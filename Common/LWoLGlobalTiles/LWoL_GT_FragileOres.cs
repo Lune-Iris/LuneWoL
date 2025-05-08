@@ -1,8 +1,4 @@
-﻿using Terraria;
-using Terraria.ModLoader;
-using static LuneLib.Utilities.Hashsets.HashSets;
-
-namespace LuneWoL.Common.LWoLGlobalTiles;
+﻿namespace LuneWoL.Common.LWoLGlobalTiles;
 
 public partial class LWoL_GT : GlobalTile
 {

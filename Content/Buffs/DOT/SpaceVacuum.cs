@@ -1,8 +1,4 @@
-﻿using LuneLib.Utilities;
-using Terraria;
-using Terraria.ModLoader;
-
-namespace LuneWoL.Content.Buffs.DOT;
+﻿namespace LuneWoL.Content.Buffs.DOT;
 
 public class SpaceVacuum : ModBuff
 {

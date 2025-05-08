@@ -1,10 +1,4 @@
-﻿using LuneWoL.Common.LWoLPlayers;
-using Terraria;
-using Terraria.DataStructures;
-using Terraria.ModLoader;
-using static LuneLib.Utilities.LuneLibUtils;
-
-namespace LuneWoL.Common.LWoLGlobalProjectiles;
+﻿namespace LuneWoL.Common.LWoLGlobalProjectiles;
 
 public partial class LWoL_GP_Hooks : GlobalProjectile
 {

@@ -1,13 +1,4 @@
-﻿using LuneLib.Utilities;
-using Terraria;
-using Terraria.Audio;
-using Terraria.DataStructures;
-using Terraria.ModLoader;
-using static LuneLib.Utilities.LuneLibUtils;
-using static LuneLibAssets.Common.SoundClass;
-using static LuneWoL.PressureCheckFolder.LWoLDepthUtils;
-
-namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.LWoLPlayers;
 
 public class LWoLPlayerDeath : ModPlayer
 {

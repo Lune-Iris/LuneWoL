@@ -1,8 +1,4 @@
-﻿using Mono.Cecil.Cil;
-using MonoMod.Cil;
-using Terraria;
-
-namespace LuneWoL.LWoL_IL_Edits;
+﻿namespace LuneWoL.LWoL_IL_Edits;
 
 public partial class LWoLILEdits
 {

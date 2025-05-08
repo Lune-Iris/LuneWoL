@@ -1,6 +1,4 @@
-﻿using Terraria.ModLoader.Config;
-
-namespace LuneWoL.Core.Config;
+﻿namespace LuneWoL.Core.Config;
 
 [BackgroundColor(0, 20, 40, 255)]
 public class LWoLServerStatConfig : ModConfig

@@ -1,12 +1,4 @@
-﻿using LuneLib.Utilities;
-using Microsoft.Xna.Framework;
-using Terraria;
-using Terraria.GameContent.Events;
-using Terraria.ModLoader;
-using static LuneLib.Utilities.LuneLibUtils;
-using static LuneWoL.PressureCheckFolder.LWoLDepthUtils;
-
-namespace LuneWoL.PressureCheckFolder.Mode2;
+﻿namespace LuneWoL.PressureCheckFolder.Mode2;
 
 public partial class PressureModeTwo : ModPlayer
 {

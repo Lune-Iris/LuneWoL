@@ -1,8 +1,4 @@
-﻿using System.Threading.Tasks;
-using Terraria;
-using Terraria.ModLoader;
-
-namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.LWoLPlayers;
 
 public partial class LWoLPlayer : ModPlayer
 {

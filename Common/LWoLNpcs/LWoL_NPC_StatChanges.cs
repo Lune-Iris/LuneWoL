@@ -1,7 +1,3 @@
-using Terraria;
-using Terraria.ModLoader;
-using static LuneWoL.LuneWoL;
-
 namespace LuneWoL.Common.LWoLNpcs;
 
 public class LWoL_NPC_StatChanges : GlobalNPC
@@ -22,7 +18,7 @@ public class LWoL_NPC_StatChanges : GlobalNPC
 
     private void ApplyStatChanges(NPC npc)
     {
-        var npcConfig = LWoLServerStatConfig.NpcConfig;
+        var npcConfig = LuneWoL.LWoLServerStatConfig.NpcConfig;
 
         if (npcConfig.DisableNPCStatChanges) return;
         if (npc.CountsAsACritter) return;
@@ -37,7 +33,7 @@ public class LWoL_NPC_StatChanges : GlobalNPC
 
     private void ApplyBossStatChanges(NPC npc)
     {
-        var bossConfig = LWoLServerStatConfig.BossConfig;
+        var bossConfig = LuneWoL.LWoLServerStatConfig.BossConfig;
 
         if (bossConfig.DisableBossStatChanges) return;
         if (!npc.boss) return;
