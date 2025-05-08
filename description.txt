@@ -1,4 +1,4 @@
-Makes your Terraria just a little bit worse to play...
+Makes Terraria just a little bit worse to play...
 
 changelog:
 See the changelog tab on this steam item.
@@ -6,8 +6,7 @@ See the changelog tab on this steam item.
 Everything is disabled by default.
 
 Credits:
-Gamma_sol: Artist
-Lune: Programmer
+Lune: Programmer, Artist
 
 Please join my discord!
 Discord: https://discord.com/invite/FwmGf6vBu2
