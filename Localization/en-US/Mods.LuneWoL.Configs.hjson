@@ -128,7 +128,7 @@ BiomeSpecificDented: {
 	}
 
 	SpacePain: {
-		Label: Space Vaccum
+		Label: Space Vacuum
 		Tooltip:
 			'''
 			Slowly kills you when in space and not behind a wall.
