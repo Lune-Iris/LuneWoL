@@ -6,7 +6,7 @@ public class LWoLPlayerDeath : ModPlayer
     public override bool IsLoadingEnabled(Mod mod) => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 1 && !LuneLib.LuneLib.instance.CalamityModLoaded;
 
 
-    [JITWhenModsEnabled("LuneLibAssets")]
+    [JITWhenModsEnabled("LuneLibAssets")] //private mod with copyrighted content. you cant has this, sorry :c
     public void sound() => SoundEngine.PlaySound(DrownSound, LP.Center);
 
     public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource)

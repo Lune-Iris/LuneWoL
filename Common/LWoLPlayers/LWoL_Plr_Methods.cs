@@ -154,7 +154,12 @@ public partial class LWoLPlayer : ModPlayer
 
         if (WearingFullEskimo) return;
 
-        if (Player.ZoneSnow && !Player.HasBuff(BuffID.Campfire) && !Player.behindBackWall && !Player.HasBuff(BuffID.OnFire) && !Player.HasBuff(BuffID.Burning))
+        if (Player.ZoneSnow
+            && !Player.HasBuff(BuffID.Campfire)
+            && !Player.behindBackWall
+            && !Player.HasBuff(BuffID.OnFire)
+            && !Player.HasBuff(BuffID.Burning)
+            && !Player.HasBuff(BuffID.Warmth))
         {
             if (TundraChilledCounter < 0)
                 TundraChilledCounter = 0;

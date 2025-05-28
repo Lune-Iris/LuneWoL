@@ -488,6 +488,16 @@ MiscDented: {
 		Label: Skill Issue Mode
 		Tooltip: ""
 	}
+
+	NightFadeDuration: {
+		Tooltip: ""
+		Label: Night Fade Duration
+	}
+
+	test: {
+		Tooltip: ""
+		Label: test
+	}
 }
 
 NpcStatDented: {
@@ -644,5 +654,92 @@ PlayerStatDented: {
 	DisablePlayerStatChanges: {
 		Label: Disable Player Stat Changes
 		Tooltip: Disables all the above options.
+	}
+}
+
+LWoLAdvancedSettings: {
+	Misc: {
+		Tooltip: ""
+		Label: Misc
+	}
+
+	DisplayName: Advanced Settings
+
+	DarkerNights: {
+		Label: Darker Nights
+		Tooltip: For the 'Darker Nights' option in server configs 'Main' section
+	}
+
+	MoonPhases: {
+		Label: Moon Phases
+		Tooltip: ""
+	}
+}
+
+DarkerNightsDented: {
+	Tooltip: For the 'Darker Nights' option in server configs 'Main' section
+
+	NightFadeDuration: {
+		Label: Night Fade Duration
+		Tooltip: Controls how many in-game minutes it takes before it hits MinBrightness.
+	}
+
+	MinBrightness: {
+		Label: MinBrightness
+		Tooltip:
+			'''
+			Determines how dark nights can get when 'Darker Nights' is set to mode 2.
+
+			Very low values may cause lighting engine bugs.
+			'''
+	}
+
+	MoonPhases: {
+		Label: Moon Phases
+		Tooltip: MinBrightness for moon phases when 'Darker Nights' is set to mode 1.
+	}
+}
+
+MoonPhasesDented: {
+	Tooltip: ""
+
+	FullMoonMult: {
+		Label: Full Moon MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is full moon
+	}
+
+	WaningGibbousMult: {
+		Label: Waning Gibbous MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is waning gibbous
+	}
+
+	ThirdQuarterMult: {
+		Label: Third Quarter MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is third quarter
+	}
+
+	WaningCrescentMult: {
+		Label: Waning Crescent MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is waning crescent.
+	}
+
+	NewMoonMult: {
+		Label: New Moon MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is new moon.
+	}
+
+	WaxingCrescentMult: {
+		Label: Waxing Crescent MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is waxing crescent.
+	}
+
+	FirstQuarterMult: {
+		Label: First Quarter MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is first quarter.
+	}
+
+	WaxingGibbousMult: {
+		Label: Waxing Gibbous MinBrightness
+		Tooltip: Determines how dark nights can get when the moon phase is waxing gibbous.
 	}
 }

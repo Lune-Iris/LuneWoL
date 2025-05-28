@@ -2,84 +2,62 @@
 
 public partial class LWoLSystem : ModSystem
 {
-    /*
-        modified code from the darker surface mod to allow for moon phase changes
-        if the author of the mod sees this feel free reach out if you want me to remove it
-        or contact me if you see any issues with the calculations. i got confused halfway through and called it a day
-     */
+    private int _currentMoonPhase;
+    private bool _wasDaytime = true;
 
-    private int _currentMoonPhase = -1;
-    private bool asd = false, asdas = false;
-
-    public override void OnWorldLoad()
+    public override void PostUpdateWorld()
     {
-        base.OnWorldLoad();
-        _currentMoonPhase = Main.moonPhase;
+        if (Main.dayTime && !_wasDaytime)
+        {
+            _currentMoonPhase = (_currentMoonPhase + 1) % 8;
+            Main.moonPhase = _currentMoonPhase;
+        }
+        _wasDaytime = Main.dayTime;
     }
 
     public void DarkerNightsSurfaceLight(ref Color tileColor, ref Color backgroundColor)
     {
-        var c = LuneWoL.LWoLServerConfig.Main;
-        float moonPhaseMultiplier = GetMoonPhaseMultiplier(_currentMoonPhase);
+        if (Main.dayTime) return;
 
-        float dayGrad = GradFloat((float)Main.time, 0f, 54000f);
-        float nightGrad = GradFloat((float)Main.time, 0f, 32400f);
+        var cfg = LuneWoL.LWoLServerConfig.Main;
+        var Acfg = LuneWoL.LWoLAdvancedSettings.DarkerNights;
+        float moonMultiplier = GetMoonPhaseMultiplier(_currentMoonPhase);
 
-        dayGrad = MathHelper.Clamp(dayGrad, 0.1f, 1f);
-        nightGrad = MathHelper.Clamp(nightGrad, 0.1f, 1f);
+        const float nightLength = 32400f;
+        float fadeTicks = MathHelper.Clamp(Acfg.NightFadeDuration * 60f, 0f, nightLength / 2f);
+        float t = (float)Main.time;
 
-        if (Main.dayTime)
-        {
-            tileColor = ToColour(tileColor.ToVector3() * dayGrad);
-            backgroundColor = ToColour(backgroundColor.ToVector3() * dayGrad);
-        }
-        else if (c.DarkerNightsMode == 1)
-        {
-            tileColor = ToColour(tileColor.ToVector3() * (nightGrad * moonPhaseMultiplier));
-            backgroundColor = ToColour(backgroundColor.ToVector3() * (nightGrad * moonPhaseMultiplier));
-        }
-        else if (c.DarkerNightsMode == 2)
-        {
-            tileColor = ToColour(tileColor.ToVector3() * (nightGrad * 0.3f));
-            backgroundColor = ToColour(backgroundColor.ToVector3() * (nightGrad * 0.3f));
-        }
+        float minB = cfg.DarkerNightsMode == 2 ? Acfg.MinBrightness : 1f;
+        if (cfg.DarkerNightsMode == 1) minB *= moonMultiplier;
 
-        if (Main.dayTime && !asd)
-        {
-            _currentMoonPhase = Main.moonPhase;
-            asd = true;
-            asdas = false;
-        }
-        else if (!Main.dayTime && !asdas)
-        {
-            asd = false;
-            asdas = true;
-        }
+        float brightness = (t <= fadeTicks)
+            ? MathHelper.Lerp(1f, minB, t / fadeTicks)
+            : (t >= nightLength - fadeTicks)
+                ? MathHelper.Lerp(minB, 1f, (t - (nightLength - fadeTicks)) / fadeTicks)
+                : minB;
+
+        tileColor = ToColour(tileColor.ToVector3() * brightness);
+        backgroundColor = ToColour(backgroundColor.ToVector3() * brightness);
     }
 
-    private static float GetMoonPhaseMultiplier(int moonPhase) => moonPhase switch
+    private static float GetMoonPhaseMultiplier(int phase)
     {
-        0 => 1f,   // Full Moon
-        1 => 0.8f, // Waning Gibbous
-        2 => 0.6f, // Third Quarter
-        3 => 0.4f, // Waning Crescent
-        4 => 0.35f, // New Moon          lower values will cause lighting issues but you can bearly see a dif anyways
-        5 => 0.4f, // Waxing Crescent
-        6 => 0.6f, // First Quarter
-        7 => 0.8f, // Waxing Gibbous
-        _ => 1f,
-    };
-
-    public static Color ToColour(Vector3 input) => new((int)(input.X * 255f), (int)(input.Y * 255f), (int)(input.Z * 255f));
-
-    public static float GradFloat(float value, float min, float max)
-    {
-        float mid = (max + min) / 2f;
-        if (value > mid)
+        var Acfg = LuneWoL.LWoLAdvancedSettings.DarkerNights;
+        return phase switch
         {
-            float thing = 1f - (value - min) / (max - min) * 2f;
-            return Utils.Clamp(1f + thing, 0f, 1f);
-        }
-        return Utils.Clamp((value - min) / (max - min) * 2f, 0f, 1f);
+            0 => Acfg.MoonPhases.FullMoonMult,
+            1 => Acfg.MoonPhases.WaningGibbousMult,
+            2 => Acfg.MoonPhases.ThirdQuarterMult,
+            3 => Acfg.MoonPhases.WaningCrescentMult,
+            4 => Acfg.MoonPhases.NewMoonMult,
+            5 => Acfg.MoonPhases.WaxingCrescentMult,
+            6 => Acfg.MoonPhases.FirstQuarterMult,
+            7 => Acfg.MoonPhases.WaxingGibbousMult,
+            _ => 1f,
+        };
     }
+
+
+    public static Color ToColour(Vector3 v) =>
+        new((int)(v.X * 255), (int)(v.Y * 255), (int)(v.Z * 255));
 }

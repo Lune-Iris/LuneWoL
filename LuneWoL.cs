@@ -7,6 +7,7 @@ public partial class LuneWoL : Mod
     public static LWoLServerConfig LWoLServerConfig;
     public static LWoLClientConfig LWoLClientConfig;
     public static LWoLServerStatConfig LWoLServerStatConfig;
+    public static LWoLAdvancedSettings LWoLAdvancedSettings;
 
     public override void Load()
     {
