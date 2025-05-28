@@ -8,6 +8,40 @@ Everything is disabled by default.
 Credits:
 Lune: Programmer, Artist
 
+Currently includes:
+
+Critical Fail Mode
+Darker Nights
+Wind Affects Arrows
+Demon Mode (Silly meme :3c)
+Chilly (Freeze in the tundra without protection.)
+Hell Is Hot (On-Fire debuff in Hell without protection.)
+No Evil Daytime (Stops evil biomes from spawning at night.)
+Space Vacuum (Take damage without oxygen in space.)
+Dangerous Weathers (Certain weathers give different effects.)
+Worse Healing Potions
+Armor Rework ((For now) Lead armour inflicts poison.)
+Disable Auto-Reuse
+No Accessories
+Reforge Nerf
+Recipe Ingredient %
+Ignore Stacks of One (Only applies when using Recipe Ingredient %.)
+Fragile Ores (Chance for ores to vanish when mined.)
+Buy Multiplier
+Sell Multiplier
+Invasion Multiplier
+Never Gold Enough
+Less Money From Enemies
+Darker Waters
+Water Depth Pressure
+Viscous Water
+Water Poison (Biome waters inflict debuffs.)
+Death Penalty (Max HP decreases on each death.)
+Item Despawn Timer
+Disable Items
+Skill Issue Mode (Allows "Coyote Frames" to load.)
+Calamity Rebuff (Removes the nerf on enemies when Revengeance/Death mode is active.)
+
 Please join my discord!
 Discord: https://discord.com/invite/FwmGf6vBu2
 <3
