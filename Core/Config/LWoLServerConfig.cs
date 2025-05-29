@@ -226,7 +226,7 @@ public class LWoLServerConfig : ModConfig
         [BackgroundColor(0, 15, 70, 255)]
         [SliderColor(0, 15, 70, 255)]
         [Slider]
-        [Range(0, 1)]
+        [Range(0, 2)]
         [ReloadRequired]
         public int DepthPressureMode { get; set; }
 

@@ -1,0 +1,185 @@
+﻿// Pools.cs
+using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace LuneWoL.PressureCheckFolder.Mode1
+{
+    public class Pools : ModSystem
+    {
+        public static Pools Instance { get; private set; }
+        private readonly List<Pool> _pools = new List<Pool>();
+        private int _ticks;
+        private readonly Queue<Point> _queue = new Queue<Point>();
+
+        public override bool IsLoadingEnabled(Mod mod) => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 2;
+
+        public override void OnWorldLoad()
+        {
+            Instance = this;
+            Main.NewText("[Debug] Pools system loaded");
+            RebuildAllPools(unlimited: DepthPressureConfig.FastInitialBuildUnlimited);
+            MergePools();
+        }
+
+        public override void PreUpdateWorld()
+        {
+            if (!DepthPressureConfig.UseIncrementalUpdates && !DepthPressureConfig.FastInitialBuildUnlimited)
+            {
+                if (++_ticks >= DepthPressureConfig.FullRebuildIntervalTicks)
+                {
+                    RebuildAllPools(unlimited: false);
+                    MergePools();
+                    _ticks = 0;
+                }
+            }
+        }
+
+        public override void PostUpdateWorld()
+        {
+            if (DepthPressureConfig.ScanRadiusTiles > 0)
+            {
+                ProcessPlayerScan(Main.LocalPlayer.Center);
+                MergePools();
+            }
+            else if (DepthPressureConfig.UseIncrementalUpdates)
+            {
+                ProcessQueue();
+                MergePools();
+            }
+        }
+
+        public void EnqueueUpdate(Point p) => _queue.Enqueue(p);
+
+        private void RebuildAllPools(bool unlimited)
+        {
+            _pools.Clear();
+            var visited = new HashSet<Point>();
+            int max = unlimited ? int.MaxValue : DepthPressureConfig.MaxFloodPointsPerTick;
+
+            for (int y = 0; y < Main.tile.Height; y++)
+                for (int x = 0; x < Main.tile.Width; x++)
+                {
+                    var pt = new Point(x, y);
+                    if (visited.Contains(pt)) continue;
+                    var tile = Main.tile[x, y];
+                    if (tile.LiquidAmount == 255 && tile.LiquidType == LiquidID.Water)
+                    {
+                        var pts = Floodfill(visited, pt, max);
+                        var pool = new Pool();
+                        pool.AddPoints(pts);
+                        _pools.Add(pool);
+                    }
+                }
+
+            Main.NewText($"[Debug] Full rebuild: {_pools.Count} pools");
+        }
+
+        private void ProcessQueue()
+        {
+            int processed = 0;
+            while (processed < DepthPressureConfig.MaxFloodPointsPerTick && _queue.Count > 0)
+            {
+                var pt = _queue.Dequeue();
+                var pos = pt.ToWorldCoordinates();
+                var candidate = _pools.FirstOrDefault(p =>
+                    pos.X / 16f >= p.MinX && pos.X / 16f <= p.MaxX &&
+                    pos.Y / 16f >= p.MinY && pos.Y / 16f <= p.MaxY && p.IsIn(pos));
+
+                var pts = Floodfill(new HashSet<Point>(), pt, DepthPressureConfig.MaxFloodPointsPerTick);
+                if (candidate != null)
+                {
+                    candidate.AddPoints(pts);
+                }
+                else
+                {
+                    var newPool = new Pool();
+                    newPool.AddPoints(pts);
+                    _pools.Add(newPool);
+                }
+
+                processed++;
+            }
+
+            Main.NewText("[Debug] Queue processed");
+        }
+
+        private void ProcessPlayerScan(Vector2 center)
+        {
+            int cx = (int)(center.X / 16f), cy = (int)(center.Y / 16f), r = DepthPressureConfig.ScanRadiusTiles, r2 = r * r;
+            for (int dy = -r; dy <= r; dy++)
+                for (int dx = -r; dx <= r; dx++)
+                {
+                    if (dx * dx + dy * dy > r2) continue;
+                    int x = cx + dx, y = cy + dy;
+                    if (x < 0 || y < 0 || x >= Main.tile.Width || y >= Main.tile.Height) continue;
+
+                    var tile = Main.tile[x, y];
+                    if (tile.LiquidAmount == 255 && tile.LiquidType == LiquidID.Water)
+                    {
+                        var world = new Vector2((x + 0.5f) * 16f, (y + 0.5f) * 16f);
+                        if (FindPool(world) == null)
+                        {
+                            var pts = Floodfill(new HashSet<Point>(), new Point(x, y), DepthPressureConfig.MaxFloodPointsPerTick);
+                            var newPool = new Pool();
+                            newPool.AddPoints(pts);
+                            _pools.Add(newPool);
+                            Main.NewText($"[Debug] Scan pool at tile {x},{y}");
+                            return;
+                        }
+                    }
+                }
+        }
+
+        private void MergePools()
+        {
+            for (int i = 0; i < _pools.Count; i++)
+            {
+                for (int j = i + 1; j < _pools.Count; j++)
+                {
+                    var a = _pools[i];
+                    var b = _pools[j];
+                    if (a.MinX <= b.MaxX + 1 && a.MaxX >= b.MinX - 1 && a.MinY <= b.MaxY + 1 && a.MaxY >= b.MinY - 1)
+                    {
+                        a.Merge(b);
+                        _pools.RemoveAt(j);
+                        j--; // adjust after removal
+                    }
+                }
+            }
+        }
+
+        private static List<Point> Floodfill(HashSet<Point> visited, Point start, int max)
+        {
+            var res = new List<Point>(max);
+            var queue = new Queue<Point>();
+            queue.Enqueue(start);
+
+            while (queue.Count > 0 && res.Count < max)
+            {
+                var p = queue.Dequeue();
+                if (!visited.Add(p)) continue;
+                var t = Main.tile[p.X, p.Y];
+                if (t.LiquidAmount == 255 && t.LiquidType == LiquidID.Water)
+                {
+                    res.Add(p);
+                    EnqueueNeighbors(queue, p, visited);
+                }
+            }
+
+            return res;
+        }
+
+        private static void EnqueueNeighbors(Queue<Point> q, Point p, HashSet<Point> v)
+        {
+            int x = p.X, y = p.Y;
+            if (x > 0) q.Enqueue(new Point(x - 1, y));
+            if (x < Main.tile.Width - 1) q.Enqueue(new Point(x + 1, y));
+            if (y > 0) q.Enqueue(new Point(x, y - 1));
+            if (y < Main.tile.Height - 1) q.Enqueue(new Point(x, y + 1));
+        }
+
+        public Pool FindPool(Vector2 pos) => _pools.FirstOrDefault(p => p.IsIn(pos));
+    }
+}

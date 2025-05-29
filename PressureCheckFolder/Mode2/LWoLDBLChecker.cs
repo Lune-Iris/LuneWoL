@@ -17,7 +17,7 @@ public partial class PressureModeTwo : ModPlayer
 
     public void BreathChecker()
     {
-        // stolen from clamtitty mod cause they sorta already had a system for it not really though
+        // stolen from clamtitty mod cause they sorta already had a system for it, not really though
         double dR = ModeTwo.tD / ModeTwo.mD;
 
         dR *= 2D;

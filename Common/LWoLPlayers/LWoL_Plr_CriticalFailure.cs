@@ -33,7 +33,7 @@ public partial class LWoLPlayer : ModPlayer
             }
         }
     }
-    
+
     public void CritFailDamage(Player player)
     {
         var Config = LuneWoL.LWoLServerConfig.Main;
