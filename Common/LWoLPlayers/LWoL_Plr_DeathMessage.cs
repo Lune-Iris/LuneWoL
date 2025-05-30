@@ -11,7 +11,7 @@ public class LWoLPlayerDeath : ModPlayer
 
     public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource)
     {
-        if (ModeTwo.rDD > (ModeTwo.mD + 50) && LE && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
+        if (ModeOne.rDD > (ModeOne.mD + 50) && LE && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
         {
             if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
             {
@@ -19,7 +19,7 @@ public class LWoLPlayerDeath : ModPlayer
             }
             damageSource = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeathEdith").ToNetworkText(Player.name));
         }
-        else if (ModeTwo.rDD > (ModeTwo.mD + 50) && Player.LibPlayer().depthwaterPressure && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
+        else if (ModeOne.rDD > (ModeOne.mD + 50) && Player.LibPlayer().depthwaterPressure && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
         {
             if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
             {
@@ -27,7 +27,7 @@ public class LWoLPlayerDeath : ModPlayer
             }
             damageSource = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeathTooDeep").ToNetworkText(Player.name));
         }
-        else if (ModeTwo.tD >= 50 && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
+        else if (ModeOne.tD >= 50 && Player.OceanMan() && Player.whoAmI == Main.myPlayer)
         {
             if (LuneLib.LuneLib.instance.LuneLibAssetsLoaded)
             {

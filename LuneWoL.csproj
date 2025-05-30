@@ -6,6 +6,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <AdditionalFiles Remove="PressureCheckFolder\bak\**" />
+	  <Compile Remove="PressureCheckFolder\bak\**" />
+	  <EmbeddedResource Remove="PressureCheckFolder\bak\**" />
+	  <None Remove="PressureCheckFolder\bak\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<Reference Include="LuneLib">
 			<HintPath>..\..\ModReader\LuneLib\LuneLib.dll</HintPath>
 		</Reference>

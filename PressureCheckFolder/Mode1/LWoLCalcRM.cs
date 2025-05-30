@@ -1,11 +1,11 @@
-﻿namespace LuneWoL.PressureCheckFolder.Mode2;
+﻿namespace LuneWoL.PressureCheckFolder.Mode1;
 
-public partial class PressureModeTwo : ModPlayer
+public partial class PressureModeOne : ModPlayer
 {
     public float rD = 0f, lDD, tDC, tD;
     public int mD, pDTA, rDD;
 
-    //TODO: add difficulty options and mod compat such as calamity
+    //TODO: add difficulty options and mod compat such as calamity < too lazy ill just add advanced options lmfao
 
     public int MD() // Max Depth
     {
@@ -31,13 +31,13 @@ public partial class PressureModeTwo : ModPlayer
         return rD;
     }
 
-    public int RDD() => rDD = (int)((LP.position.Y - ModeTwo.EntryPoint.Y) * ModeTwo.rD) / 16; // Reduced Depth Difference
+    public int RDD() => rDD = (int)((LP.position.Y - ModeOne.EntryPoint.Y) * ModeOne.rD) / 16; // Reduced Depth Difference
 
-    public float TDC() => tDC = Math.Clamp(rDD, 0, ModeTwo.mD); // Tile Difference Clamped
+    public float TDC() => tDC = Math.Clamp(rDD, 0, ModeOne.mD); // Tile Difference Clamped
 
-    public float TD() => tD = (int)(LP.position.Y - ModeTwo.EntryPoint.Y) / 16; // Tile Difference
+    public float TD() => tD = (int)(LP.position.Y - ModeOne.EntryPoint.Y) / 16; // Tile Difference
 
-    public int PDTA() => pDTA = ModeTwo.rDD - ModeTwo.mD; // Pressure Dammage To Apply
+    public int PDTA() => pDTA = ModeOne.rDD - ModeOne.mD; // Pressure Dammage To Apply
 
-    public float LDD() => lDD = ModeTwo.tDC / ModeTwo.mD; // Light Depth Difference
+    public float LDD() => lDD = ModeOne.tDC / ModeOne.mD; // Light Depth Difference
 }

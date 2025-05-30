@@ -1,15 +1,15 @@
-﻿namespace LuneWoL.PressureCheckFolder.Mode2;
+﻿namespace LuneWoL.PressureCheckFolder.Mode1;
 
-public partial class PressureModeTwo : ModPlayer
+public partial class PressureModeOne : ModPlayer
 {
     public int abyssBreathCD;
 
     public void DamageChecker()
     {
-        if (ModeTwo.rDD >= ModeTwo.mD)
+        if (ModeOne.rDD >= ModeOne.mD)
         {
             Player.LibPlayer().depthwaterPressure = true;
-            Player.LibPlayer().currentDepthPressure = ModeTwo.pDTA;
+            Player.LibPlayer().currentDepthPressure = ModeOne.pDTA;
         }
     }
 
@@ -18,7 +18,7 @@ public partial class PressureModeTwo : ModPlayer
     public void BreathChecker()
     {
         // stolen from clamtitty mod cause they sorta already had a system for it, not really though
-        double dR = ModeTwo.tD / ModeTwo.mD;
+        double dR = ModeOne.tD / ModeOne.mD;
 
         dR *= 2D;
 
@@ -40,7 +40,7 @@ public partial class PressureModeTwo : ModPlayer
         tick *= tickMult / dR;
 
         abyssBreathCD++;
-        if (abyssBreathCD >= (int)tick && ModeTwo.tD >= 2)
+        if (abyssBreathCD >= (int)tick && ModeOne.tD >= 2)
         {
             abyssBreathCD = 0;
 
@@ -53,7 +53,7 @@ public partial class PressureModeTwo : ModPlayer
                 Player.breath -= 3;
         }
 
-        int lifeLossAtZeroBreath = (int)(6D * ModeTwo.rD);
+        int lifeLossAtZeroBreath = (int)(6D * ModeOne.rD);
 
         if (lifeLossAtZeroBreath < 0)
             lifeLossAtZeroBreath = 0;

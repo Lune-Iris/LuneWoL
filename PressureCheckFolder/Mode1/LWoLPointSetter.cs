@@ -1,6 +1,6 @@
-﻿namespace LuneWoL.PressureCheckFolder.Mode2;
+﻿namespace LuneWoL.PressureCheckFolder.Mode1;
 
-public partial class PressureModeTwo : ModPlayer
+public partial class PressureModeOne : ModPlayer
 {
     public bool WasDrowningLastFrame { get; set; }
 

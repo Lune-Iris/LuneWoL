@@ -1,6 +1,6 @@
-﻿namespace LuneWoL.PressureCheckFolder.Mode2;
+﻿namespace LuneWoL.PressureCheckFolder.Mode1;
 
-public partial class PressureModeTwo : ModPlayer
+public partial class PressureModeOne : ModPlayer
 {
     public override bool IsLoadingEnabled(Mod mod) => !LuneLib.LuneLib.instance.CalamityModLoaded
             &&
@@ -41,9 +41,9 @@ public partial class PressureModeTwo : ModPlayer
         float value;
         float amount;
         value = 1f;
-        amount = ModeTwo.lDD;
+        amount = ModeOne.lDD;
         ScreenObstruction.screenObstruction = MathHelper.Lerp(ScreenObstruction.screenObstruction, value, amount);
-        float reversedLDD = 1 - ModeTwo.lDD;
+        float reversedLDD = 1 - ModeOne.lDD;
         float clampedLDD = MathHelper.Clamp(reversedLDD, 0.5f, 1f);
         Lighting.GlobalBrightness *= clampedLDD;
         if (LuneLib.LuneLib.clientConfig.DebugMessages)
