@@ -20,7 +20,7 @@ public partial class LWoLSystem : ModSystem
         if (Main.dayTime) return;
 
         var cfg = LuneWoL.LWoLServerConfig.Main;
-        var Acfg = LuneWoL.LWoLAdvancedSettings.DarkerNights;
+        var Acfg = LuneWoL.LWoLAdvancedServerSettings.DarkerNights;
         float moonMultiplier = GetMoonPhaseMultiplier(_currentMoonPhase);
 
         const float nightLength = 32400f;
@@ -42,7 +42,7 @@ public partial class LWoLSystem : ModSystem
 
     private static float GetMoonPhaseMultiplier(int phase)
     {
-        var Acfg = LuneWoL.LWoLAdvancedSettings.DarkerNights;
+        var Acfg = LuneWoL.LWoLAdvancedServerSettings.DarkerNights;
         return phase switch
         {
             0 => Acfg.MoonPhases.FullMoonMult,

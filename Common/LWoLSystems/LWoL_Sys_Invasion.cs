@@ -24,10 +24,5 @@ public partial class LWoLSystem : ModSystem
             NPC.waveNumber /= Config.InvasionMultiplier;
             b = true;
         }
-
-        if (LuneLib.LuneLib.clientConfig.DebugMessages && L.whoAmI == Main.myPlayer)
-        {
-            Main.NewText($"progress: {Main.invasionProgress}, size start: {Main.invasionSizeStart}, Size: {Main.invasionSize}, Progress Max: {Main.invasionProgressMax}");
-        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿namespace LuneWoL.Core.Config;
 
 [BackgroundColor(5, 40, 40, 255)]
-public class LWoLAdvancedSettings : ModConfig
+public class LWoLAdvancedServerSettings : ModConfig
 {
     public override ConfigScope Mode => ConfigScope.ServerSide;
 
@@ -80,8 +80,79 @@ public class LWoLAdvancedSettings : ModConfig
         }
     }
 
+    [SeparatePage]
+    public class ServerDepthPressureDented
+    {
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 2000)]
+        public int BaseMaxDepth { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float GillsDepthReduction { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float DivingHelmDepthReduction { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float FlipperDepthReduction { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float ArcticGearDepthReduction { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float MermanDepthReduction { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float BreathGillsMultiplier { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float BreathDivingHelmMultiplier { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 1f)]
+        [Increment(0.01f)]
+        public float BreathArcticGearMultiplier { get; set; }
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0f, 8f)]
+        [Increment(0.1f)]
+        public float BreathBaseDrainRate { get; set; }
+
+        public ServerDepthPressureDented()
+        {
+            BaseMaxDepth = 200;
+            GillsDepthReduction = 0.05f;
+            DivingHelmDepthReduction = 0.1f;
+            FlipperDepthReduction = 0.0f;
+            ArcticGearDepthReduction = 0.15f;
+            MermanDepthReduction = 0.15f;
+
+            BreathGillsMultiplier = 0.3f;
+            BreathDivingHelmMultiplier = 0.5f;
+            BreathArcticGearMultiplier = 0.5f;
+            BreathBaseDrainRate = 2f;
+        }
+    }
+
     [BackgroundColor(15, 60, 65, 255)]
     public DarkerNightsDented DarkerNights = new();
 
-    public override void OnLoaded() => LuneWoL.LWoLAdvancedSettings = this;
+    [BackgroundColor(15, 60, 65, 255)]
+    public ServerDepthPressureDented ServerDepthPressure = new();
+
+    public override void OnLoaded() => LuneWoL.LWoLAdvancedServerSettings = this;
 }

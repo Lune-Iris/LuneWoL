@@ -674,6 +674,11 @@ LWoLAdvancedSettings: {
 		Label: Moon Phases
 		Tooltip: ""
 	}
+
+	DepthPressure: {
+		Label: Depth Pressure
+		Tooltip: ""
+	}
 }
 
 DarkerNightsDented: {
@@ -741,5 +746,129 @@ MoonPhasesDented: {
 	WaxingGibbousMult: {
 		Label: Waxing Gibbous MinBrightness
 		Tooltip: Determines how dark nights can get when the moon phase is waxing gibbous.
+	}
+}
+
+DepthPressureDented: {
+	Tooltip: ""
+
+	GillsReduction: {
+		Label: Gills Reduction
+		Tooltip: ""
+	}
+
+	Mode2: {
+		Label: Mode2
+		Tooltip: ""
+	}
+}
+
+Mode2ComboBox: {
+	Tooltip: ""
+
+	UpdateRadiusTiles: {
+		Label: Update Radius Tiles
+		Tooltip: ""
+	}
+
+	UpdateIntervalTicks: {
+		Label: Update Interval Ticks
+		Tooltip: ""
+	}
+
+	ShowSurfaceDebug: {
+		Label: Show Surface Debug
+		Tooltip: ""
+	}
+}
+
+LWoLAdvancedClientSettings: {
+	DisplayName: "[Client] Advanced Settings"
+
+	ClientDepthPressure: {
+		Label: Client Depth Pressure
+		Tooltip: ""
+	}
+}
+
+ClientDepthPressureDented: {
+	Tooltip: ""
+
+	UpdateIntervalTicks: {
+		Label: Update Interval Ticks
+		Tooltip: ""
+	}
+
+	ShowSurfaceDebug: {
+		Label: Show Surface Debug
+		Tooltip: ""
+	}
+}
+
+LWoLAdvancedServerSettings: {
+	DisplayName: "[Server] Advanced Settings"
+
+	DarkerNights: {
+		Label: Darker Nights
+		Tooltip: ""
+	}
+
+	ServerDepthPressure: {
+		Label: Server Depth Pressure
+		Tooltip: ""
+	}
+}
+
+ServerDepthPressureDented: {
+	Tooltip: ""
+
+	BaseMaxDepth: {
+		Label: Base Max Depth
+		Tooltip: ""
+	}
+
+	GillsDepthReduction: {
+		Label: Gills Depth Reduction
+		Tooltip: ""
+	}
+
+	DivingHelmDepthReduction: {
+		Label: Diving Helm Depth Reduction
+		Tooltip: ""
+	}
+
+	FlipperDepthReduction: {
+		Label: Flipper Depth Reduction
+		Tooltip: ""
+	}
+
+	ArcticGearDepthReduction: {
+		Label: Arctic Gear Depth Reduction
+		Tooltip: ""
+	}
+
+	MermanDepthReduction: {
+		Label: Merman Depth Reduction
+		Tooltip: ""
+	}
+
+	BreathGillsMultiplier: {
+		Label: Breath Gills Multiplier
+		Tooltip: ""
+	}
+
+	BreathDivingHelmMultiplier: {
+		Label: Breath Diving Helm Multiplier
+		Tooltip: ""
+	}
+
+	BreathArcticGearMultiplier: {
+		Label: Breath Arctic Gear Multiplier
+		Tooltip: ""
+	}
+
+	BreathBaseDrainRate: {
+		Label: Breath Base Drain Rate
+		Tooltip: ""
 	}
 }

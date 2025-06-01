@@ -41,11 +41,6 @@ public partial class LWoLPlayer : ModPlayer
     {
         var Config = LuneWoL.LWoLServerConfig.Main;
 
-        if (Player.whoAmI == Main.myPlayer && LuneLib.LuneLib.clientConfig.DebugMessages)
-        {
-            Main.NewText($"Heat = {HeatStrokeCounter}, Bliz = {TundraBlizzardCounter}");
-        }
-
         if (DmgPlrBcCrit && Config.CritFailMode > 0)
         {
             CritFailDamage(Player);
