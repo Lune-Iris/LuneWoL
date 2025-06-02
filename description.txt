@@ -16,7 +16,7 @@ Wind Affects Arrows
 Demon Mode (Silly meme :3c)
 Chilly (Freeze in the tundra without protection.)
 Hell Is Hot (On-Fire debuff in Hell without protection.)
-No Evil Daytime (Stops evil biomes from spawning at night.)
+No Evil Daytime (Stops the player from entering evil biomes during night.)
 Space Vacuum (Take damage without oxygen in space.)
 Dangerous Weathers (Certain weathers give different effects.)
 Worse Healing Potions

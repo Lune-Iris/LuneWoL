@@ -248,7 +248,7 @@ public class LWoLAdvancedServerSettings : ModConfig
         }
         public ServerDepthPressureDented()
         {
-            BaseMaxDepth = 200;
+            BaseMaxDepth = 250;
             BaseBreathDrainRate = 0.5f;
             BaseTickRate = 32f;
             BaseDRRate = 12f;
