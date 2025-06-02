@@ -19,6 +19,8 @@ public class SurfacePressurePlayer : ModPlayer
 
     public override void Initialize()
     {
+        if (NotEnabled) return;
+
         _updateTimer = 0;
         _inWaterPool = false;
         _cachedTopY = -1;
@@ -127,6 +129,8 @@ public class SurfacePressurePlayer : ModPlayer
 
     public override void PostUpdate()
     {
+        if (NotEnabled) return;
+
         var Acfg = LuneWoL.LWoLAdvancedClientSettings.ClientDepthPressure;
 
         if (++_updateTimer < Acfg.UpdateIntervalTicks)
@@ -183,6 +187,8 @@ public class SurfacePressurePlayer : ModPlayer
 
         public override void ModifyInterfaceLayers(List<GameInterfaceLayer> layers)
         {
+            if (NotEnabled) return;
+
             var Acfg = LuneWoL.LWoLAdvancedClientSettings.ClientDepthPressure;
             if (!Acfg.ShowSurfaceDebug)
                 return;

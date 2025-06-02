@@ -8,6 +8,7 @@ namespace LuneWoL.PressureCheckFolder;
 
 internal class LWoLDepthDamage : ModPlayer
 {
+    public static bool NotEnabled => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 0;
     public static bool UsingModeOne => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 1;
     public static bool UsingModeTwo => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 2;
 
@@ -24,6 +25,8 @@ internal class LWoLDepthDamage : ModPlayer
 
     private void DamageChecker()
     {
+        if (NotEnabled) return;
+
         if (reducedDepthDiff >= maxDepth)
         {
             Player.LibPlayer().depthwaterPressure = true;
@@ -39,57 +42,97 @@ internal class LWoLDepthDamage : ModPlayer
     private void BreathChecker()
     {
         var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
-        double depthRatio = (tileDiff / maxDepth) * 2.0;
+        var Bcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.BreathValues;
+        var Tcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.TíckValues;
+        var Dcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DRValues;
+
+        double depthRatio = tileDiff / (double)maxDepth;
         if (depthRatio < 0.0001)
             depthRatio = 0.0001;
+        if (depthRatio > 1.0)
+            depthRatio = 1.0;
 
-        double baseDrain = 12.0 * (1.0 - depthRatio) * cfg.BreathBaseDrainRate;
-        if (baseDrain < 1.0)
-            baseDrain = 1.0;
+        double rawBreathLoss = 50.0 * depthRatio;
 
-        double tickMultiplier = 1.0;
-        if (Player.gills)
-            tickMultiplier -= cfg.BreathGillsMultiplier;
-        if (Player.accDivingHelm)
-            tickMultiplier -= cfg.BreathDivingHelmMultiplier;
-        if (Player.arcticDivingGear)
-            tickMultiplier -= cfg.BreathArcticGearMultiplier;
-        if (Player.accMerman)
-            tickMultiplier -= cfg.MermanDepthReduction;
-        if (Player.ignoreWater)
-            tickMultiplier -= 0.5;
+        double breathLossMult = cfg.BaseBreathDrainRate
+            - (Player.gills ? Bcfg.BREATHGillsAddition : 0.0)
+            - (Player.accDivingHelm ? Bcfg.BREATHDivingHelmAddition : 0.0)
+            - (Player.accDivingHelm && Player.accFlipper ? Bcfg.BREATHDivingGearAddition : 0.0)
+            - (Player.arcticDivingGear ? Bcfg.BREATHArcticGearAddition : 0.0)
+            - (Player.accMerman ? Bcfg.BREATHMermanAddition : 0.0);
 
-        tickMultiplier = MathHelper.Clamp((float)tickMultiplier, 0.1f, 50f);
+        if (breathLossMult < 0.05)
+            breathLossMult = 0.05;
 
-        double tickRate = baseDrain / (depthRatio * tickMultiplier);
-        tickRate = Math.Max(tickRate, 1.0);
+        double breathLoss = rawBreathLoss * breathLossMult;
+
+        double baseTick = cfg.BaseTickRate * (1.0 - depthRatio);
+        if (baseTick < 1.0)
+            baseTick = 1.0;
+
+        double tickMultiplier = 1.0
+            + (Player.gills ? Tcfg.TICKGillsAddition : 0.0)
+            + (Player.accDivingHelm ? Tcfg.TICKDivingHelmAddition : 0.0)
+            + (Player.accDivingHelm && Player.accFlipper ? Tcfg.TICKDivingGearAddition : 0.0)
+            + (Player.arcticDivingGear ? Tcfg.TICKArcticGearAddition : 0.0)
+            + (Player.accMerman ? Tcfg.TICKMermanAddition : 0.0);
+
+        if (tickMultiplier > 50.0)
+            tickMultiplier = 50.0;
+
+        double tickRate = baseTick * tickMultiplier;
+        if (tickRate < 1.0)
+            tickRate = 1.0;
 
         breathCooldown++;
         if (breathCooldown >= (int)tickRate && tileDiff >= 2.0)
         {
             breathCooldown = 0;
+
             if (Player.breath > 0)
-                Player.breath -= 1;
+            {
+                int breathToSubtract = (int)(breathLoss + 1.0);
+                Player.breath -= breathToSubtract;
+                if (Player.breath < 0)
+                    Player.breath = 0;
+            }
         }
 
         if (Player.breath > 0 && (Player.gills || Player.merman))
         {
             Player.breath -= 3;
+            if (Player.breath < 0)
+                Player.breath = 0;
         }
 
-        int zeroBreathLifeLoss = (int)(6.0 * depthRatio);
-        if (zeroBreathLifeLoss < 0)
-            zeroBreathLifeLoss = 0;
+        int baseLifeLoss = (int)(cfg.BaseDRRate * depthRatio);
+        if (baseLifeLoss < 0)
+            baseLifeLoss = 0;
+
+        int lifeLossResist = 0
+            + (Player.gills ? Dcfg.DRGillsAddition : 0)
+            + (Player.accDivingHelm ? Dcfg.DRDivingHelmAddition : 0)
+            + (Player.accDivingHelm && Player.accFlipper ? Dcfg.DRArcticGearAddition : 0)
+            + (Player.arcticDivingGear ? Dcfg.DRArcticGearAddition : 0)
+            + (Player.accMerman ? Dcfg.DRMermanAddition : 0);
+
+        int finalLifeLoss = baseLifeLoss - lifeLossResist;
+        if (finalLifeLoss < 0)
+            finalLifeLoss = 0;
 
         if (Player.breath <= 0)
         {
-            Player.statLife -= zeroBreathLifeLoss;
+            Player.statLife -= finalLifeLoss;
+            if (Player.statLife < 0)
+                Player.statLife = 0;
         }
+
         if (Player.statLife <= 0)
         {
             KillPlayer();
         }
     }
+
 
     public void KillPlayer()
     {
@@ -196,7 +239,7 @@ internal class LWoLDepthDamage : ModPlayer
                 CopyrightSound();
             else
                 Sound();
-            playerDeathReason = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeath" + Main.rand.Next(1, 9 + 1)).ToNetworkText(Player.name));
+            playerDeathReason = PlayerDeathReason.ByCustomReason(GetText("Status.Death.PressureDeath" + Main.rand.Next(1, 10 + 1)).ToNetworkText(Player.name));
         }
         NetworkText deathText = playerDeathReason.GetDeathText(Player.name);
 
@@ -232,33 +275,36 @@ internal class LWoLDepthDamage : ModPlayer
     public int CalcMaxDepth()
     {
         var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
+        var Dcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DepthValues;
         maxDepth = cfg.BaseMaxDepth;
 
         if (Player.arcticDivingGear)
-            maxDepth = (int)(cfg.BaseMaxDepth / (1f - cfg.ArcticGearDepthReduction));
+            maxDepth = (int)(cfg.BaseMaxDepth * (1f + Dcfg.DEPTHArcticGearAddition));
         else if (Player.accDivingHelm && Player.accFlipper)
-            maxDepth = (int)(cfg.BaseMaxDepth / (1f - cfg.DivingHelmDepthReduction - cfg.FlipperDepthReduction));
+            maxDepth = (int)(cfg.BaseMaxDepth * (1f + Dcfg.DEPTHDivingGearAddition));
         else if (Player.accDivingHelm)
-            maxDepth = (int)(cfg.BaseMaxDepth / (1f - cfg.DivingHelmDepthReduction));
-        else if (Player.gills)
-            maxDepth = (int)(cfg.BaseMaxDepth / (1f - cfg.GillsDepthReduction));
+            maxDepth = (int)(cfg.BaseMaxDepth * (1f + Dcfg.DEPTHDivingHelmAddition));
+            
+        if (Player.gills)
+            maxDepth = (int)(cfg.BaseMaxDepth * (1f + Dcfg.DEPTHGillsAddition));
 
         return maxDepth;
     }
 
     public float CalcReducedDepth()
     {
-        var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
+        var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DepthValues;
         reducedDepth = 1f;
 
         if (Player.arcticDivingGear)
-            reducedDepth -= cfg.ArcticGearDepthReduction;
+            reducedDepth -= cfg.DEPTHArcticGearAddition;
         if (Player.accDivingHelm && Player.accFlipper)
-            reducedDepth -= (cfg.DivingHelmDepthReduction + cfg.FlipperDepthReduction);
+            reducedDepth -= cfg.DEPTHDivingGearAddition;
         else if (Player.accDivingHelm)
-            reducedDepth -= cfg.DivingHelmDepthReduction;
+            reducedDepth -= cfg.DEPTHDivingHelmAddition;
+
         if (Player.gills)
-            reducedDepth -= cfg.GillsDepthReduction;
+            reducedDepth -= cfg.DEPTHGillsAddition;
         if (reducedDepth <= 0.25f) reducedDepth = 0.25f;
 
         return reducedDepth;
@@ -312,6 +358,8 @@ internal class LWoLDepthDamage : ModPlayer
 
     public override void PostUpdateMiscEffects()
     {
+        if (NotEnabled) return;
+
         if (Player.whoAmI != Main.myPlayer)
             return;
 
@@ -320,6 +368,8 @@ internal class LWoLDepthDamage : ModPlayer
 
     public override void PostUpdateEquips()
     {
+        if (NotEnabled) return;
+
         if (Player.whoAmI != Main.myPlayer)
             return;
         if (entryY < 0 && UsingModeTwo)
@@ -342,6 +392,8 @@ internal class LWoLDepthDamage : ModPlayer
 
     public override void PostUpdate()
     {
+        if (NotEnabled) return;
+
         if (Player.whoAmI != Main.myPlayer)
             return;
         if (!Player.LibPlayer().LWaterEyes)
@@ -353,7 +405,5 @@ internal class LWoLDepthDamage : ModPlayer
         float reversed = 1f - lightDepthDiff;
         float clamped = MathHelper.Clamp(reversed, 0.5f, 1f);
         Lighting.GlobalBrightness *= clamped;
-        //if (Player.whoAmI == Main.myPlayer)
-        //    Main.NewText($"[DepthDamage] mD={maxDepth}, rD={reducedDepth:F2}, rDD={reducedDepthDiff}, CDP={Player.LibPlayer().currentDepthPressure}, lDD={lightDepthDiff:F2}");
     }
 }

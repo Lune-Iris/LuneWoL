@@ -749,39 +749,6 @@ MoonPhasesDented: {
 	}
 }
 
-DepthPressureDented: {
-	Tooltip: ""
-
-	GillsReduction: {
-		Label: Gills Reduction
-		Tooltip: ""
-	}
-
-	Mode2: {
-		Label: Mode2
-		Tooltip: ""
-	}
-}
-
-Mode2ComboBox: {
-	Tooltip: ""
-
-	UpdateRadiusTiles: {
-		Label: Update Radius Tiles
-		Tooltip: ""
-	}
-
-	UpdateIntervalTicks: {
-		Label: Update Interval Ticks
-		Tooltip: ""
-	}
-
-	ShowSurfaceDebug: {
-		Label: Show Surface Debug
-		Tooltip: ""
-	}
-}
-
 LWoLAdvancedClientSettings: {
 	DisplayName: "[Client] Advanced Settings"
 
@@ -796,12 +763,17 @@ ClientDepthPressureDented: {
 
 	UpdateIntervalTicks: {
 		Label: Update Interval Ticks
-		Tooltip: ""
+		Tooltip:
+			'''
+			Time between each check for surface of the water body you're in.
+
+			Lower is better but worse performance.
+			'''
 	}
 
 	ShowSurfaceDebug: {
 		Label: Show Surface Debug
-		Tooltip: ""
+		Tooltip: Shows you where the surface level of the water body you're in is
 	}
 }
 
@@ -824,51 +796,177 @@ ServerDepthPressureDented: {
 
 	BaseMaxDepth: {
 		Label: Base Max Depth
+		Tooltip:
+			'''
+			The maximum tiles before you start taking damage.
+
+			You might wanna increase this if youre using Calamity mod.
+			'''
+	}
+
+	BaseBreathDrainRate: {
+		Label: Base Breath Drain Amount
+		Tooltip:
+			'''
+			The base amount of breath you can hold.
+
+			Increase this to hold you breath for longer.
+			'''
+	}
+
+	BaseTickRate: {
+		Label: Base Tick Rate
+		Tooltip:
+			'''
+			This is the base rate of which breath gets depleted.
+
+			Increasing this will make your breath deplete slower.
+			'''
+	}
+
+	BaseDRRate: {
+		Label: Base Drowning Damage Amount
+		Tooltip:
+			'''
+			This is the base amount of drowning damage you take.
+
+			Increase this to take more damage.
+			'''
+	}
+
+	TíckValues: {
+		Label: Tíck Values
 		Tooltip: ""
 	}
 
-	GillsDepthReduction: {
-		Label: Gills Depth Reduction
+	BreathValues: {
+		Label: Breath Values
 		Tooltip: ""
 	}
 
-	DivingHelmDepthReduction: {
-		Label: Diving Helm Depth Reduction
+	DepthValues: {
+		Label: Depth Values
 		Tooltip: ""
 	}
 
-	FlipperDepthReduction: {
-		Label: Flipper Depth Reduction
+	DRValues: {
 		Tooltip: ""
+		Label: Drowning Damage Reduction Values
+	}
+}
+
+DRValuesDented: {
+	DRGillsAddition: {
+		Label: Damage Reduction Gills
+		Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
 	}
 
-	ArcticGearDepthReduction: {
-		Label: Arctic Gear Depth Reduction
-		Tooltip: ""
+	DRDivingHelmAddition: {
+		Label: Damage Reduction Diving Helm
+		Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
 	}
 
-	MermanDepthReduction: {
-		Label: Merman Depth Reduction
-		Tooltip: ""
+	DRDivingGearAddition: {
+		Label: Damage Reduction Diving Gear
+		Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
 	}
 
-	BreathGillsMultiplier: {
-		Label: Breath Gills Multiplier
-		Tooltip: ""
+	DRArcticGearAddition: {
+		Label: Damage Reduction Arctic Gear
+		Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
 	}
 
-	BreathDivingHelmMultiplier: {
-		Label: Breath Diving Helm Multiplier
-		Tooltip: ""
+	DRMermanAddition: {
+		Label: Damage Reduction Merman
+		Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
 	}
 
-	BreathArcticGearMultiplier: {
-		Label: Breath Arctic Gear Multiplier
-		Tooltip: ""
+	Tooltip: ""
+}
+
+BreathValuesDented: {
+	Tooltip: ""
+
+	BREATHGillsAddition: {
+		Label: Breath Gills Addition
+		Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
 	}
 
-	BreathBaseDrainRate: {
-		Label: Breath Base Drain Rate
-		Tooltip: ""
+	BREATHDivingHelmAddition: {
+		Label: Breath Diving Helm Addition
+		Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+	}
+
+	BREATHDivingGearAddition: {
+		Label: Breath Diving Gear Addition
+		Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+	}
+
+	BREATHArcticGearAddition: {
+		Label: Breath Arctic Gear Addition
+		Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+	}
+
+	BREATHMermanAddition: {
+		Label: Breath Merman Addition
+		Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+	}
+}
+
+DepthValuesDented: {
+	Tooltip: ""
+
+	DEPTHGillsAddition: {
+		Label: Depth Gills
+		Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+	}
+
+	DEPTHDivingHelmAddition: {
+		Label: Depth Diving Helm
+		Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+	}
+
+	DEPTHDivingGearAddition: {
+		Label: Depth Diving Gear
+		Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+	}
+
+	DEPTHArcticGearAddition: {
+		Label: Depth Arctic Gear
+		Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+	}
+
+	DEPTHMermanAddition: {
+		Label: Depth Merman
+		Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+	}
+}
+
+TICKValuesDented: {
+	Tooltip: ""
+
+	TICKGillsAddition: {
+		Label: Tick Rate Gills
+		Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+	}
+
+	TICKDivingHelmAddition: {
+		Label: Tick Rate Diving Helm
+		Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+	}
+
+	TICKDivingGearAddition: {
+		Label: Tick Rate Diving Gear
+		Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+	}
+
+	TICKArcticGearAddition: {
+		Label: Tick Rate Arctic Gear
+		Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+	}
+
+	TICKMermanAddition: {
+		Label: Tick Rate Merman
+		Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
 	}
 }

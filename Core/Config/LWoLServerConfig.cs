@@ -11,7 +11,6 @@ public class LWoLServerConfig : ModConfig
                !Recipes.Equals(newConfig.Recipes) ||
                !Tiles.Equals(newConfig.Tiles) ||
                !NPCs.Equals(newConfig.NPCs) ||
-               !WaterRelated.Equals(newConfig.WaterRelated) ||
                !Misc.Equals(newConfig.Misc);
 
     [SeparatePage]
@@ -227,7 +226,6 @@ public class LWoLServerConfig : ModConfig
         [SliderColor(0, 15, 70, 255)]
         [Slider]
         [Range(0, 2)]
-        [ReloadRequired]
         public int DepthPressureMode { get; set; }
 
         [BackgroundColor(0, 15, 70, 255)]
@@ -243,11 +241,6 @@ public class LWoLServerConfig : ModConfig
             SlowWater = false;
             WaterPoison = false;
         }
-        public override bool Equals(object obj) => obj is WaterRelatedDented other &&
-                   DepthPressureMode == other.DepthPressureMode;
-
-        public override int GetHashCode() =>
-            HashCode.Combine(DepthPressureMode);
     }
 
     [SeparatePage]

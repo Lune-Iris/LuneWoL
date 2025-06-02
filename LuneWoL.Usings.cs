@@ -27,3 +27,4 @@ global using static LuneLib.Utilities.Hashsets.HashSets;
 global using static LuneLib.Utilities.LuneLibUtils;
 global using static LuneLibAssets.Common.SoundClass;
 global using static LuneWoL.LuneWoL;
+global using static LuneWoL.PressureCheckFolder.LWoLDepthDamage;
