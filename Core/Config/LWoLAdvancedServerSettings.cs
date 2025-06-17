@@ -11,55 +11,55 @@ public class LWoLAdvancedServerSettings : ModConfig
     [SeparatePage]
     public class DarkerNightsDented
     {
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(155, 170, 205, 255)]
         [Range(1, int.MaxValue)]
         public int NightFadeDuration { get; set; }
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(155, 170, 205, 255)]
         [Range(0f, 1f)]
         [Increment(0.05f)]
         public float MinBrightness { get; set; }
 
-        [BackgroundColor(15, 60, 65, 255)]
+        [BackgroundColor(155, 170, 205, 255)]
         public MoonPhasesDented MoonPhases { get; set; } = new();
         public class MoonPhasesDented
         {
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float FullMoonMult { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float WaningGibbousMult { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float ThirdQuarterMult { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float WaningCrescentMult { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float NewMoonMult { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float WaxingCrescentMult { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float FirstQuarterMult { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(155, 170, 205, 255)]
             [Range(0f, 1f)]
             [Increment(0.05f)]
             public float WaxingGibbousMult { get; set; }
@@ -86,51 +86,51 @@ public class LWoLAdvancedServerSettings : ModConfig
     [SeparatePage]
     public class ServerDepthPressureDented
     {
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         [Range(0, 2000)]
         public int BaseMaxDepth { get; set; }
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         [Range(0f, 8f)]
         [Increment(0.1f)]
         public float BaseBreathDrainRate { get; set; }
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         [Range(0f, 256f)]
         [Increment(1f)]
         public float BaseTickRate { get; set; }
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         [Range(0f, 256f)]
         [Increment(1f)]
         public float BaseDRRate { get; set; }
 
 
-        [BackgroundColor(15, 60, 65, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         public BreathValuesDented BreathValues { get; set; } = new();
         public class BreathValuesDented
         {
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float BREATHMermanAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float BREATHGillsAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float BREATHDivingHelmAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float BREATHDivingGearAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float BREATHArcticGearAddition { get; set; }
@@ -143,31 +143,31 @@ public class LWoLAdvancedServerSettings : ModConfig
                 BREATHMermanAddition = 0.30f;
             }
         }
-        [BackgroundColor(15, 60, 65, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         public DepthValuesDented DepthValues { get; set; } = new();
         public class DepthValuesDented
         {
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float DEPTHGillsAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float DEPTHDivingHelmAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float DEPTHDivingGearAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float DEPTHArcticGearAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 1f)]
             [Increment(0.01f)]
             public float DEPTHMermanAddition { get; set; }
@@ -180,31 +180,31 @@ public class LWoLAdvancedServerSettings : ModConfig
                 DEPTHMermanAddition = 0.15f;
             }
         }
-        [BackgroundColor(15, 60, 65, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         public TICKValuesDented TíckValues { get; set; } = new();
         public class TICKValuesDented
         {
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 15f)]
             [Increment(0.01f)]
             public float TICKGillsAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 15f)]
             [Increment(0.01f)]
             public float TICKDivingHelmAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 15f)]
             [Increment(0.01f)]
             public float TICKDivingGearAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 15f)]
             [Increment(0.01f)]
             public float TICKArcticGearAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0f, 15f)]
             [Increment(0.01f)]
             public float TICKMermanAddition { get; set; }
@@ -217,27 +217,27 @@ public class LWoLAdvancedServerSettings : ModConfig
                 TICKMermanAddition = 15f;
             }
         }
-        [BackgroundColor(15, 60, 65, 255)]
+        [BackgroundColor(120, 135, 180, 255)]
         public DRValuesDented DRValues { get; set; } = new();
         public class DRValuesDented
         {
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0, 10)]
             public int DRGillsAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0, 10)]
             public int DRDivingHelmAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0, 10)]
             public int DRDivingGearAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0, 10)]
             public int DRArcticGearAddition { get; set; }
 
-            [BackgroundColor(95, 155, 160, 255)]
+            [BackgroundColor(120, 135, 180, 255)]
             [Range(0, 10)]
             public int DRMermanAddition { get; set; }
             public DRValuesDented()
@@ -261,57 +261,57 @@ public class LWoLAdvancedServerSettings : ModConfig
     [SeparatePage]
     public class OreDensityDented
     {
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(80, 100, 150, 255)]
         public bool DynamiteVein;
-        
-        [BackgroundColor(95, 155, 160, 255)]
+
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int PrehardmodeOreDensityPercent;
-        
-        [BackgroundColor(95, 155, 160, 255)]
+
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int PrehardmodeOreAmountPercent;
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         [ReloadRequired]
         public int HardmodeOreDensityPercent;
-        
-        [BackgroundColor(95, 155, 160, 255)]
+
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         [ReloadRequired]
         public int HardmodeOreAmountPercent;
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int GemStoneDensityPercent;
-        
-        [BackgroundColor(95, 155, 160, 255)]
+
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int GemStoneAmountPercent;
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int SiltDensityPercent;
-        
-        [BackgroundColor(95, 155, 160, 255)]
+
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int SiltAmountPercent;
-        
-        [BackgroundColor(95, 155, 160, 255)]
+
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int SlushDensityPercent;
-        
-        [BackgroundColor(95, 155, 160, 255)]
+
+        [BackgroundColor(80, 100, 150, 255)]
         [Range(0, 100)]
         [Slider]
         public int SlushAmountPercent;
@@ -340,13 +340,13 @@ public class LWoLAdvancedServerSettings : ModConfig
     }
 
 
-    [BackgroundColor(15, 60, 65, 255)]
+    [BackgroundColor(155, 170, 205, 200)]
     public DarkerNightsDented DarkerNights = new();
 
-    [BackgroundColor(15, 60, 65, 255)]
+    [BackgroundColor(120, 135, 180, 200)]
     public ServerDepthPressureDented ServerDepthPressure = new();
 
-    [BackgroundColor(15, 60, 65, 255)]
+    [BackgroundColor(80, 100, 150, 200)]
     public OreDensityDented OreDensityCfg = new();
 
     public override void OnLoaded() => LuneWoL.LWoLAdvancedServerSettings = this;

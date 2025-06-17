@@ -206,10 +206,6 @@ public class LWoLServerConfig : ModConfig
         [Increment(0.05f)]
         [ReloadRequired]
         public float NoMoneh { get; set; }
-
-        [BackgroundColor(0, 25, 80, 255)]
-        [ReloadRequired]
-        public bool DeerclopsDespawn { get; set; }
         public NPCsDented()
         {
             BuyMult = 1f;
@@ -217,17 +213,15 @@ public class LWoLServerConfig : ModConfig
             InvasionMultiplier = -1;
             NeverGoldEnough = false;
             NoMoneh = 1f;
-            DeerclopsDespawn = false;
         }
         public override bool Equals(object obj) => obj is NPCsDented other &&
                    BuyMult == other.BuyMult &&
                    SellMult == other.SellMult &&
                    NeverGoldEnough == other.NeverGoldEnough &&
-                   NoMoneh == other.NoMoneh &&
-                   DeerclopsDespawn == other.DeerclopsDespawn;
+                   NoMoneh == other.NoMoneh;
 
         public override int GetHashCode() =>
-            HashCode.Combine(BuyMult, SellMult, NeverGoldEnough, NoMoneh, DeerclopsDespawn);
+            HashCode.Combine(BuyMult, SellMult, NeverGoldEnough, NoMoneh);
     }
 
     [SeparatePage]

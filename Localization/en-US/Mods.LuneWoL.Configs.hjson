@@ -969,7 +969,7 @@ OreDensityDented: {
 
 	PrehardmodeOreAmountPercent: {
 		Label: Pre-Hardmode Ore Amount
-		Tooltip:			
+		Tooltip:
 			'''
 			This controls how large the veins will be.
 
@@ -1007,9 +1007,9 @@ OreDensityDented: {
 		Label: Gem Stone Density Percent
 		Tooltip:
 			'''
-			This controls how many veins will generate when an evil altar is destroyed.
+			This controls how many veins there will be.
 
-			50 would mean it generates half as many veins.
+			50 would mean there's half as many veins in the world compared to vanilla.
 
 			Set to 100 to disable.
 			'''
@@ -1017,7 +1017,7 @@ OreDensityDented: {
 
 	GemStoneAmountPercent: {
 		Label: Gem Stone Amount Percent
-		Tooltip:			
+		Tooltip:
 			'''
 			This controls how large the veins will be.
 
@@ -1031,9 +1031,9 @@ OreDensityDented: {
 		Label: Silt Density Percent
 		Tooltip:
 			'''
-			This controls how many veins will generate when an evil altar is destroyed.
+			This controls how many veins there will be.
 
-			50 would mean it generates half as many veins.
+			50 would mean there's half as many veins in the world compared to vanilla.
 
 			Set to 100 to disable.
 			'''
@@ -1041,7 +1041,7 @@ OreDensityDented: {
 
 	SiltAmountPercent: {
 		Label: Silt Amount Percent
-		Tooltip: 			
+		Tooltip:
 			'''
 			This controls how large the veins will be.
 
@@ -1053,11 +1053,11 @@ OreDensityDented: {
 
 	SlushDensityPercent: {
 		Label: Slush Density Percent
-		Tooltip:			
+		Tooltip:
 			'''
-			This controls how many veins will generate when an evil altar is destroyed.
+			This controls how many veins there will be.
 
-			50 would mean it generates half as many veins.
+			50 would mean there's half as many veins in the world compared to vanilla.
 
 			Set to 100 to disable.
 			'''
@@ -1065,7 +1065,7 @@ OreDensityDented: {
 
 	SlushAmountPercent: {
 		Label: Slush Amount Percent
-		Tooltip:			
+		Tooltip:
 			'''
 			This controls how large the veins will be.
 
@@ -1077,7 +1077,6 @@ OreDensityDented: {
 
 	DynamiteVein: {
 		Label: Generate Detenator Traps
-		Tooltip: Setting this to false will stop the huge ore veins with dynamite and a detonator from generating.
-		
+		Tooltip: Turn this off if you don't want the large veins with dynamite on them to generate.
 	}
 }

@@ -2,6 +2,8 @@
 
 internal class OreDensityGenSystem : ModSystem
 {
+    public override bool IsLoadingEnabled(Mod mod) => LuneWoL.LWoLServerConfig.Tiles.OreDensity;
+
     public override void ModifyWorldGenTasks(List<GenPass> tasks, ref double totalWeight)
     {
         int jngIndex = tasks.FindIndex(pass => pass.Name == "Jungle");
