@@ -258,6 +258,7 @@ public class LWoLAdvancedServerSettings : ModConfig
         }
     }
 
+    [SeparatePage]
     public class OreDensityDented
     {
         [BackgroundColor(95, 155, 160, 255)]
