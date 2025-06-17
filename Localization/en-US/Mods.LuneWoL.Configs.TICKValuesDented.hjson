@@ -1,0 +1,26 @@
+TICKGillsAddition: {
+	Label: Tick Rate Gills
+	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+}
+
+TICKDivingHelmAddition: {
+	Label: Tick Rate Diving Helm
+	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+}
+
+TICKDivingGearAddition: {
+	Label: Tick Rate Diving Gear
+	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+}
+
+TICKArcticGearAddition: {
+	Label: Tick Rate Arctic Gear
+	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+}
+
+TICKMermanAddition: {
+	Label: Tick Rate Merman
+	Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+}
+
+Tooltip: ""

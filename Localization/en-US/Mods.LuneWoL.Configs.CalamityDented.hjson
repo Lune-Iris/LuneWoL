@@ -1,0 +1,11 @@
+DifficultyRebuff: {
+	Label: Difficulty Rebuff
+	Tooltip:
+		'''
+		Removes the nerf calamity mod gives to some enemies in expert and above.
+
+		Suggested by `SpecyJ`.
+		'''
+}
+
+Tooltip: ""

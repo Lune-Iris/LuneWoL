@@ -5,7 +5,7 @@ public partial class LWoL_GP_Hooks : GlobalProjectile
     public override void OnSpawn(Projectile Projectile, IEntitySource source)
     {
         var p = L.GetModPlayer<LWoLPlayer>();
-        var Config = LuneWoL.LWoLServerConfig.Main;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (p.DmgPlrBcCrit && Config.CritFailMode != 0 && Projectile.owner == Main.myPlayer)
         {

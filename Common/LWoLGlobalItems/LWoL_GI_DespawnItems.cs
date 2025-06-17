@@ -3,11 +3,11 @@
 public partial class WoLGlobalItems : GlobalItem
 {
 
-    private int Tajmer = LuneWoL.LWoLServerConfig.Misc.DespawnItemsTimer * 60;
+    private int Tajmer = LuneWoL.LWoLServerConfig.Items.DespawnItemsTimer * 60;
     private bool a = true;
     private void DespawnItemsAfterTime(Item item)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.Items;
 
         if (Config.DespawnItemsTimer > -1)
         {
@@ -35,7 +35,7 @@ public partial class WoLGlobalItems : GlobalItem
 
     private void DustyDespawn(Item item)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.Items;
 
         if (Config.DespawnItemsTimer > -1)
         {

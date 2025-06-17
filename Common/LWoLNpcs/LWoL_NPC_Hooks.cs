@@ -4,7 +4,7 @@ public partial class WoLNpc : GlobalNPC
 {
     public override void SetDefaults(NPC npc)
     {
-        var M = LuneWoL.LWoLServerConfig.Main;
+        var M = LuneWoL.LWoLServerConfig.NPCs;
 
         if (M.DemonMode)
         {

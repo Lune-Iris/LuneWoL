@@ -1,0 +1,104 @@
+LifePercent: {
+	Label: Life (%)
+	Tooltip: Changes the max amout of life you and others have.
+}
+
+DamagePercent: {
+	Label: Damage (%)
+	Tooltip: Changes the damage output you and others have.
+}
+
+DefensePercent: {
+	Label: Defense (%)
+	Tooltip: Changes the defense you and others have.
+}
+
+EndurancePercent: {
+	Label: Damage Reduction (%)
+	Tooltip: Changes the damage reduction you and others have.
+}
+
+ArmorPenetrationPercent: {
+	Label: Armour Penetration (%)
+	Tooltip: Changes the armour penetration you and others have.
+}
+
+LifeRegenPercent: {
+	Label: Life Regen (%)
+	Tooltip: Changes the life regeneration you and others have.
+}
+
+ManaPercent: {
+	Label: Mana (%)
+	Tooltip: Changes the max mana you and others have.
+}
+
+ManaRegenPercent: {
+	Label: Mana Regen (%)
+	Tooltip: Changes the mana regen you and others have.
+}
+
+MoveSpeedPercent: {
+	Label: Movement Speed (%)
+	Tooltip: Changes the movement speed you and others have.
+}
+
+ManaCostPercent: {
+	Label: Mana Cost (%)
+	Tooltip: Changes the mana cost you and others have.
+}
+
+WingTimePercent: {
+	Label: Flight Time (%)
+	Tooltip: Changes the flight time you and others have.
+}
+
+MaxTurretsPercent: {
+	Label: Max Turrets (%)
+	Tooltip: Changes the max amount turrets you and others can have.
+}
+
+JumpSpeedPercent: {
+	Label: Jump Speed (%)
+	Tooltip: Changes the jump speed you and others have.
+}
+
+JumpHeightPercent: {
+	Label: Jump Height (%)
+	Tooltip: Changes the max jump height you and others have.
+}
+
+BlockRangePercent: {
+	Label: Block Range (%)
+	Tooltip: Changes the block range you and others have.
+}
+
+TileSpeedPercent: {
+	Label: Tile Speed (%)
+	Tooltip: Changes the tile placement speed you and others have.
+}
+
+WallSpeedPercent: {
+	Label: Wall Speed (%)
+	Tooltip: Changes the wall placement speed you and others have.
+}
+
+MaxMinionsPercent: {
+	Label: Max Minions (%)
+	Tooltip: Changes the max amount of minions you and others can have.
+}
+
+PickSpeedPercent: {
+	Label: Pick Speed (%)
+	Tooltip: Changes the mining speed you and others have.
+}
+
+AttackSpeedPercent: {
+	Label: Attack Speed (%)
+	Tooltip: Changes the attack speed you and others have.
+}
+
+DisablePlayerStatChanges: {
+	Label: Disable Player Stat Changes
+	Tooltip: Disables all the above options.
+}

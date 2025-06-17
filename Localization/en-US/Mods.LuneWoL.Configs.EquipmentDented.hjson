@@ -1,0 +1,45 @@
+ArmourRework: {
+	Label: Armour Rework
+	Tooltip:
+		'''
+		Gives Some armour types debuffs.
+
+		For example lead armour poisoning you.
+
+		Suggested by `Lune`.
+		'''
+}
+
+DisableAutoReuse: {
+	Label: Disable Auto Reuse
+	Tooltip:
+		'''
+		Disables autoreuse so you have to click every single time you want to use anything.
+
+		(i dont think this is compatible with any mods that changes autoreuse)
+
+		Suggested by `Lune`.
+		'''
+}
+
+NoAccessories: {
+	Label: No Accessories
+	Tooltip:
+		'''
+		Completely disables all accessories from being equiped.
+
+		Suggested by `Wallarus`.
+		'''
+}
+
+ReforgeNerf: {
+	Label: Reforge Nerf
+	Tooltip:
+		'''
+		Nerfs weapon and tool reforges.
+
+		Suggested by `Lune`.
+		'''
+}
+
+Tooltip: ""

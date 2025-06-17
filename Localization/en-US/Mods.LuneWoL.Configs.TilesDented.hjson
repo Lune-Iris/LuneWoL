@@ -1,0 +1,23 @@
+OreDestroyChance: {
+	Label: (Fragile Ores) Ore Destroy Chance
+	Tooltip:
+		'''
+		Makes ores have a chance to not drop when mined.
+
+		Set to 0% to disable.
+
+		Suggested by `Mushy`.
+		'''
+}
+
+OreDensity: {
+	Label: Ore Density
+	Tooltip:
+		'''
+		Decreases the amount of ore that generates during world generation and altar destruction.
+
+		Suggested by `ClayWarTheOne`.
+		'''
+}
+
+Tooltip: ""

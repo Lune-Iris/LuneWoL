@@ -1,0 +1,26 @@
+BREATHGillsAddition: {
+	Label: Breath Gills Addition
+	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+}
+
+BREATHDivingHelmAddition: {
+	Label: Breath Diving Helm Addition
+	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+}
+
+BREATHDivingGearAddition: {
+	Label: Breath Diving Gear Addition
+	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+}
+
+BREATHArcticGearAddition: {
+	Label: Breath Arctic Gear Addition
+	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+}
+
+BREATHMermanAddition: {
+	Label: Breath Merman Addition
+	Tooltip: Increasing this will allow the player to hold their breathe underwater for longer while they have this effect.
+}
+
+Tooltip: ""

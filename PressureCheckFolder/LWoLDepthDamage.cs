@@ -5,9 +5,9 @@ namespace LuneWoL.PressureCheckFolder;
 
 internal class LWoLDepthDamage : ModPlayer
 {
-    public static bool NotEnabled => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 0;
-    public static bool UsingModeOne => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 1;
-    public static bool UsingModeTwo => LuneWoL.LWoLServerConfig.WaterRelated.DepthPressureMode == 2;
+    public static bool NotEnabled => LuneWoL.LWoLServerConfig.Water.DepthPressureMode == 0;
+    public static bool UsingModeOne => LuneWoL.LWoLServerConfig.Water.DepthPressureMode == 1;
+    public static bool UsingModeTwo => LuneWoL.LWoLServerConfig.Water.DepthPressureMode == 2;
 
     public int breathCooldown, maxDepth, pressureDamageToApply, reducedDepthDiff;
     public float reducedDepth, lightDepthDiff, tileDiffCalced, tileDiff, entryY;
@@ -39,7 +39,7 @@ internal class LWoLDepthDamage : ModPlayer
     {
         var cfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure;
         var Bcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.BreathValues;
-        var Tcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.TíckValues;
+        var Tcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.TickValues;
         var Dcfg = LuneWoL.LWoLAdvancedServerSettings.ServerDepthPressure.DRValues;
 
         double depthRatio = tileDiff / (double)maxDepth;

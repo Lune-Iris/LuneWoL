@@ -1,0 +1,16 @@
+DisplayName: 3. [Server] Advanced Settings
+
+DarkerNights: {
+	Label: Darker Nights
+	Tooltip: ""
+}
+
+ServerDepthPressure: {
+	Label: Server Depth Pressure
+	Tooltip: ""
+}
+
+OreDensityCfg: {
+	Label: Ore Density
+	Tooltip: ""
+}

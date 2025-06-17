@@ -7,14 +7,15 @@ public class LWoLServerConfig : ModConfig
 
     public override bool NeedsReload(ModConfig pendingConfig) => pendingConfig is not LWoLServerConfig newConfig
             ? base.NeedsReload(pendingConfig)
-            : !Equipment.Equals(newConfig.Equipment) ||
+            : !LPlayer.Equals(newConfig.LPlayer) ||
+               !Equipment.Equals(newConfig.Equipment) ||
                !Recipes.Equals(newConfig.Recipes) ||
                !Tiles.Equals(newConfig.Tiles) ||
                !NPCs.Equals(newConfig.NPCs) ||
-               !Misc.Equals(newConfig.Misc);
+               !Items.Equals(newConfig.Items);
 
     [SeparatePage]
-    public class MainDented
+    public class PlayerDented
     {
         [BackgroundColor(155, 170, 205, 255)]
         [SliderColor(155, 170, 205, 255)]
@@ -23,28 +24,26 @@ public class LWoLServerConfig : ModConfig
         public int CritFailMode { get; set; }
 
         [BackgroundColor(155, 170, 205, 255)]
-        [Slider]
         [SliderColor(155, 170, 205, 255)]
-        [Range(0, 2)]
-        public int DarkerNightsMode { get; set; }
+        [Slider]
+        [Range(0, 3)]
+        [ReloadRequired]
+        public int DeathPenaltyMode { get; set; }
 
-        [BackgroundColor(155, 170, 205, 255)]
-        public bool WindArrows { get; set; }
-
-        [BackgroundColor(155, 170, 205, 255)]
-        public bool DemonMode { get; set; }
-
-        public MainDented()
+        public PlayerDented()
         {
             CritFailMode = 0;
-            DarkerNightsMode = 0;
-            WindArrows = false;
-            DemonMode = false;
+            DeathPenaltyMode = 0;
         }
+        public override bool Equals(object obj) => obj is PlayerDented other &&
+           DeathPenaltyMode == other.DeathPenaltyMode;
+
+        public override int GetHashCode() =>
+            HashCode.Combine(DeathPenaltyMode);
     }
 
     [SeparatePage]
-    public class BiomeSpecificDented
+    public class EnvironmentDented
     {
         [BackgroundColor(120, 135, 180, 255)]
         public bool Chilly { get; set; }
@@ -61,18 +60,29 @@ public class LWoLServerConfig : ModConfig
         [BackgroundColor(120, 135, 180, 255)]
         public bool WeatherPain { get; set; }
 
-        public BiomeSpecificDented()
+        [BackgroundColor(120, 135, 180, 255)]
+        [Slider]
+        [SliderColor(120, 135, 180, 255)]
+        [Range(0, 2)]
+        public int DarkerNightsMode { get; set; }
+
+        [BackgroundColor(120, 135, 180, 255)]
+        public bool WindArrows { get; set; }
+
+        public EnvironmentDented()
         {
             Chilly = false;
             HellIsHot = false;
             NoEvilDayTime = false;
             SpacePain = false;
             WeatherPain = false;
+            DarkerNightsMode = 0;
+            WindArrows = false;
         }
     }
 
     [SeparatePage]
-    public class BuffsAndDebuffsDented
+    public class BuffsDented
     {
         [BackgroundColor(80, 100, 150, 255)]
         [Slider]
@@ -80,7 +90,7 @@ public class LWoLServerConfig : ModConfig
         [Range(0, 100)]
         public int HealingPotionBadPercent { get; set; }
 
-        public BuffsAndDebuffsDented() => HealingPotionBadPercent = 100;
+        public BuffsDented() => HealingPotionBadPercent = 100;
     }
 
     [SeparatePage]
@@ -150,6 +160,7 @@ public class LWoLServerConfig : ModConfig
     {
         [BackgroundColor(5, 40, 95, 255)]
         [SliderColor(5, 40, 95, 255)]
+        [Slider]
         [Range(0, 100)]
         [Increment(1)]
         [ReloadRequired]
@@ -206,6 +217,10 @@ public class LWoLServerConfig : ModConfig
         [Increment(0.05f)]
         [ReloadRequired]
         public float NoMoneh { get; set; }
+
+        [BackgroundColor(0, 25, 80, 255)]
+        public bool DemonMode { get; set; }
+
         public NPCsDented()
         {
             BuyMult = 1f;
@@ -213,6 +228,7 @@ public class LWoLServerConfig : ModConfig
             InvasionMultiplier = -1;
             NeverGoldEnough = false;
             NoMoneh = 1f;
+            DemonMode = false;
         }
         public override bool Equals(object obj) => obj is NPCsDented other &&
                    BuyMult == other.BuyMult &&
@@ -225,7 +241,7 @@ public class LWoLServerConfig : ModConfig
     }
 
     [SeparatePage]
-    public class WaterRelatedDented
+    public class WaterDented
     {
         [BackgroundColor(0, 15, 70, 255)]
         public bool DarkWaters { get; set; }
@@ -242,7 +258,7 @@ public class LWoLServerConfig : ModConfig
         [BackgroundColor(0, 15, 70, 255)]
         public bool WaterPoison { get; set; }
 
-        public WaterRelatedDented()
+        public WaterDented()
         {
             DarkWaters = false;
             DepthPressureMode = 0;
@@ -252,14 +268,8 @@ public class LWoLServerConfig : ModConfig
     }
 
     [SeparatePage]
-    public class MiscDented
+    public class ItemsDented
     {
-        [BackgroundColor(0, 15, 60, 255)]
-        [SliderColor(0, 15, 60, 255)]
-        [Slider]
-        [Range(0, 3)]
-        [ReloadRequired]
-        public int DeathPenaltyMode { get; set; }
 
         [BackgroundColor(0, 15, 60, 255)]
         [Range(-1, int.MaxValue)]
@@ -270,25 +280,17 @@ public class LWoLServerConfig : ModConfig
         [ReloadRequired]
         public bool DisableWoLItems { get; set; }
 
-        [BackgroundColor(0, 15, 60, 255)]
-        [ReloadRequired]
-        public bool SkillIssueMode { get; set; }
-
-        public MiscDented()
+        public ItemsDented()
         {
-            DeathPenaltyMode = 0;
             DisableWoLItems = false;
-            SkillIssueMode = false;
             DespawnItemsTimer = -1;
         }
-        public override bool Equals(object obj) => obj is MiscDented other &&
-                   DeathPenaltyMode == other.DeathPenaltyMode &&
+        public override bool Equals(object obj) => obj is ItemsDented other &&
                    DespawnItemsTimer == other.DespawnItemsTimer &&
-                   DisableWoLItems == other.DisableWoLItems &&
-                   SkillIssueMode == other.SkillIssueMode;
+                   DisableWoLItems == other.DisableWoLItems;
 
         public override int GetHashCode() =>
-            HashCode.Combine(DeathPenaltyMode, DespawnItemsTimer, DisableWoLItems, SkillIssueMode);
+            HashCode.Combine(DespawnItemsTimer, DisableWoLItems);
     }
 
     [SeparatePage]
@@ -303,13 +305,13 @@ public class LWoLServerConfig : ModConfig
     #region new()
 
     [BackgroundColor(155, 170, 205, 200)]
-    public MainDented Main = new();
+    public PlayerDented LPlayer = new();
 
     [BackgroundColor(120, 135, 180, 200)]
-    public BiomeSpecificDented BiomeSpecific = new();
+    public EnvironmentDented Environment = new();
 
     [BackgroundColor(80, 100, 150, 200)]
-    public BuffsAndDebuffsDented BuffsAndDebuffs = new();
+    public BuffsDented Buffs = new();
 
     [BackgroundColor(40, 70, 125, 200)]
     public EquipmentDented Equipment = new();
@@ -324,17 +326,13 @@ public class LWoLServerConfig : ModConfig
     public NPCsDented NPCs = new();
 
     [BackgroundColor(0, 15, 70, 200)]
-    public WaterRelatedDented WaterRelated = new();
+    public WaterDented Water = new();
 
     [BackgroundColor(0, 15, 60, 200)]
-    public MiscDented Misc = new();
+    public ItemsDented Items= new();
 
     [BackgroundColor(0, 20, 40, 200)]
     public CalamityDented CalamityMod = new();
-
-    //spiritmod 15 15 15
-    //[BackgroundColor(15, 15, 15, 255)]
-    //public SpiritDented Spirit = new();
 
     #endregion
 

@@ -7,12 +7,11 @@ public partial class WoLGlobalItems : GlobalItem
     public override bool? UseItem(Item item, Player player)
     {
         var p = player.GetModPlayer<LWoLPlayer>();
-        var main = LuneWoL.LWoLServerConfig.Main;
-        var misc = LuneWoL.LWoLServerConfig.Misc;
+        var plr = LuneWoL.LWoLServerConfig.LPlayer;
 
-        if (player.whoAmI == Main.myPlayer && main.CritFailMode != 0 && p.IsCritFail)
+        if (player.whoAmI == Main.myPlayer && plr.CritFailMode != 0 && p.IsCritFail)
         {
-            if (main.CritFailMode == 1)
+            if (plr.CritFailMode == 1)
             {
                 p.AplyDmgAmt = player.GetWeaponDamage(item);
             }
@@ -20,7 +19,7 @@ public partial class WoLGlobalItems : GlobalItem
             p.DmgPlrBcCrit = true;
         }
 
-        if (item.type == ItemID.LifeCrystal && misc.DeathPenaltyMode == 1)
+        if (item.type == ItemID.LifeCrystal && plr.DeathPenaltyMode == 1)
         {
             if (player.ConsumedLifeCrystals >= Player.LifeCrystalMax)
             {
@@ -28,7 +27,7 @@ public partial class WoLGlobalItems : GlobalItem
             }
         }
 
-        if (item.type == ItemID.LifeFruit && misc.DeathPenaltyMode == 1)
+        if (item.type == ItemID.LifeFruit && plr.DeathPenaltyMode == 1)
         {
             if (player.ConsumedLifeFruit >= Player.LifeFruitMax)
             {
@@ -38,7 +37,7 @@ public partial class WoLGlobalItems : GlobalItem
 
         if (item.type == ItemID.ManaCrystal)
         {
-            if (player.ConsumedManaCrystals >= Player.ManaCrystalMax && misc.DeathPenaltyMode == 1)
+            if (player.ConsumedManaCrystals >= Player.ManaCrystalMax && plr.DeathPenaltyMode == 1)
             {
                 LWoLPlayer.DeathFlag1 = true;
             }
@@ -58,9 +57,9 @@ public partial class WoLGlobalItems : GlobalItem
 
     public override void PostUpdate(Item item)
     {
-        var misc = LuneWoL.LWoLServerConfig.Misc;
+        var itm = LuneWoL.LWoLServerConfig.Items;
 
-        if (misc.DespawnItemsTimer >= -1)
+        if (itm.DespawnItemsTimer >= -1)
         {
             DespawnItemsAfterTime(item);
         }

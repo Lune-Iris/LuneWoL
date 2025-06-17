@@ -1,0 +1,24 @@
+IgnoreStacksOfOne: {
+	Label: Ignore stacks of one
+	Tooltip:
+		'''
+		Disables changes on recipe items with stacks of 1.
+
+		Some mods recipes may become impossible to make in the same world if this is off...
+		*Cough* *Cough* SHPC Calamity mod *Cough*
+
+		Suggested by `Lune`.
+		'''
+}
+
+RecipePercent: {
+	Label: Recipe Ingredient Percentage
+	Tooltip:
+		'''
+		Set to 0 to disable.
+
+		Suggested by `Lune`.
+		'''
+}
+
+Tooltip: ""

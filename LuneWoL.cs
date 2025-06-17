@@ -22,7 +22,7 @@ public partial class LuneWoL : Mod
         }
 
         // same as reforge thing
-        if (LuneLib.LuneLib.instance.DarkSurfaceLoaded && LWoLServerConfig.Main.DarkerNightsMode != 0)
+        if (LuneLib.LuneLib.instance.DarkSurfaceLoaded && LWoLServerConfig.Environment.DarkerNightsMode != 0)
         {
             throw new Exception("$Disable `Darker Nights` in the config if you wanna use the `Dark Surface` mod." + new string('\n', 20));
         }

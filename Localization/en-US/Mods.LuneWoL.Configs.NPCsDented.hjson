@@ -1,0 +1,77 @@
+BuyMult: {
+	Label: Buy Multiplier
+	Tooltip:
+		'''
+		Multiplies the amount of money needed to buy stuff
+
+		Suggested by `Lune`.
+		'''
+}
+
+SellMult: {
+	Label: Sell Multiplier
+	Tooltip:
+		'''
+		Multiplies the amount of money you get from selling stuff
+
+		Suggested by `Lune`.
+		'''
+}
+
+InvasionsAnywhere: {
+	Label: Invasions Anywhere
+	Tooltip:
+		'''
+		Makes invasions work anywhere on the surface not just the spawn and towns.
+
+		Suggested by `SpecyJ`.
+		'''
+}
+
+InvasionMultiplier: {
+	Label: Invasion Multiplier
+	Tooltip:
+		'''
+		Multiplies how many enemies you need to kill to defeat the invasion.
+
+		-1 Disables this setting.
+
+		Suggested by `Lune`.
+		'''
+}
+
+NeverGoldEnough: {
+	Label: Never Gold Enough
+	Tooltip:
+		'''
+		Caps the max amount of money an enemy can drop to 16 silver.
+
+		Suggested by `Wallarus`.
+		'''
+}
+
+NoMoneh: {
+	Label: Less Money From Enemies
+	Tooltip:
+		'''
+		Set to 1 to disable.
+
+		Multiplies the amount of money an enemy drops.
+
+		Suggested by `Lune`.
+		'''
+}
+
+DemonMode: {
+	Label: Demon Mode
+	Tooltip:
+		'''
+		have fun!!11
+
+		(its a secret)
+
+		Suggested by `Lune`.
+		'''
+}
+
+Tooltip: ""

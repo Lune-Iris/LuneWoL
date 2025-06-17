@@ -1,0 +1,15 @@
+HealingPotionBadPercent: {
+	Label: Worse Healing Potions
+	Tooltip:
+		'''
+		Percent of the potion.
+
+		100% is vanilla behaviour.
+
+		Set to 100 to disable.
+
+		Suggested by `Lune`.
+		'''
+}
+
+Tooltip: ""

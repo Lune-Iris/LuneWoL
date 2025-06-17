@@ -1,0 +1,26 @@
+DEPTHGillsAddition: {
+	Label: Depth Gills
+	Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+}
+
+DEPTHDivingHelmAddition: {
+	Label: Depth Diving Helm
+	Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+}
+
+DEPTHDivingGearAddition: {
+	Label: Depth Diving Gear
+	Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+}
+
+DEPTHArcticGearAddition: {
+	Label: Depth Arctic Gear
+	Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+}
+
+DEPTHMermanAddition: {
+	Label: Depth Merman
+	Tooltip: Increasing this will allow the player to go deeper before taking damage while they have this effect.
+}
+
+Tooltip: ""

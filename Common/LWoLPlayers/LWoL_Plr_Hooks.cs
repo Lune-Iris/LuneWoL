@@ -39,7 +39,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public override void PostUpdate()
     {
-        var Config = LuneWoL.LWoLServerConfig.Main;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (DmgPlrBcCrit && Config.CritFailMode > 0)
         {
@@ -53,7 +53,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public override void OnHitNPC(NPC npc, NPC.HitInfo hit, int damageDone)
     {
-        var Config = LuneWoL.LWoLServerConfig.Main;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (!IsCritFail && Config.CritFailMode != 0)
         {

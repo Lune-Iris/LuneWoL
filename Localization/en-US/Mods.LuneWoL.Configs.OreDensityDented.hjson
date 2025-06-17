@@ -1,0 +1,126 @@
+PrehardmodeOreDensityPercent: {
+	Label: Pre-Hardmode Ore Density
+	Tooltip:
+		'''
+		This controls how many veins there will be.
+
+		50 would mean there's half as many veins in the world compared to vanilla.
+
+		Set to 100 to disable.
+		'''
+}
+
+PrehardmodeOreAmountPercent: {
+	Label: Pre-Hardmode Ore Amount
+	Tooltip:
+		'''
+		This controls how large the veins will be.
+
+		50 would mean it generates veins with half the vanilla size.
+
+		Set to 100 to disable.
+		'''
+}
+
+HardmodeOreDensityPercent: {
+	Label: Hardmode Ore Density Percent
+	Tooltip:
+		'''
+		This controls how many veins will generate when an evil altar is destroyed.
+
+		50 would mean it generates half as many veins.
+
+		Set to 100 to disable.
+		'''
+}
+
+HardmodeOreAmountPercent: {
+	Label: Hardmode Ore Amount Percent
+	Tooltip:
+		'''
+		This controls how large veins will generate when an evil altar is destroyed.
+
+		50 would mean it generates veins with half the vanilla size.
+
+		Set to 100 to disable.
+		'''
+}
+
+GemStoneDensityPercent: {
+	Label: Gem Stone Density Percent
+	Tooltip:
+		'''
+		This controls how many veins there will be.
+
+		50 would mean there's half as many veins in the world compared to vanilla.
+
+		Set to 100 to disable.
+		'''
+}
+
+GemStoneAmountPercent: {
+	Label: Gem Stone Amount Percent
+	Tooltip:
+		'''
+		This controls how large the veins will be.
+
+		50 would mean it generates veins with half the vanilla size.
+
+		Set to 100 to disable.
+		'''
+}
+
+SiltDensityPercent: {
+	Label: Silt Density Percent
+	Tooltip:
+		'''
+		This controls how many veins there will be.
+
+		50 would mean there's half as many veins in the world compared to vanilla.
+
+		Set to 100 to disable.
+		'''
+}
+
+SiltAmountPercent: {
+	Label: Silt Amount Percent
+	Tooltip:
+		'''
+		This controls how large the veins will be.
+
+		50 would mean it generates veins with half the vanilla size.
+
+		Set to 100 to disable.
+		'''
+}
+
+SlushDensityPercent: {
+	Label: Slush Density Percent
+	Tooltip:
+		'''
+		This controls how many veins there will be.
+
+		50 would mean there's half as many veins in the world compared to vanilla.
+
+		Set to 100 to disable.
+		'''
+}
+
+SlushAmountPercent: {
+	Label: Slush Amount Percent
+	Tooltip:
+		'''
+		This controls how large the veins will be.
+
+		50 would mean it generates veins with half the vanilla size.
+
+		Set to 100 to disable.
+		'''
+}
+
+DynamiteVein: {
+	Label: Generate Detenator Traps
+	Tooltip: Turn this off if you don't want the large veins with dynamite on them to generate.
+}
+
+Tooltip: ""

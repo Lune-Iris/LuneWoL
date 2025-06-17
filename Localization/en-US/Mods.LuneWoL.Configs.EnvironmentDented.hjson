@@ -1,0 +1,82 @@
+WeatherPain: {
+	Label: Dangerous Weathers
+	Tooltip:
+		'''
+		Blizzards will freeze you unless you're behind a wall or near a campfire.
+
+		Sandstorms will blind you and make it really hard to see.
+
+		Suggested by `Lune`.
+		'''
+}
+
+SpacePain: {
+	Label: Space Vacuum
+	Tooltip:
+		'''
+		Slowly kills you when in space and not behind a wall.
+
+		Suggested by `Gamma_sol`.
+		'''
+}
+
+NoEvilDayTime: {
+	Label: No Evil Day Time
+	Tooltip:
+		'''
+		Makes the evil biome only enterable during night time
+
+		Applies alooot of Damage Over Time when in the crimson or corruption during night.
+
+		reason being that uh light = good and dark = bad and evil = bad so evil like bad and no good like
+
+		Suggested by `Lune`.
+		'''
+}
+
+HellIsHot: {
+	Label: Hell Is Hot
+	Tooltip:
+		'''
+		Sets the player onfire without proper protection. 
+		(Obsidian skin/skull or similar)
+
+		Suggested by `Gamma_sol`.
+		'''
+}
+
+Chilly: {
+	Label: Chilly
+	Tooltip:
+		'''
+		Gives you the chilled debuff in the tundra.
+
+		Suggested by `Lune`.
+		'''
+}
+
+WindArrows: {
+	Label: Wind Affects Arrows
+	Tooltip:
+		'''
+		Make arrows affected by wind.
+
+		Suggested by `Lune`.
+		'''
+}
+
+DarkerNightsMode: {
+	Label: Darker Nights Mode
+	Tooltip:
+		'''
+		Obscures your vision at night.
+
+		0: Disabled
+		1: Allows the moon to change the brightness at night
+		2: Always pitch black at night
+
+		Suggested by `Lune`.
+		'''
+}
+
+Tooltip: ""

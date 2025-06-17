@@ -4,7 +4,11 @@
 public class LWoLClientConfig : ModConfig
 {
     public override ConfigScope Mode => ConfigScope.ClientSide;
-
+    public override bool Autoload(ref string name)
+    {
+        name = "LWoLClientConfig";
+        return true;
+    }
     [BackgroundColor(35, 115, 145, 255)]
     [DefaultValue(false)]
     public bool STFUCHAT { get; set; }

@@ -1,0 +1,26 @@
+DRGillsAddition: {
+	Label: Damage Reduction Gills
+	Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
+}
+
+DRDivingHelmAddition: {
+	Label: Damage Reduction Diving Helm
+	Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
+}
+
+DRDivingGearAddition: {
+	Label: Damage Reduction Diving Gear
+	Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
+}
+
+DRArcticGearAddition: {
+	Label: Damage Reduction Arctic Gear
+	Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
+}
+
+DRMermanAddition: {
+	Label: Damage Reduction Merman
+	Tooltip: Increasing this will make the player take less drowning damage when their breath is at 0.
+}
+
+Tooltip: ""

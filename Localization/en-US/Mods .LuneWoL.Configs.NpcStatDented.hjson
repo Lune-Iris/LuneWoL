@@ -1,0 +1,19 @@
+LifePercent: {
+	Label: Life (%)
+	Tooltip: Changes the max life the NPC has.
+}
+
+DefensePercent: {
+	Label: Defense (%)
+	Tooltip: Changes the max life the NPC has.
+}
+
+DamagePercent: {
+	Label: Damage (%)
+	Tooltip: Changes the damage the NPC deals.
+}
+
+DisableNPCStatChanges: {
+	Label: Disable NPC Stat Changes
+	Tooltip: Disables all the above options.
+}

@@ -1,0 +1,41 @@
+FullMoonMult: {
+	Label: Full Moon MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is full moon
+}
+
+WaningGibbousMult: {
+	Label: Waning Gibbous MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is waning gibbous
+}
+
+ThirdQuarterMult: {
+	Label: Third Quarter MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is third quarter
+}
+
+WaningCrescentMult: {
+	Label: Waning Crescent MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is waning crescent.
+}
+
+NewMoonMult: {
+	Label: New Moon MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is new moon.
+}
+
+WaxingCrescentMult: {
+	Label: Waxing Crescent MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is waxing crescent.
+}
+
+FirstQuarterMult: {
+	Label: First Quarter MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is first quarter.
+}
+
+WaxingGibbousMult: {
+	Label: Waxing Gibbous MinBrightness
+	Tooltip: Determines how dark nights can get when the moon phase is waxing gibbous.
+}
+
+Tooltip: ""

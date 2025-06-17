@@ -1,0 +1,51 @@
+DisplayName: 1. Server Config
+
+LPlayer: {
+	Label: Player
+	Tooltip: ""
+}
+
+Environment: {
+	Label: Environment
+	Tooltip: ""
+}
+
+Buffs: {
+	Label: Buffs
+	Tooltip: ""
+}
+
+Equipment: {
+	Label: Equipment
+	Tooltip: ""
+}
+
+Recipes: {
+	Label: Recipes
+	Tooltip: ""
+}
+
+Tiles: {
+	Label: Tiles
+	Tooltip: ""
+}
+
+NPCs: {
+	Label: NPCs
+	Tooltip: ""
+}
+
+Water: {
+	Label: Water
+	Tooltip: ""
+}
+
+Items: {
+	Label: Items
+	Tooltip: ""
+}
+
+CalamityMod: {
+	Label: Calamity Mod
+	Tooltip: ""
+}

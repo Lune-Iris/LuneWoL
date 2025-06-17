@@ -1,6 +1,6 @@
 ﻿namespace LuneWoL.Core.Config;
 
-[BackgroundColor(5, 40, 40, 255)]
+[BackgroundColor(10, 75, 105, 255)]
 public class LWoLAdvancedClientSettings : ModConfig
 {
     public override ConfigScope Mode => ConfigScope.ClientSide;
@@ -8,11 +8,11 @@ public class LWoLAdvancedClientSettings : ModConfig
     [SeparatePage]
     public class ClientDepthPressureDented
     {
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(35, 115, 145, 255)]
         [Range(0, 500)]
         public int UpdateIntervalTicks { get; set; }
 
-        [BackgroundColor(95, 155, 160, 255)]
+        [BackgroundColor(35, 115, 145, 255)]
         public bool ShowSurfaceDebug { get; set; }
 
         public ClientDepthPressureDented()
@@ -22,7 +22,7 @@ public class LWoLAdvancedClientSettings : ModConfig
         }
     }
 
-    [BackgroundColor(15, 60, 65, 255)]
+    [BackgroundColor(10, 75, 105, 200)]
     public ClientDepthPressureDented ClientDepthPressure = new();
 
     public override void OnLoaded() => LuneWoL.LWoLAdvancedClientSettings = this;

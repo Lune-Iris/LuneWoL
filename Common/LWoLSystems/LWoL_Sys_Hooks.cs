@@ -14,7 +14,7 @@ public partial class LWoLSystem : ModSystem
 
     public override void ModifySunLightColor(ref Color tileColor, ref Color backgroundColor)
     {
-        var c = LuneWoL.LWoLServerConfig.Main;
+        var c = LuneWoL.LWoLServerConfig.Environment;
         if (c.DarkerNightsMode != 0)
             DarkerNightsSurfaceLight(ref tileColor, ref backgroundColor);
     }

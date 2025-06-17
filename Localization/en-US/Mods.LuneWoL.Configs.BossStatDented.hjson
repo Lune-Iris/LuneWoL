@@ -1,0 +1,21 @@
+LifePercent: {
+	Label: Life (%)
+	Tooltip: Changes the max life the boss has.
+}
+
+DefensePercent: {
+	Label: Defense (%)
+	Tooltip: Changes the defense the boss has.
+}
+
+DamagePercent: {
+	Label: Damage (%)
+	Tooltip: Changes the damage the boss deals.
+}
+
+DisableBossStatChanges: {
+	Label: Disable Boss Stat Changes
+	Tooltip: Disables all the above options.
+}
+
+Tooltip: ""

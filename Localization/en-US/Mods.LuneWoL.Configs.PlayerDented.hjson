@@ -1,0 +1,38 @@
+CritFailMode: {
+	Label: Critical Fail
+	Tooltip:
+		'''
+		set to 0 to disable
+
+		for mode 1-2:
+		Critical fails are calculated based on how high your critical strike chance is.
+		Say crit was 75% you will fail 25% of the time
+
+		for mode 3-4:
+		critical fails will just be a random 1/100 chance
+
+		for mode 1 and 3
+		You will take the amount of damage your weapon deals. (before defense so defense will lower damage taken)
+
+		for mode 2 and 4
+		Doesn't deal damage but keeps the missing part upon a critical fail.
+
+		Suggested by `Wallarus`.
+		'''
+}
+
+DeathPenaltyMode: {
+	Label: Death Penalty Mode
+	Tooltip:
+		'''
+		0: Off
+
+		1. Easy: -5 max hp when dieded
+
+		2. Normal: -1 life crystal/fruit when dieded
+
+		3. EXTREME DEMON: sets it to minimum when dieded (100hp, 20mp)
+		'''
+}
+
+Tooltip: ""

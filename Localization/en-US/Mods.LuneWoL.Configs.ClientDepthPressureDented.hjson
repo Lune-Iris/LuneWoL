@@ -1,0 +1,16 @@
+UpdateIntervalTicks: {
+	Label: Update Interval Ticks
+	Tooltip:
+		'''
+		Time between each check for surface of the water body you're in.
+
+		Lower is better but worse performance.
+		'''
+}
+
+ShowSurfaceDebug: {
+	Label: Show Surface Debug
+	Tooltip: Shows you where the surface level of the water body you're in is
+}
+
+Tooltip: ""

@@ -1,0 +1,6 @@
+DisplayName: 4. [Client] Advanced Settings
+
+ClientDepthPressure: {
+	Label: Client Depth Pressure
+	Tooltip: ""
+}

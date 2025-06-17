@@ -4,7 +4,7 @@ public partial class WoLGlobalItems : GlobalItem
 {
     public override void GetHealLife(Item item, Player player, bool quickHeal, ref int healValue)
     {
-        var buffs = LuneWoL.LWoLServerConfig.BuffsAndDebuffs;
+        var buffs = LuneWoL.LWoLServerConfig.Buffs;
 
         if (buffs.HealingPotionBadPercent > 1 && buffs.HealingPotionBadPercent < 100)
         {

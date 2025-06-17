@@ -10,7 +10,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void CritFail(Player player, NPC npc)
     {
-        var Config = LuneWoL.LWoLServerConfig.Main;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.CritFailMode == 1 || Config.CritFailMode == 2)
         {
@@ -36,7 +36,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void CritFailDamage(Player player)
     {
-        var Config = LuneWoL.LWoLServerConfig.Main;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.CritFailMode == 0) return;
 

@@ -1,0 +1,18 @@
+DespawnItemsTimer: {
+	Label: Despawn Items Timer
+	Tooltip:
+		'''
+		Makes items despawn after said amount of seconds.
+
+		set to -1 to disable
+
+		Suggested by `Wallarus`.
+		'''
+}
+
+DisableWoLItems: {
+	Label: Disable WoL Items
+	Tooltip: Completely disables all items from this mod. (There are none at the time)
+}
+
+Tooltip: ""

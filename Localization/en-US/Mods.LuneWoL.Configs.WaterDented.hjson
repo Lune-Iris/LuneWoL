@@ -1,0 +1,51 @@
+DarkWaters: {
+	Label: Dark Waters
+	Tooltip:
+		'''
+		Makes it harder to see in water.
+
+		Suggested by `Lune`.
+		'''
+}
+
+DepthPressureMode: {
+	Label: Depth Pressure Mode
+	Tooltip:
+		'''
+		deeper you are in the water body, the faster you lose breath 
+
+		Changes the mode of how pressure is calculated. 
+
+		0: Off.
+
+		1: fast but can be sometimes inaccurate.
+
+		2: NOT IMPLEMENTED accurate but slow.
+
+		Suggested by `Lune`.
+		'''
+}
+
+SlowWater: {
+	Label: Slow Water
+	Tooltip:
+		'''
+		Caps the max speed you can move underwater.
+
+		Suggested by `Lune`.
+		'''
+}
+
+WaterPoison: {
+	Label: Water Poison
+	Tooltip:
+		'''
+		Jungle: Poison
+		Evil Biomes: Evil debuff (Cursed Flames/Ichor)
+		Hallow: Confusion
+
+		Suggested by `Lune`.
+		'''
+}
+
+Tooltip: ""

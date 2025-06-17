@@ -16,7 +16,7 @@ public partial class LWoLSystem : ModSystem
 
     public static void AddCrystalRecipe()
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (LuneLib.LuneLib.instance.CalamityModLoaded) return;
         if (Config.DeathPenaltyMode != 0) return;

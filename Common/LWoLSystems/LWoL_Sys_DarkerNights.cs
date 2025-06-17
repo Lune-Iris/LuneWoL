@@ -19,7 +19,7 @@ public partial class LWoLSystem : ModSystem
     {
         if (Main.dayTime) return;
 
-        var cfg = LuneWoL.LWoLServerConfig.Main;
+        var cfg = LuneWoL.LWoLServerConfig.Environment;
         var Acfg = LuneWoL.LWoLAdvancedServerSettings.DarkerNights;
         float moonMultiplier = GetMoonPhaseMultiplier(_currentMoonPhase);
 

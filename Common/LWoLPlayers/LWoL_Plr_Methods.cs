@@ -4,7 +4,7 @@ public partial class LWoLPlayer : ModPlayer
 {
     public void ApplySpaceVacuum()
     {
-        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.Environment;
         if (!Config.SpacePain) return;
         if (Player.whoAmI != Main.myPlayer) return;
         if (!Player.ZoneSkyHeight) return;
@@ -16,7 +16,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void HellIsHot()
     {
-        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.Environment;
 
         if (!Config.HellIsHot) return;
         if (!Player.ZoneUnderworldHeight) return;
@@ -28,7 +28,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void ViscousWater()
     {
-        var Config = LuneWoL.LWoLServerConfig.WaterRelated;
+        var Config = LuneWoL.LWoLServerConfig.Water;
 
         if (Player.OceanMan() && Config.SlowWater && !LL)
         {
@@ -63,7 +63,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void PoisonedWater()
     {
-        var Config = LuneWoL.LWoLServerConfig.WaterRelated;
+        var Config = LuneWoL.LWoLServerConfig.Water;
 
         if (!Config.WaterPoison) return;
         if (!Player.wet || Player.lavaWet || Player.honeyWet) return;
@@ -109,7 +109,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void WeatherChanges()
     {
-        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.Environment;
 
         if (!Config.WeatherPain) return;
 
@@ -148,7 +148,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void FreezingTundra()
     {
-        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.Environment;
 
         if (!Config.Chilly) return;
 
@@ -185,7 +185,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void OnlyEnterEvilAtDay()
     {
-        var Config = LuneWoL.LWoLServerConfig.BiomeSpecific;
+        var Config = LuneWoL.LWoLServerConfig.Environment;
 
         if (Main.dayTime) return;
 
@@ -198,7 +198,7 @@ public partial class LWoLPlayer : ModPlayer
     {
         public override void PostAI(Projectile Projectile)
         {
-            var Config = LuneWoL.LWoLServerConfig.Main;
+            var Config = LuneWoL.LWoLServerConfig.Environment;
 
             if (Config.WindArrows && Projectile.arrow &&
                 Projectile.Center.Y < Main.worldSurface * 16.0
@@ -223,7 +223,7 @@ public partial class LWoLPlayer : ModPlayer
         if (LL) return;
         if (Player.whoAmI != Main.myPlayer) return;
 
-        var Config = LuneWoL.LWoLServerConfig.WaterRelated;
+        var Config = LuneWoL.LWoLServerConfig.Water;
 
         if (Player.OceanMan() && Config.DarkWaters && Config.DepthPressureMode > 0)
         {
@@ -244,7 +244,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void DeathPenaltyConsumedCrystals()
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 2) return;
 
@@ -265,7 +265,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void DeathPenaltyConsumedFloor()
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 3) return;
 
@@ -286,7 +286,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void DeathPenaltyAppliedOnRespawn()
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -325,7 +325,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void ResetDeathPenalty()
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -346,7 +346,7 @@ public partial class LWoLPlayer : ModPlayer
         health = StatModifier.Default;
         mana = StatModifier.Default;
 
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -356,7 +356,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void ReciveDeathPenalty(BinaryReader rd)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -366,7 +366,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void SyncDeathPenalty(int toWho, int fromWho, bool newPlayer)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -380,7 +380,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void CloneClientsDeathPenalty(ModPlayer targetCopy)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -391,7 +391,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void SendDeathPenalty(ModPlayer clientPlayer)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -403,7 +403,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void SaveDeathPenaltyTag(TagCompound tag)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 
@@ -415,7 +415,7 @@ public partial class LWoLPlayer : ModPlayer
 
     public void LoadDeathPenaltyTag(TagCompound tag)
     {
-        var Config = LuneWoL.LWoLServerConfig.Misc;
+        var Config = LuneWoL.LWoLServerConfig.LPlayer;
 
         if (Config.DeathPenaltyMode != 1) return;
 

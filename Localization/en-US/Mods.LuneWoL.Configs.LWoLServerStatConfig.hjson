@@ -1,0 +1,16 @@
+DisplayName: 5. Stat Config
+
+PlayerStats: {
+	Label: Player Stats [i:3122]
+	Tooltip: ""
+}
+
+NpcConfig: {
+	Label: Npc Config [i:1304]
+	Tooltip: ""
+}
+
+BossConfig: {
+	Label: Boss Config [i:43]
+	Tooltip: ""
+}

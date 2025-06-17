@@ -1,0 +1,61 @@
+BaseMaxDepth: {
+	Label: Base Max Depth
+	Tooltip:
+		'''
+		The maximum tiles before you start taking damage.
+
+		You might wanna increase this if youre using Calamity mod.
+		'''
+}
+
+BaseBreathDrainRate: {
+	Label: Base Breath Drain Amount
+	Tooltip:
+		'''
+		The base amount of breath you can hold.
+
+		Increase this to hold you breath for longer.
+		'''
+}
+
+BaseTickRate: {
+	Label: Base Tick Rate
+	Tooltip:
+		'''
+		This is the base rate of which breath gets depleted.
+
+		Increasing this will make your breath deplete slower.
+		'''
+}
+
+BaseDRRate: {
+	Label: Base Drowning Damage Amount
+	Tooltip:
+		'''
+		This is the base amount of drowning damage you take.
+
+		Increase this to take more damage.
+		'''
+}
+
+TickValues: {
+	Label: Tick Values
+	Tooltip: ""
+}
+
+BreathValues: {
+	Label: Breath Values
+	Tooltip: ""
+}
+
+DepthValues: {
+	Label: Depth Values
+	Tooltip: ""
+}
+
+DRValues: {
+	Tooltip: ""
+	Label: Drowning Damage Reduction Values
+}
+
+Tooltip: ""

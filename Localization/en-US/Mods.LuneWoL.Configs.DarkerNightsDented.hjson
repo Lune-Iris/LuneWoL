@@ -1,0 +1,21 @@
+NightFadeDuration: {
+	Label: Night Fade Duration
+	Tooltip: Controls how many in-game minutes it takes before it hits MinBrightness.
+}
+
+MinBrightness: {
+	Label: MinBrightness
+	Tooltip:
+		'''
+		Determines how dark nights can get when 'Darker Nights' is set to mode 2.
+
+		Very low values may cause lighting engine bugs.
+		'''
+}
+
+MoonPhases: {
+	Label: Moon Phases
+	Tooltip: MinBrightness for moon phases when 'Darker Nights' is set to mode 1.
+}
+
+Tooltip: ""

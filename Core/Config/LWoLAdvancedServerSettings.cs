@@ -1,9 +1,10 @@
 ﻿namespace LuneWoL.Core.Config;
 
-[BackgroundColor(5, 40, 40, 255)]
+[BackgroundColor(5, 30, 50, 255)]
 public class LWoLAdvancedServerSettings : ModConfig
 {
     public override ConfigScope Mode => ConfigScope.ServerSide;
+
     public override bool NeedsReload(ModConfig pendingConfig) => pendingConfig is not LWoLAdvancedServerSettings newConfig
         ? base.NeedsReload(pendingConfig)
         : !OreDensityCfg.Equals(newConfig.OreDensityCfg);
@@ -181,7 +182,7 @@ public class LWoLAdvancedServerSettings : ModConfig
             }
         }
         [BackgroundColor(120, 135, 180, 255)]
-        public TICKValuesDented TíckValues { get; set; } = new();
+        public TICKValuesDented TickValues { get; set; } = new();
         public class TICKValuesDented
         {
             [BackgroundColor(120, 135, 180, 255)]
