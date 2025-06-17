@@ -49,11 +49,11 @@ LWoLServerConfig: {
 		Tooltip: ""
 	}
 
-	DisplayName: Server Config
+	DisplayName: 1. Server Config
 }
 
 LWoLClientConfig: {
-	DisplayName: Client Config
+	DisplayName: 2. Client Config
 
 	STFUCHAT: {
 		Label: Disable Messages
@@ -62,7 +62,7 @@ LWoLClientConfig: {
 }
 
 LWoLServerStatConfig: {
-	DisplayName: Stat Config
+	DisplayName: 5. Stat Config
 
 	PlayerStats: {
 		Label: Player Stats [i:3122]
@@ -94,6 +94,16 @@ TilesDented: {
 	}
 
 	Tooltip: ""
+
+	OreDensity: {
+		Label: Ore Density
+		Tooltip:
+			'''
+			Decreases the amount of ore that generates during world generation and altar destruction.
+
+			Suggested by `ClayWarTheOne`.
+			'''
+	}
 }
 
 BuffsAndDebuffsDented: {
@@ -488,16 +498,6 @@ MiscDented: {
 		Label: Skill Issue Mode
 		Tooltip: ""
 	}
-
-	NightFadeDuration: {
-		Tooltip: ""
-		Label: Night Fade Duration
-	}
-
-	test: {
-		Tooltip: ""
-		Label: test
-	}
 }
 
 NpcStatDented: {
@@ -657,30 +657,6 @@ PlayerStatDented: {
 	}
 }
 
-LWoLAdvancedSettings: {
-	Misc: {
-		Tooltip: ""
-		Label: Misc
-	}
-
-	DisplayName: Advanced Settings
-
-	DarkerNights: {
-		Label: Darker Nights
-		Tooltip: For the 'Darker Nights' option in server configs 'Main' section
-	}
-
-	MoonPhases: {
-		Label: Moon Phases
-		Tooltip: ""
-	}
-
-	DepthPressure: {
-		Label: Depth Pressure
-		Tooltip: ""
-	}
-}
-
 DarkerNightsDented: {
 	Tooltip: For the 'Darker Nights' option in server configs 'Main' section
 
@@ -750,7 +726,7 @@ MoonPhasesDented: {
 }
 
 LWoLAdvancedClientSettings: {
-	DisplayName: "[Client] Advanced Settings"
+	DisplayName: 4. [Client] Advanced Settings
 
 	ClientDepthPressure: {
 		Label: Client Depth Pressure
@@ -778,7 +754,7 @@ ClientDepthPressureDented: {
 }
 
 LWoLAdvancedServerSettings: {
-	DisplayName: "[Server] Advanced Settings"
+	DisplayName: 3. [Server] Advanced Settings
 
 	DarkerNights: {
 		Label: Darker Nights
@@ -787,6 +763,11 @@ LWoLAdvancedServerSettings: {
 
 	ServerDepthPressure: {
 		Label: Server Depth Pressure
+		Tooltip: ""
+	}
+
+	OreDensityCfg: {
+		Label: Ore Density
 		Tooltip: ""
 	}
 }
@@ -968,5 +949,135 @@ TICKValuesDented: {
 	TICKMermanAddition: {
 		Label: Tick Rate Merman
 		Tooltip: Increase this to make it take longer for breath to be removed while having this effect.
+	}
+}
+
+OreDensityDented: {
+	Tooltip: ""
+
+	PrehardmodeOreDensityPercent: {
+		Label: Pre-Hardmode Ore Density
+		Tooltip:
+			'''
+			This controls how many veins there will be.
+
+			50 would mean there's half as many veins in the world compared to vanilla.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	PrehardmodeOreAmountPercent: {
+		Label: Pre-Hardmode Ore Amount
+		Tooltip:			
+			'''
+			This controls how large the veins will be.
+
+			50 would mean it generates veins with half the vanilla size.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	HardmodeOreDensityPercent: {
+		Label: Hardmode Ore Density Percent
+		Tooltip:
+			'''
+			This controls how many veins will generate when an evil altar is destroyed.
+
+			50 would mean it generates half as many veins.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	HardmodeOreAmountPercent: {
+		Label: Hardmode Ore Amount Percent
+		Tooltip:
+			'''
+			This controls how large veins will generate when an evil altar is destroyed.
+
+			50 would mean it generates veins with half the vanilla size.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	GemStoneDensityPercent: {
+		Label: Gem Stone Density Percent
+		Tooltip:
+			'''
+			This controls how many veins will generate when an evil altar is destroyed.
+
+			50 would mean it generates half as many veins.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	GemStoneAmountPercent: {
+		Label: Gem Stone Amount Percent
+		Tooltip:			
+			'''
+			This controls how large the veins will be.
+
+			50 would mean it generates veins with half the vanilla size.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	SiltDensityPercent: {
+		Label: Silt Density Percent
+		Tooltip:
+			'''
+			This controls how many veins will generate when an evil altar is destroyed.
+
+			50 would mean it generates half as many veins.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	SiltAmountPercent: {
+		Label: Silt Amount Percent
+		Tooltip: 			
+			'''
+			This controls how large the veins will be.
+
+			50 would mean it generates veins with half the vanilla size.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	SlushDensityPercent: {
+		Label: Slush Density Percent
+		Tooltip:			
+			'''
+			This controls how many veins will generate when an evil altar is destroyed.
+
+			50 would mean it generates half as many veins.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	SlushAmountPercent: {
+		Label: Slush Amount Percent
+		Tooltip:			
+			'''
+			This controls how large the veins will be.
+
+			50 would mean it generates veins with half the vanilla size.
+
+			Set to 100 to disable.
+			'''
+	}
+
+	DynamiteVein: {
+		Label: Generate Detenator Traps
+		Tooltip: Setting this to false will stop the huge ore veins with dynamite and a detonator from generating.
+		
 	}
 }

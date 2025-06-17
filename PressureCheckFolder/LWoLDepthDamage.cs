@@ -1,8 +1,5 @@
-﻿using CalamityMod;
-using CalamityMod.World;
-using Terraria.Chat;
+﻿using Terraria.Chat;
 using Terraria.Localization;
-using Terraria.ID;
 
 namespace LuneWoL.PressureCheckFolder;
 
@@ -14,7 +11,6 @@ internal class LWoLDepthDamage : ModPlayer
 
     public int breathCooldown, maxDepth, pressureDamageToApply, reducedDepthDiff;
     public float reducedDepth, lightDepthDiff, tileDiffCalced, tileDiff, entryY;
-    public PlayerDeathReason dmgsrc;
 
     public Mode1.PressureModeOne modeOnePlayer => Player.GetModPlayer<Mode1.PressureModeOne>();
     public Mode2.SurfacePressurePlayer modeTwoPlayer => Player.GetModPlayer<Mode2.SurfacePressurePlayer>();
@@ -162,7 +158,7 @@ internal class LWoLDepthDamage : ModPlayer
                     {
                         int num2 = Item.NewItem(source_Death, (int)Player.position.X, (int)Player.position.Y, Player.width, Player.height, Player.inventory[i].type);
                         Main.item[num2].netDefaults(Player.inventory[i].netID);
-                        Main.item[num2].Prefix(Player.inventory[i].prefix);
+                        _ = Main.item[num2].Prefix(Player.inventory[i].prefix);
                         Main.item[num2].stack = Player.inventory[i].stack;
                         Main.item[num2].velocity.Y = Main.rand.Next(-20, 1) * 0.2f;
                         Main.item[num2].velocity.X = Main.rand.Next(-20, 21) * 0.2f;
@@ -187,13 +183,13 @@ internal class LWoLDepthDamage : ModPlayer
                 Player.KillMeForGood();
             }
         }
-        SoundEngine.PlaySound(in SoundID.PlayerKilled, Player.Center);
+        _ = SoundEngine.PlaySound(in SoundID.PlayerKilled, Player.Center);
         Player.headVelocity.Y = Main.rand.Next(-40, -10) * 0.1f;
         Player.bodyVelocity.Y = Main.rand.Next(-40, -10) * 0.1f;
         Player.legVelocity.Y = Main.rand.Next(-40, -10) * 0.1f;
-        Player.headVelocity.X = Main.rand.Next(-20, 21) * 0.1f + 0f;
-        Player.bodyVelocity.X = Main.rand.Next(-20, 21) * 0.1f + 0f;
-        Player.legVelocity.X = Main.rand.Next(-20, 21) * 0.1f + 0f;
+        Player.headVelocity.X = (Main.rand.Next(-20, 21) * 0.1f) + 0f;
+        Player.bodyVelocity.X = (Main.rand.Next(-20, 21) * 0.1f) + 0f;
+        Player.legVelocity.X = (Main.rand.Next(-20, 21) * 0.1f) + 0f;
         if (Player.stoned)
         {
             Player.headPosition = Vector2.Zero;
@@ -202,7 +198,7 @@ internal class LWoLDepthDamage : ModPlayer
         }
         for (int j = 0; j < 100; j++)
         {
-            Dust.NewDust(Player.position, Player.width, Player.height, DustID.LifeDrain, 0f, -2f);
+            _ = Dust.NewDust(Player.position, Player.width, Player.height, DustID.LifeDrain, 0f, -2f);
         }
         Player.mount.Dismount(base.Player);
         Player.dead = true;
@@ -257,7 +253,7 @@ internal class LWoLDepthDamage : ModPlayer
         }
         if (Player.whoAmI == Main.myPlayer && (Player.difficulty == 0 || Player.difficulty == 3))
         {
-            Player.DropCoins();
+            _ = Player.DropCoins();
         }
         Player.DropTombstone(num, deathText, 0);
         if (Player.whoAmI == Main.myPlayer)
@@ -377,13 +373,13 @@ internal class LWoLDepthDamage : ModPlayer
 
         if (Player.OceanMan())
         {
-            CalcMaxDepth();
-            CalcReducedDepth();
-            CalcTileDiff();
-            CalcReducedTileDiff();
-            CalcTileDiffClamped();
-            CalcPressureDamage();
-            CalcLightDepthDiff();
+            _ = CalcMaxDepth();
+            _ = CalcReducedDepth();
+            _ = CalcTileDiff();
+            _ = CalcReducedTileDiff();
+            _ = CalcTileDiffClamped();
+            _ = CalcPressureDamage();
+            _ = CalcLightDepthDiff();
 
             BreathChecker();
             DamageChecker();

@@ -6,11 +6,15 @@ public partial class LWoLILEdits
     {
         var npc = LuneWoL.LWoLServerConfig.NPCs;
         var equip = LuneWoL.LWoLServerConfig.Equipment;
+        var tiles = LuneWoL.LWoLServerConfig.Tiles;
+
+        if (tiles.OreDensity)
+        {
+            IL_WorldGen.SmashAltar += WorldGen_SmashAltar;
+        }
 
         if (npc.SellMult != 1 || npc.BuyMult != 1)
-        {
             IL_Player.GetItemExpectedPrice += BuyPriceandSellPrice;
-        }
 
         if (equip.ReforgeNerf)
         {
@@ -19,6 +23,53 @@ public partial class LWoLILEdits
             IL_Item.TryGetPrefixStatMultipliersForItem += NerfWeaponReforges;
         }
     }
+
+    private static void WorldGen_SmashAltar(ILContext iL)
+    {
+        var Acfg = LuneWoL.LWoLAdvancedServerSettings.OreDensityCfg;
+
+        int percent = Acfg.HardmodeOreAmountPercent;
+        int scaledMin = Math.Max(1, 5 * percent / 100);
+        int scaledMaxDefault = Math.Max(scaledMin + 1, 9 * percent / 100);
+        int scaledMaxAnniversary = Math.Max(scaledMin + 1, 11 * percent / 100);
+
+        var c = new ILCursor(iL);
+        if (c.TryGotoNext(MoveType.After,
+            i => i.MatchConvR8(),
+            i => i.MatchDiv(),
+            i => i.MatchStloc2()))
+        {
+            c.Emit(OpCodes.Ldloc_2);
+            c.Emit(OpCodes.Ldc_R8, (double)Acfg.HardmodeOreDensityPercent / 100);
+            c.Emit(OpCodes.Mul);
+            c.Emit(OpCodes.Stloc_2);
+        }
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+        {
+            c.RemoveRange(2);
+            c.Emit(OpCodes.Ldc_I4, scaledMin);
+            c.Emit(OpCodes.Ldc_I4, scaledMaxAnniversary);
+        }
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+        {
+            c.RemoveRange(2);
+            c.Emit(OpCodes.Ldc_I4, scaledMin);
+            c.Emit(OpCodes.Ldc_I4, scaledMaxAnniversary);
+        }
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+        {
+            c.RemoveRange(2);
+            c.Emit(OpCodes.Ldc_I4, scaledMin);
+            c.Emit(OpCodes.Ldc_I4, scaledMaxDefault);
+        }
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdcI4(5)))
+        {
+            c.RemoveRange(2);
+            c.Emit(OpCodes.Ldc_I4, scaledMin);
+            c.Emit(OpCodes.Ldc_I4, scaledMaxDefault);
+        }
+    }
+
 
     #region buy and sell consume capitalism stuff
     private static void BuyPriceandSellPrice(ILContext il)

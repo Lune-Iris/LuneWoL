@@ -21,26 +21,26 @@ public class LWoL_PlayerStatChanges : ModPlayer
         }
         if (plrConfig.DefensePercent != 100)
         {
-            Player.statDefense *= (plrConfig.DefensePercent / 100);
+            Player.statDefense *= plrConfig.DefensePercent / 100;
         }
         if (plrConfig.EndurancePercent != 100)
         {
-            Player.endurance *= (plrConfig.EndurancePercent / 100);
+            Player.endurance *= plrConfig.EndurancePercent / 100;
         }
         #endregion
 
         #region Offense
         if (plrConfig.DamagePercent != 100)
         {
-            Player.GetDamage(DamageClass.Generic) *= (plrConfig.DamagePercent / 100);
+            Player.GetDamage(DamageClass.Generic) *= plrConfig.DamagePercent / 100;
         }
         if (plrConfig.ArmorPenetrationPercent != 100)
         {
-            Player.GetArmorPenetration(DamageClass.Generic) *= (plrConfig.ArmorPenetrationPercent / 100);
+            Player.GetArmorPenetration(DamageClass.Generic) *= plrConfig.ArmorPenetrationPercent / 100;
         }
         if (plrConfig.AttackSpeedPercent != 100)
         {
-            Player.GetAttackSpeed(DamageClass.Generic) *= (plrConfig.AttackSpeedPercent / 100f);
+            Player.GetAttackSpeed(DamageClass.Generic) *= plrConfig.AttackSpeedPercent / 100f;
         }
         #endregion
 
@@ -55,7 +55,7 @@ public class LWoL_PlayerStatChanges : ModPlayer
         }
         if (plrConfig.ManaCostPercent != 100)
         {
-            Player.manaCost /= (plrConfig.ManaCostPercent / 100);
+            Player.manaCost /= plrConfig.ManaCostPercent / 100;
         }
         #endregion
 
@@ -73,11 +73,11 @@ public class LWoL_PlayerStatChanges : ModPlayer
         #region Mobility
         if (plrConfig.MoveSpeedPercent != 100)
         {
-            Player.moveSpeed *= (plrConfig.MoveSpeedPercent / 100);
+            Player.moveSpeed *= plrConfig.MoveSpeedPercent / 100;
         }
         if (plrConfig.JumpSpeedPercent != 100)
         {
-            Player.jumpSpeed *= (plrConfig.JumpSpeedPercent / 100);
+            Player.jumpSpeed *= plrConfig.JumpSpeedPercent / 100;
         }
         if (plrConfig.JumpHeightPercent != 100)
         {
@@ -92,15 +92,15 @@ public class LWoL_PlayerStatChanges : ModPlayer
         #region World Shaping
         if (plrConfig.PickSpeedPercent != 100)
         {
-            Player.pickSpeed /= (plrConfig.PickSpeedPercent / 100);
+            Player.pickSpeed /= plrConfig.PickSpeedPercent / 100;
         }
         if (plrConfig.TileSpeedPercent != 100)
         {
-            Player.tileSpeed *= (plrConfig.TileSpeedPercent / 100);
+            Player.tileSpeed *= plrConfig.TileSpeedPercent / 100;
         }
         if (plrConfig.WallSpeedPercent != 100)
         {
-            Player.wallSpeed *= (plrConfig.WallSpeedPercent / 100);
+            Player.wallSpeed *= plrConfig.WallSpeedPercent / 100;
         }
         #endregion
     }

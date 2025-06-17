@@ -20,7 +20,7 @@ public partial class LWoLPlayer : ModPlayer
 
         if (!Config.HellIsHot) return;
         if (!Player.ZoneUnderworldHeight) return;
-        if (Player.buffImmune[BuffID.Burning] || Player.fireWalk || Player.buffImmune[BuffID.OnFire] || Player.lavaImmune || Player.wet || Player.honeyWet && !Player.lavaWet)
+        if (Player.buffImmune[BuffID.Burning] || Player.fireWalk || Player.buffImmune[BuffID.OnFire] || Player.lavaImmune || Player.wet || (Player.honeyWet && !Player.lavaWet))
             return;
         Main.buffNoTimeDisplay[BuffID.OnFire] = true;
         Player.AddBuff(BuffID.OnFire, 120, false, false);
@@ -113,7 +113,7 @@ public partial class LWoLPlayer : ModPlayer
 
         if (!Config.WeatherPain) return;
 
-        if (Main.raining && Player.ZoneCrimson || Player.ZoneCorrupt && !Player.behindBackWall)
+        if ((Main.raining && Player.ZoneCrimson) || (Player.ZoneCorrupt && !Player.behindBackWall))
         {
             Main.buffNoTimeDisplay[BuffID.Bleeding] = true;
             Player.AddBuff(BuffID.Bleeding, 60, true, false);

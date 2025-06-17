@@ -1,6 +1,4 @@
-﻿using LuneWoL.PressureCheckFolder;
-
-namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.LWoLPlayers;
 
 public class LWoLPlayerDeath : ModPlayer
 {

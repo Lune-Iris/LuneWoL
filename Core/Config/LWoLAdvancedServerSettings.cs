@@ -4,6 +4,9 @@
 public class LWoLAdvancedServerSettings : ModConfig
 {
     public override ConfigScope Mode => ConfigScope.ServerSide;
+    public override bool NeedsReload(ModConfig pendingConfig) => pendingConfig is not LWoLAdvancedServerSettings newConfig
+        ? base.NeedsReload(pendingConfig)
+        : !OreDensityCfg.Equals(newConfig.OreDensityCfg);
 
     [SeparatePage]
     public class DarkerNightsDented
@@ -91,12 +94,12 @@ public class LWoLAdvancedServerSettings : ModConfig
         [Range(0f, 8f)]
         [Increment(0.1f)]
         public float BaseBreathDrainRate { get; set; }
-        
+
         [BackgroundColor(95, 155, 160, 255)]
         [Range(0f, 256f)]
         [Increment(1f)]
         public float BaseTickRate { get; set; }
-        
+
         [BackgroundColor(95, 155, 160, 255)]
         [Range(0f, 256f)]
         [Increment(1f)]
@@ -255,11 +258,95 @@ public class LWoLAdvancedServerSettings : ModConfig
         }
     }
 
+    public class OreDensityDented
+    {
+        [BackgroundColor(95, 155, 160, 255)]
+        public bool DynamiteVein;
+        
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int PrehardmodeOreDensityPercent;
+        
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int PrehardmodeOreAmountPercent;
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        [ReloadRequired]
+        public int HardmodeOreDensityPercent;
+        
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        [ReloadRequired]
+        public int HardmodeOreAmountPercent;
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int GemStoneDensityPercent;
+        
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int GemStoneAmountPercent;
+
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int SiltDensityPercent;
+        
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int SiltAmountPercent;
+        
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int SlushDensityPercent;
+        
+        [BackgroundColor(95, 155, 160, 255)]
+        [Range(0, 100)]
+        [Slider]
+        public int SlushAmountPercent;
+
+        public OreDensityDented()
+        {
+            DynamiteVein = true;
+            PrehardmodeOreDensityPercent = 50;
+            PrehardmodeOreAmountPercent = 50;
+            HardmodeOreDensityPercent = 50;
+            HardmodeOreAmountPercent = 50;
+            GemStoneDensityPercent = 50;
+            GemStoneAmountPercent = 50;
+            SiltDensityPercent = 50;
+            SiltAmountPercent = 50;
+            SlushDensityPercent = 50;
+            SlushAmountPercent = 50;
+        }
+
+        public override bool Equals(object obj) => obj is OreDensityDented other &&
+               HardmodeOreDensityPercent == other.HardmodeOreDensityPercent &&
+               HardmodeOreAmountPercent == other.HardmodeOreAmountPercent;
+
+        public override int GetHashCode() =>
+            HashCode.Combine(HardmodeOreDensityPercent, HardmodeOreAmountPercent);
+    }
+
+
     [BackgroundColor(15, 60, 65, 255)]
     public DarkerNightsDented DarkerNights = new();
 
     [BackgroundColor(15, 60, 65, 255)]
     public ServerDepthPressureDented ServerDepthPressure = new();
+
+    [BackgroundColor(15, 60, 65, 255)]
+    public OreDensityDented OreDensityCfg = new();
 
     public override void OnLoaded() => LuneWoL.LWoLAdvancedServerSettings = this;
 }

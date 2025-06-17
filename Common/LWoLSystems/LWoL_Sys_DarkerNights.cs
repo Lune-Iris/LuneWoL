@@ -57,7 +57,6 @@ public partial class LWoLSystem : ModSystem
         };
     }
 
-
     public static Color ToColour(Vector3 v) =>
         new((int)(v.X * 255), (int)(v.Y * 255), (int)(v.Z * 255));
 }

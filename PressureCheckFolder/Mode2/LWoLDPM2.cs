@@ -77,7 +77,7 @@ public class SurfacePressurePlayer : ModPlayer
         var queue = new Queue<int>();
 
         int packedStart = (startX << 16) | (startY & 0xFFFF);
-        visited.Add(packedStart);
+        _ = visited.Add(packedStart);
         queue.Enqueue(packedStart);
 
         int minSurfaceY = int.MaxValue;
@@ -112,7 +112,7 @@ public class SurfacePressurePlayer : ModPlayer
                     int packed = (nx << 16) | ny;
                     if (!visited.Contains(packed))
                     {
-                        visited.Add(packed);
+                        _ = visited.Add(packed);
                         queue.Enqueue(packed);
                     }
                 }
@@ -178,7 +178,7 @@ public class SurfacePressurePlayer : ModPlayer
         if (Player.whoAmI != Main.myPlayer && Acfg.ShowSurfaceDebug) return;
         int playerY = (int)(Player.Center.Y / 16f);
         int depth = playerY - _cachedTopY;
-        if (depth < 0) depth = 0;
+        if (depth < 0) _ = 0;
     }
 
     public class SurfacePressureSystemClient : ModSystem
@@ -211,7 +211,7 @@ public class SurfacePressurePlayer : ModPlayer
 
         private bool DrawSurfaceOverlay()
         {
-            var Acfg = LuneWoL.LWoLAdvancedClientSettings.ClientDepthPressure;
+            _ = LuneWoL.LWoLAdvancedClientSettings.ClientDepthPressure;
             EnsurePixel();
             var sb = Main.spriteBatch;
 
@@ -233,8 +233,8 @@ public class SurfacePressurePlayer : ModPlayer
             {
                 int px = (int)(player.Center.X / 16f);
                 Vector2 screenPos = Main.screenPosition;
-                int drawX = px * 16 - (int)screenPos.X;
-                int drawY = modPlayer.CachedTopY * 16 - (int)screenPos.Y;
+                int drawX = (px * 16) - (int)screenPos.X;
+                int drawY = (modPlayer.CachedTopY * 16) - (int)screenPos.Y;
                 Color debugColor = new(0, 200, 255, 200);
                 sb.Draw(_pixel, new Rectangle(drawX, drawY, 16, 2), debugColor);
             }

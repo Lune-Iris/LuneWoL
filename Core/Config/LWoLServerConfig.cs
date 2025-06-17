@@ -154,14 +154,23 @@ public class LWoLServerConfig : ModConfig
         [Increment(1)]
         [ReloadRequired]
         public int OreDestroyChance;
+        
+        [BackgroundColor(5, 40, 95, 255)]
+        [ReloadRequired]
+        public bool OreDensity;
 
-        public TilesDented() => OreDestroyChance = 0;
+        public TilesDented()
+        {
+            OreDestroyChance = 0;
+            OreDensity = false;
+        }
 
         public override bool Equals(object obj) => obj is TilesDented other &&
-                   OreDestroyChance == other.OreDestroyChance;
+                   OreDestroyChance == other.OreDestroyChance &&
+                   OreDensity == other.OreDensity;
 
         public override int GetHashCode() =>
-            HashCode.Combine(OreDestroyChance);
+            HashCode.Combine(OreDestroyChance, OreDensity);
     }
 
     [SeparatePage]
@@ -198,6 +207,9 @@ public class LWoLServerConfig : ModConfig
         [ReloadRequired]
         public float NoMoneh { get; set; }
 
+        [BackgroundColor(0, 25, 80, 255)]
+        [ReloadRequired]
+        public bool DeerclopsDespawn { get; set; }
         public NPCsDented()
         {
             BuyMult = 1f;
@@ -205,15 +217,17 @@ public class LWoLServerConfig : ModConfig
             InvasionMultiplier = -1;
             NeverGoldEnough = false;
             NoMoneh = 1f;
+            DeerclopsDespawn = false;
         }
         public override bool Equals(object obj) => obj is NPCsDented other &&
                    BuyMult == other.BuyMult &&
                    SellMult == other.SellMult &&
                    NeverGoldEnough == other.NeverGoldEnough &&
-                   NoMoneh == other.NoMoneh;
+                   NoMoneh == other.NoMoneh &&
+                   DeerclopsDespawn == other.DeerclopsDespawn;
 
         public override int GetHashCode() =>
-            HashCode.Combine(BuyMult, SellMult, NeverGoldEnough, NoMoneh);
+            HashCode.Combine(BuyMult, SellMult, NeverGoldEnough, NoMoneh, DeerclopsDespawn);
     }
 
     [SeparatePage]
