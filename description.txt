@@ -27,6 +27,7 @@ Reforge Nerf
 Recipe Ingredient %
 Ignore Stacks of One (Only applies when using Recipe Ingredient %.)
 Fragile Ores (Chance for ores to vanish when mined.)
+Ore Density
 Buy Multiplier
 Sell Multiplier
 Invasion Multiplier
