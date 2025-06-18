@@ -5,8 +5,6 @@ public class LWoLServerStatConfig : ModConfig
 {
     public override ConfigScope Mode => ConfigScope.ServerSide;
 
-    #region Player Stats
-
     [SeparatePage]
     public class PlayerStatDented
     {
@@ -181,10 +179,6 @@ public class LWoLServerStatConfig : ModConfig
         }
     }
 
-    #endregion
-
-    #region NPC stats
-
     [SeparatePage]
     public class NpcStatDented
     {
@@ -237,8 +231,6 @@ public class LWoLServerStatConfig : ModConfig
             DisableBossStatChanges = true;
         }
     }
-
-    #endregion
 
     [BackgroundColor(85, 130, 140, 255)]
     public PlayerStatDented PlayerStats = new();

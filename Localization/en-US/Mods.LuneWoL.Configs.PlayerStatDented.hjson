@@ -102,3 +102,5 @@ DisablePlayerStatChanges: {
 	Label: Disable Player Stat Changes
 	Tooltip: Disables all the above options.
 }
+
+Tooltip: ""

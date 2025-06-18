@@ -17,3 +17,5 @@ DisableNPCStatChanges: {
 	Label: Disable NPC Stat Changes
 	Tooltip: Disables all the above options.
 }
+
+Tooltip: ""
