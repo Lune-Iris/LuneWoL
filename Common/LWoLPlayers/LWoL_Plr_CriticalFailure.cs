@@ -1,6 +1,6 @@
-﻿namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.WoL_Plrs;
 
-public partial class LWoLPlayer : ModPlayer
+public partial class LWoL_Plr : ModPlayer
 {
     public bool IsCritFail;
 
@@ -42,7 +42,7 @@ public partial class LWoLPlayer : ModPlayer
 
         if (player.whoAmI == Main.myPlayer && IsCritFail && (Config.CritFailMode == 1 || Config.CritFailMode == 3))
         {
-            player.Hurt(PlayerDeathReason.ByCustomReason(LuneLibUtils.GetText("Status.Death.FailedCrit" + Main.rand.Next(1, 5 + 1)).ToNetworkText(Player.name)), AplyDmgAmt, 0);
+            player.Hurt(PlayerDeathReason.ByCustomReason(GetText("Status.Death.FailedCrit" + Main.rand.Next(1, 5 + 1)).ToNetworkText(Player.name)), AplyDmgAmt, 0);
         }
         if (player.whoAmI == Main.myPlayer && IsCritFail && Config.CritFailMode > 0)
         {

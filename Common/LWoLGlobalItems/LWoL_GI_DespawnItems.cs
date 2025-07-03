@@ -1,6 +1,6 @@
 ﻿namespace LuneWoL.Common.LWoLGlobalItems;
 
-public partial class WoLGlobalItems : GlobalItem
+public partial class LWoL_Items : GlobalItem
 {
 
     private int Tajmer = LuneWoL.LWoLServerConfig.Items.DespawnItemsTimer * 60;

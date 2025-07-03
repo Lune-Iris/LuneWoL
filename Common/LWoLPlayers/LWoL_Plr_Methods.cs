@@ -1,6 +1,6 @@
-﻿namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.WoL_Plrs;
 
-public partial class LWoLPlayer : ModPlayer
+public partial class LWoL_Plr : ModPlayer
 {
     public void ApplySpaceVacuum()
     {
@@ -384,7 +384,7 @@ public partial class LWoLPlayer : ModPlayer
 
         if (Config.DeathPenaltyMode != 1) return;
 
-        LWoLPlayer clone = (LWoLPlayer)targetCopy;
+        LWoL_Plr clone = (LWoL_Plr)targetCopy;
         clone.HealthCache = HealthCache;
         clone.ManaCache = ManaCache;
     }
@@ -395,7 +395,7 @@ public partial class LWoLPlayer : ModPlayer
 
         if (Config.DeathPenaltyMode != 1) return;
 
-        LWoLPlayer clone = (LWoLPlayer)clientPlayer;
+        LWoL_Plr clone = (LWoL_Plr)clientPlayer;
 
         if (HealthCache != clone.HealthCache || ManaCache != clone.ManaCache)
             SyncPlayer(toWho: -1, fromWho: Main.myPlayer, newPlayer: false);

@@ -2,9 +2,7 @@ HealingPotionBadPercent: {
 	Label: Worse Healing Potions
 	Tooltip:
 		'''
-		Percent of the potion.
-
-		100% is vanilla behaviour.
+		A value of 50 would mean all healing items heal 50% less.
 
 		Set to 100 to disable.
 

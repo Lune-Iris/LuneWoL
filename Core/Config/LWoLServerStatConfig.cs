@@ -10,138 +10,81 @@ public class LWoLServerStatConfig : ModConfig
     {
         #region Vitality
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int LifePercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int LifeRegenPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float DefensePercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float EndurancePercent;
 
         #endregion
 
         #region Offense
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float DamagePercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float ArmorPenetrationPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float AttackSpeedPercent;
 
         #endregion
 
         #region Magic
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int ManaPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int ManaRegenPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float ManaCostPercent;
 
         #endregion
 
         #region Slavery
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int MaxMinionsPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int MaxTurretsPercent;
 
         #endregion
 
         #region Mobility
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float MoveSpeedPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float JumpSpeedPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int JumpHeightPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Slider]
-        [Range(1, 100)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Slider, Range(1, 100)]
         public int WingTimePercent;
 
         #endregion
 
         #region World Shaping
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float PickSpeedPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float TileSpeedPercent;
 
-        [BackgroundColor(85, 130, 140, 255)]
-        [SliderColor(85, 130, 140, 255)]
-        [Range(1f, 100f)]
-        [Increment(1f)]
+        [BackgroundColor(85, 130, 140, 255), SliderColor(85, 130, 140, 255), Range(1f, 100f), Increment(1f)]
         public float WallSpeedPercent;
 
         [BackgroundColor(85, 130, 140, 255)]
@@ -182,16 +125,13 @@ public class LWoLServerStatConfig : ModConfig
     [SeparatePage]
     public class NpcStatDented
     {
-        [BackgroundColor(75, 105, 130, 255)]
-        [Range(100, 10000)]
+        [BackgroundColor(75, 105, 130, 255), Range(100, 10000)]
         public int LifePercent;
 
-        [BackgroundColor(75, 105, 130, 255)]
-        [Range(100, 10000)]
+        [BackgroundColor(75, 105, 130, 255), Range(100, 10000)]
         public int DefensePercent;
 
-        [BackgroundColor(75, 105, 130, 255)]
-        [Range(100, 10000)]
+        [BackgroundColor(75, 105, 130, 255), Range(100, 10000)]
         public int DamagePercent;
 
         [BackgroundColor(75, 105, 130, 255)]
@@ -209,16 +149,13 @@ public class LWoLServerStatConfig : ModConfig
     [SeparatePage]
     public class BossStatDented
     {
-        [BackgroundColor(110, 90, 150, 255)]
-        [Range(100, 10000)]
+        [BackgroundColor(110, 90, 150, 255), Range(100, 10000)]
         public int LifePercent;
 
-        [BackgroundColor(110, 90, 150, 255)]
-        [Range(100, 10000)]
+        [BackgroundColor(110, 90, 150, 255), Range(100, 10000)]
         public int DefensePercent;
 
-        [BackgroundColor(110, 90, 150, 255)]
-        [Range(100, 10000)]
+        [BackgroundColor(110, 90, 150, 255), Range(100, 10000)]
         public int DamagePercent;
 
         [BackgroundColor(110, 90, 150, 255)]

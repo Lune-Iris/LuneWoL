@@ -1,6 +1,6 @@
 namespace LuneWoL.Common.LWoLNpcs;
 
-public class LWoL_NPC_StatChanges : GlobalNPC
+public class WoL_NPC_StatChanges : GlobalNPC
 {
     public override bool InstancePerEntity => true;
 

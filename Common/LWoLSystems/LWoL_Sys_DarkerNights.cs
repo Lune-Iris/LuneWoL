@@ -1,6 +1,6 @@
 ﻿namespace LuneWoL.Common.LWoLSystems;
 
-public partial class LWoLSystem : ModSystem
+public partial class LWoL_Sys : ModSystem
 {
     private int _currentMoonPhase;
     private bool _wasDaytime = true;

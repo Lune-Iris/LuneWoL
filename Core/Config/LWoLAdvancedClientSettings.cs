@@ -8,8 +8,7 @@ public class LWoLAdvancedClientSettings : ModConfig
     [SeparatePage]
     public class ClientDepthPressureDented
     {
-        [BackgroundColor(35, 115, 145, 255)]
-        [Range(0, 500)]
+        [BackgroundColor(35, 115, 145, 255), Range(0, 500)]
         public int UpdateIntervalTicks { get; set; }
 
         [BackgroundColor(35, 115, 145, 255)]

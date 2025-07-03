@@ -1,28 +1,28 @@
 ﻿namespace LuneWoL.Common.LWoLSystems;
 
-public partial class LWoLSystem : ModSystem
+public partial class LWoL_Sys : ModSystem
 {
-    public bool b = true;
+    private bool flag = true;
 
     public void LongerInvasions()
     {
         var Config = LuneWoL.LWoLServerConfig.NPCs;
 
-        if (Config.InvasionMultiplier! <= 0 && Main.invasionType != 0 && b)
+        if (Config.InvasionMultiplier! <= 0 && Main.invasionType != 0 && flag)
         {
             Main.invasionSizeStart *= Config.InvasionMultiplier;
             Main.invasionSize *= Config.InvasionMultiplier;
             Main.invasionProgressMax *= Config.InvasionMultiplier;
             NPC.waveNumber *= Config.InvasionMultiplier;
-            b = false;
+            flag = false;
         }
-        else if (Config.InvasionMultiplier! <= 0 && Main.invasionType == 0 && !b)
+        else if (Config.InvasionMultiplier! <= 0 && Main.invasionType == 0 && !flag)
         {
             Main.invasionSizeStart /= Config.InvasionMultiplier;
             Main.invasionSize /= Config.InvasionMultiplier;
             Main.invasionProgressMax /= Config.InvasionMultiplier;
             NPC.waveNumber /= Config.InvasionMultiplier;
-            b = true;
+            flag = true;
         }
     }
 }

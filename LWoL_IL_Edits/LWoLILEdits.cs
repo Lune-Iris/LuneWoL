@@ -70,46 +70,42 @@ public partial class LWoLILEdits
         }
     }
 
-
-    #region buy and sell consume capitalism stuff
     private static void BuyPriceandSellPrice(ILContext il)
     {
         var npc = LuneWoL.LWoLServerConfig.NPCs;
 
-        var cursor = new ILCursor(il);
+        var c = new ILCursor(il);
 
-        if (cursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
         {
-            cursor.RemoveRange(4);
-            cursor.Emit(OpCodes.Ldc_R4, npc.BuyMult);
-            cursor.Emit(OpCodes.Conv_R8);
-            cursor.Emit(OpCodes.Mul);
+            c.RemoveRange(4);
+            c.Emit(OpCodes.Ldc_R4, npc.BuyMult);
+            c.Emit(OpCodes.Conv_R8);
+            c.Emit(OpCodes.Mul);
         }
-        if (cursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
         {
-            cursor.RemoveRange(4);
-            cursor.Emit(OpCodes.Ldc_R4, npc.SellMult);
-            cursor.Emit(OpCodes.Conv_R8);
-            cursor.Emit(OpCodes.Mul);
+            c.RemoveRange(4);
+            c.Emit(OpCodes.Ldc_R4, npc.SellMult);
+            c.Emit(OpCodes.Conv_R8);
+            c.Emit(OpCodes.Mul);
         }
-        if (cursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
         {
-            cursor.RemoveRange(4);
-            cursor.Emit(OpCodes.Ldc_R4, npc.BuyMult);
-            cursor.Emit(OpCodes.Conv_R8);
-            cursor.Emit(OpCodes.Mul);
+            c.RemoveRange(4);
+            c.Emit(OpCodes.Ldc_R4, npc.BuyMult);
+            c.Emit(OpCodes.Conv_R8);
+            c.Emit(OpCodes.Mul);
         }
-        if (cursor.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
+        if (c.TryGotoNext(MoveType.Before, i => i.MatchLdarg(0), i => i.MatchLdflda<Player>("currentShoppingSettings")))
         {
-            cursor.RemoveRange(4);
-            cursor.Emit(OpCodes.Ldc_R4, npc.SellMult);
-            cursor.Emit(OpCodes.Conv_R8);
-            cursor.Emit(OpCodes.Mul);
+            c.RemoveRange(4);
+            c.Emit(OpCodes.Ldc_R4, npc.SellMult);
+            c.Emit(OpCodes.Conv_R8);
+            c.Emit(OpCodes.Mul);
         }
     }
-    #endregion
 
-    #region MAN FUCK YO MF REFORGES
     private static void NerfAccessoryReforges(ILContext iL)
     {
         var c = new ILCursor(iL);
@@ -1255,5 +1251,4 @@ public partial class LWoLILEdits
         #endregion
     }
 
-    #endregion
 }

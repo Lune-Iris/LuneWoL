@@ -2,6 +2,7 @@ namespace LuneWoL;
 
 public partial class LuneWoL : Mod
 {
+    public const float HitFactor = 2f;
     internal static Mod Instance;
     internal static LuneWoL instance;
     internal static LWoLServerConfig LWoLServerConfig;

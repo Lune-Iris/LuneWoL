@@ -1,6 +1,6 @@
-﻿namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.WoL_Plrs;
 
-public partial class LWoLPlayer : ModPlayer
+public partial class LWoL_Plr : ModPlayer
 {
     public override void OnEnterWorld() => EnterWorldMessage();
 
@@ -25,7 +25,7 @@ public partial class LWoLPlayer : ModPlayer
     public override void PreUpdateBuffs()
     {
         ApplySpaceVacuum();
-
+        
         PoisonedWater();
 
         WeatherChanges();
@@ -60,7 +60,15 @@ public partial class LWoLPlayer : ModPlayer
             CritFail(Player, npc);
         }
     }
+    public override bool PreKill(double damage, int hitDirection, bool pvp, ref bool playSound, ref bool genDust, ref PlayerDeathReason damageSource)
+    {
+        if (Player.LibPlayer().CrimtuptionzoneNight && Player.whoAmI == Main.myPlayer)
+        {
+            damageSource = PlayerDeathReason.ByCustomReason(GetText("Status.Death.CrimtuptionzoneDeath").ToNetworkText(Player.name));
+        }
 
+        return true;
+    }
     public override void ModifyMaxStats(out StatModifier health, out StatModifier mana) => DeathPenaltyStatmod(out health, out mana);
 
     public override void SyncPlayer(int toWho, int fromWho, bool newPlayer) => SyncDeathPenalty(toWho, fromWho, newPlayer);

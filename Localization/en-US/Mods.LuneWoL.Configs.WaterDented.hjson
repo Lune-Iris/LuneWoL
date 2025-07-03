@@ -12,15 +12,15 @@ DepthPressureMode: {
 	Label: Depth Pressure Mode
 	Tooltip:
 		'''
-		deeper you are in the water body, the faster you lose breath 
+		The deeper you are in a water body, the faster you lose breath.
 
-		Changes the mode of how pressure is calculated. 
+		Changes the mode of how pressure is calculated.
 
-		0: Off.
+		0: Off
 
-		1: fast but can be sometimes inaccurate.
+		1: Fast but can be inaccurate
 
-		2: NOT IMPLEMENTED accurate but slow.
+		2: Accurate but performance heavy
 
 		Suggested by `Lune`.
 		'''

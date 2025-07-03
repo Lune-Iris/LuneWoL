@@ -51,7 +51,7 @@ public class JunglePass : GenPass
         GenerateHolesInMudWalls();
         GenerateFinishingTouches(progress, oldX, oldY);
     }
-
+    
     private void PlaceGemsAt(int x, int y, ushort baseGem, int gemVariants)
     {
         for (int i = 0; i < GemDensity(6.0) * _worldScale; i++)

@@ -1,6 +1,6 @@
 ﻿namespace LuneWoL.Common.LWoLWorldGen;
 
-internal class OreDensityGenSystem : ModSystem
+internal class LWoL_WG : ModSystem
 {
     public override bool IsLoadingEnabled(Mod mod) => LuneWoL.LWoLServerConfig.Tiles.OreDensity;
 

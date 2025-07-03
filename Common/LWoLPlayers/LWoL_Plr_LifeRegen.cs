@@ -1,6 +1,6 @@
-﻿namespace LuneWoL.Common.LWoLPlayers;
+﻿namespace LuneWoL.Common.WoL_Plrs;
 
-public partial class LWoLPlayer : ModPlayer
+public partial class LWoL_Plr : ModPlayer
 {
     public static int spacedout = 50;
     public override void UpdateBadLifeRegen()

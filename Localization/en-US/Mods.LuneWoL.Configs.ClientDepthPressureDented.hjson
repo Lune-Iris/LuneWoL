@@ -4,7 +4,7 @@ UpdateIntervalTicks: {
 		'''
 		Time between each check for surface of the water body you're in.
 
-		Lower is better but worse performance.
+		Lower is better for accuracy but worse performance.
 		'''
 }
 

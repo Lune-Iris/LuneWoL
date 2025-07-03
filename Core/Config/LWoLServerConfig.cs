@@ -17,17 +17,10 @@ public class LWoLServerConfig : ModConfig
     [SeparatePage]
     public class PlayerDented
     {
-        [BackgroundColor(155, 170, 205, 255)]
-        [SliderColor(155, 170, 205, 255)]
-        [Slider]
-        [Range(0, 4)]
+        [BackgroundColor(155, 170, 205, 255), SliderColor(155, 170, 205, 255), Slider, DrawTicks, Range(0, 4)]
         public int CritFailMode { get; set; }
 
-        [BackgroundColor(155, 170, 205, 255)]
-        [SliderColor(155, 170, 205, 255)]
-        [Slider]
-        [Range(0, 3)]
-        [ReloadRequired]
+        [BackgroundColor(155, 170, 205, 255), SliderColor(155, 170, 205, 255), Slider, DrawTicks, Range(0, 3), ReloadRequired]
         public int DeathPenaltyMode { get; set; }
 
         public PlayerDented()
@@ -60,10 +53,7 @@ public class LWoLServerConfig : ModConfig
         [BackgroundColor(120, 135, 180, 255)]
         public bool WeatherPain { get; set; }
 
-        [BackgroundColor(120, 135, 180, 255)]
-        [Slider]
-        [SliderColor(120, 135, 180, 255)]
-        [Range(0, 2)]
+        [BackgroundColor(120, 135, 180, 255), SliderColor(120, 135, 180, 255), Slider, DrawTicks, Range(0, 2)]
         public int DarkerNightsMode { get; set; }
 
         [BackgroundColor(120, 135, 180, 255)]
@@ -84,10 +74,7 @@ public class LWoLServerConfig : ModConfig
     [SeparatePage]
     public class BuffsDented
     {
-        [BackgroundColor(80, 100, 150, 255)]
-        [Slider]
-        [SliderColor(80, 100, 150, 255)]
-        [Range(0, 100)]
+        [BackgroundColor(80, 100, 150, 255), SliderColor(80, 100, 150, 255), Slider, Range(0, 100)]
         public int HealingPotionBadPercent { get; set; }
 
         public BuffsDented() => HealingPotionBadPercent = 100;
@@ -99,16 +86,13 @@ public class LWoLServerConfig : ModConfig
         [BackgroundColor(40, 70, 125, 255)]
         public bool ArmourRework { get; set; }
 
-        [BackgroundColor(40, 70, 125, 255)]
-        [ReloadRequired]
+        [BackgroundColor(40, 70, 125, 255), ReloadRequired]
         public bool DisableAutoReuse { get; set; }
 
-        [BackgroundColor(40, 70, 125, 255)]
-        [ReloadRequired]
+        [BackgroundColor(40, 70, 125, 255), ReloadRequired]
         public bool NoAccessories { get; set; }
 
-        [BackgroundColor(40, 70, 125, 255)]
-        [ReloadRequired]
+        [BackgroundColor(40, 70, 125, 255), ReloadRequired]
         public bool ReforgeNerf { get; set; }
 
         public EquipmentDented()
@@ -130,15 +114,10 @@ public class LWoLServerConfig : ModConfig
     [SeparatePage]
     public class RecipesDented
     {
-        [BackgroundColor(20, 55, 110, 255)]
-        [ReloadRequired]
+        [BackgroundColor(20, 55, 110, 255), ReloadRequired]
         public bool IgnoreStacksOfOne;
 
-        [BackgroundColor(20, 55, 110, 255)]
-        [SliderColor(20, 55, 110, 255)]
-        [Range(0f, 100f)]
-        [Increment(1f)]
-        [ReloadRequired]
+        [BackgroundColor(20, 55, 110, 255), SliderColor(20, 55, 110, 255), Range(0f, 100f), Increment(1f), ReloadRequired]
         public float RecipePercent;
 
         public RecipesDented()
@@ -158,16 +137,10 @@ public class LWoLServerConfig : ModConfig
     [SeparatePage]
     public class TilesDented
     {
-        [BackgroundColor(5, 40, 95, 255)]
-        [SliderColor(5, 40, 95, 255)]
-        [Slider]
-        [Range(0, 100)]
-        [Increment(1)]
-        [ReloadRequired]
+        [BackgroundColor(5, 40, 95, 255), SliderColor(5, 40, 95, 255), Slider, Range(0, 100), Increment(1), ReloadRequired]
         public int OreDestroyChance;
         
-        [BackgroundColor(5, 40, 95, 255)]
-        [ReloadRequired]
+        [BackgroundColor(5, 40, 95, 255), ReloadRequired]
         public bool OreDensity;
 
         public TilesDented()
@@ -187,35 +160,19 @@ public class LWoLServerConfig : ModConfig
     [SeparatePage]
     public class NPCsDented
     {
-        [BackgroundColor(0, 25, 80, 255)]
-        [SliderColor(0, 25, 80, 255)]
-        [Range(1f, 25f)]
-        [Increment(0.1f)]
-        [ReloadRequired]
+        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), Range(1f, 15f), Increment(0.1f), ReloadRequired]
         public float BuyMult { get; set; }
 
-        [BackgroundColor(0, 25, 80, 255)]
-        [SliderColor(0, 25, 80, 255)]
-        [Range(0f, 1f)]
-        [Increment(0.1f)]
-        [ReloadRequired]
+        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), Range(0f, 1f), Increment(0.1f), ReloadRequired]
         public float SellMult { get; set; }
 
-        [BackgroundColor(0, 25, 80, 255)]
-        [SliderColor(0, 25, 80, 255)]
-        [Slider]
-        [Range(-1, 50)]
+        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), Slider, Range(-1, 50)]
         public int InvasionMultiplier { get; set; }
 
-        [BackgroundColor(0, 25, 80, 255)]
-        [ReloadRequired]
+        [BackgroundColor(0, 25, 80, 255), ReloadRequired]
         public bool NeverGoldEnough { get; set; }
 
-        [BackgroundColor(0, 25, 80, 255)]
-        [SliderColor(0, 25, 80, 255)]
-        [Range(0f, 1f)]
-        [Increment(0.05f)]
-        [ReloadRequired]
+        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), DrawTicks, Range(0f, 1f), Increment(0.05f), ReloadRequired]
         public float NoMoneh { get; set; }
 
         [BackgroundColor(0, 25, 80, 255)]
@@ -246,10 +203,7 @@ public class LWoLServerConfig : ModConfig
         [BackgroundColor(0, 15, 70, 255)]
         public bool DarkWaters { get; set; }
 
-        [BackgroundColor(0, 15, 70, 255)]
-        [SliderColor(0, 15, 70, 255)]
-        [Slider]
-        [Range(0, 2)]
+        [BackgroundColor(0, 15, 70, 255), SliderColor(0, 15, 70, 255), Slider, DrawTicks, Range(0, 2)]
         public int DepthPressureMode { get; set; }
 
         [BackgroundColor(0, 15, 70, 255)]
@@ -271,13 +225,10 @@ public class LWoLServerConfig : ModConfig
     public class ItemsDented
     {
 
-        [BackgroundColor(0, 15, 60, 255)]
-        [Range(-1, int.MaxValue)]
-        [ReloadRequired]
+        [BackgroundColor(0, 15, 60, 255), Range(-1, int.MaxValue), ReloadRequired]
         public int DespawnItemsTimer { get; set; }
 
-        [BackgroundColor(0, 15, 60, 255)]
-        [ReloadRequired]
+        [BackgroundColor(0, 15, 60, 255), ReloadRequired]
         public bool DisableWoLItems { get; set; }
 
         public ItemsDented()
