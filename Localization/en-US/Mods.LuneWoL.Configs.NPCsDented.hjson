@@ -34,7 +34,7 @@ InvasionMultiplier: {
 		'''
 		Multiplies how many enemies you need to kill to defeat the invasion.
 
-		-1 Disables this setting.
+		1 Disables this setting.
 
 		Suggested by `Lune`.
 		'''

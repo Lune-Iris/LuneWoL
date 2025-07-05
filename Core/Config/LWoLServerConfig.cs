@@ -166,23 +166,23 @@ public class LWoLServerConfig : ModConfig
         [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), Range(0f, 1f), Increment(0.1f), ReloadRequired]
         public float SellMult { get; set; }
 
-        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), Slider, Range(-1, 50)]
+        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), Slider, Range(1, 50), ReloadRequired]
         public int InvasionMultiplier { get; set; }
 
         [BackgroundColor(0, 25, 80, 255), ReloadRequired]
         public bool NeverGoldEnough { get; set; }
 
-        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), DrawTicks, Range(0f, 1f), Increment(0.05f), ReloadRequired]
+        [BackgroundColor(0, 25, 80, 255), SliderColor(0, 25, 80, 255), Range(0f, 1f), Increment(0.05f), ReloadRequired]
         public float NoMoneh { get; set; }
 
-        [BackgroundColor(0, 25, 80, 255)]
+        [BackgroundColor(0, 25, 80, 255), ReloadRequired]
         public bool DemonMode { get; set; }
 
         public NPCsDented()
         {
             BuyMult = 1f;
             SellMult = 1f;
-            InvasionMultiplier = -1;
+            InvasionMultiplier = 1;
             NeverGoldEnough = false;
             NoMoneh = 1f;
             DemonMode = false;
@@ -190,11 +190,13 @@ public class LWoLServerConfig : ModConfig
         public override bool Equals(object obj) => obj is NPCsDented other &&
                    BuyMult == other.BuyMult &&
                    SellMult == other.SellMult &&
+                   InvasionMultiplier == other.InvasionMultiplier &&
                    NeverGoldEnough == other.NeverGoldEnough &&
-                   NoMoneh == other.NoMoneh;
+                   NoMoneh == other.NoMoneh &&
+                   DemonMode == other.DemonMode;
 
         public override int GetHashCode() =>
-            HashCode.Combine(BuyMult, SellMult, NeverGoldEnough, NoMoneh);
+            HashCode.Combine(BuyMult, SellMult, InvasionMultiplier, NeverGoldEnough, NoMoneh, DemonMode);
     }
 
     [SeparatePage]

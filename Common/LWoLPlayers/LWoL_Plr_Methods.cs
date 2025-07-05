@@ -30,7 +30,7 @@ public partial class LWoL_Plr : ModPlayer
     {
         var Config = LuneWoL.LWoLServerConfig.Water;
 
-        if (Player.OceanMan() && Config.SlowWater && !LL)
+        if (Player.OceanMan() && Config.SlowWater && !MPLL)
         {
             if (Player.velocity.Length() > 5f)
             {
@@ -67,7 +67,7 @@ public partial class LWoL_Plr : ModPlayer
 
         if (!Config.WaterPoison) return;
         if (!Player.wet || Player.lavaWet || Player.honeyWet) return;
-        if (LL) return;
+        if (MPLL) return;
 
         if (Player.ZoneCrimson)
         {
@@ -220,7 +220,7 @@ public partial class LWoL_Plr : ModPlayer
 
     public void MurkyWater()
     {
-        if (LL) return;
+        if (MPLL) return;
         if (Player.whoAmI != Main.myPlayer) return;
 
         var Config = LuneWoL.LWoLServerConfig.Water;

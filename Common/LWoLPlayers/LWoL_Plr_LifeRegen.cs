@@ -26,7 +26,7 @@ public partial class LWoL_Plr : ModPlayer
 
         ApplyDoTDebuff(Player.LibPlayer().BoilFreeze, spacedout, WearingFullAstralite || WearingFullAstro);
 
-        ApplyDoTDebuff(Player.LibPlayer().depthwaterPressure, Player.LibPlayer().currentDepthPressure, LL);
+        ApplyDoTDebuff(Player.LibPlayer().depthwaterPressure, Player.LibPlayer().currentDepthPressure, MPLL);
 
         ApplyDoTDebuff(Player.LibPlayer().BlizzardFrozen, 50, Player.buffImmune[BuffID.Frozen]);
 

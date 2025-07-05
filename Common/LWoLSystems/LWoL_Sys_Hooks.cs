@@ -2,7 +2,7 @@
 
 public partial class LWoL_Sys : ModSystem
 {
-    public override void PreUpdateInvasions() => LongerInvasions();
+    //public override void PreUpdateInvasions() => LongerInvasions();
 
     public override void AddRecipes()
     {
